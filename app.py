@@ -77,7 +77,16 @@ allowed_fields = {
     "Profit tax": ["Profit tax","Income tax"],
     "Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
 }
-
+st.set_page_config(
+    page_title="My App",
+    page_icon="📄",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None
+    }
 st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
@@ -132,5 +141,6 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
