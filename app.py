@@ -88,18 +88,19 @@ st.set_page_config(
         'About': None
     }
 )
-# Hide default Streamlit elements
+
+# Hide GitHub link, Streamlit menu, footer, and "Hosted with Streamlit"
 hide_streamlit_style = """
     <style>
     #MainMenu {visibility: hidden;}        /* Hides hamburger menu */
     header {visibility: hidden;}           /* Hides GitHub repo link */
     footer {visibility: hidden;}           /* Hides footer */
-    .stAppDeployButton {display: none;}    /* Hides 'Deploy' button if shown */
-    .viewerBadge_link__qRIco {display: none !important;}  /* Hides 'Made with Streamlit' badge */
+    .stAppDeployButton {display: none;}    /* Hides Deploy button */
+    .viewerBadge_link__qRIco {display: none !important;}   /* Hides 'Made with Streamlit' */
+    .stDeployButton {display: none !important;}            /* Hides 'Hosted with Streamlit' */
     </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 
 # Add your own footer
 custom_footer = """
@@ -164,6 +165,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
