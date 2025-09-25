@@ -77,11 +77,14 @@ allowed_fields = {
     "Profit tax": ["Profit tax","Income tax"],
     "Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
 }
+# Hide default Streamlit elements
 hide_streamlit_style = """
     <style>
-    #MainMenu {visibility: hidden;}     /* Hides hamburger menu */
-    footer {visibility: hidden;}        /* Hides 'Made with Streamlit' */
-    header {visibility: hidden;}        /* Hides GitHub repo link */
+    #MainMenu {visibility: hidden;}        /* Hides hamburger menu */
+    header {visibility: hidden;}           /* Hides GitHub repo link */
+    footer {visibility: hidden;}           /* Hides footer */
+    .stAppDeployButton {display: none;}    /* Hides 'Deploy' button if shown */
+    .viewerBadge_link__qRIco {display: none !important;}  /* Hides 'Made with Streamlit' badge */
     </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
@@ -150,6 +153,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
