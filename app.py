@@ -78,7 +78,7 @@ allowed_fields = {
     "Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
 }
 st.set_page_config(
-    page_title="My App",
+    page_title="Coface JSON",
     page_icon="📄",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -165,6 +165,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
