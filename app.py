@@ -85,6 +85,20 @@ hide_streamlit_style = """
     </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
+# Add your own footer
+custom_footer = """
+    <div style="position: fixed; bottom: 0; width: 100%; 
+                background-color: #f5f5f5; padding: 10px; 
+                text-align: center; font-size: 14px; color: #444;">
+        🚀 Powered by <b>Your Company</b> | 
+        <a href="https://yourwebsite.com" target="_blank" style="color:#2c7be5; text-decoration:none;">
+            Visit Website
+        </a>
+    </div>
+"""
+st.markdown(custom_footer, unsafe_allow_html=True)
 st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
@@ -139,6 +153,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
