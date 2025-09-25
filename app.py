@@ -78,7 +78,7 @@ allowed_fields = {
     "Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
 }
 
-st.title("📊 JSON → Excel (First Occurrence, Aliases Supported)")
+st.title("Convert mapped COFACE JSON to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
 
@@ -132,3 +132,4 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
