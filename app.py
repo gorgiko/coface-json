@@ -77,16 +77,14 @@ allowed_fields = {
     "Profit tax": ["Profit tax","Income tax"],
     "Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
 }
-st.markdown(
-    """
+hide_streamlit_style = """
     <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    #MainMenu {visibility: hidden;}     /* Hides hamburger menu */
+    footer {visibility: hidden;}        /* Hides 'Made with Streamlit' */
+    header {visibility: hidden;}        /* Hides GitHub repo link */
     </style>
-    """,
-    unsafe_allow_html=True
-)
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
@@ -141,6 +139,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
