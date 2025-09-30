@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 from io import BytesIO
-from openpyxl.utils import get_column_letter
+#from openpyxl.utils import get_column_letter
 
 # ✅ Define allowed fields with aliases
 allowed_fields = {
@@ -79,109 +79,44 @@ allowed_fields = {
     "(AOP252)Profit tax": ["Profit tax","Income tax"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
 }
-# Streamlit page config
-st.set_page_config(
-    page_title="Coface JSON",
-    page_icon="📄",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
-)
 
-# Hide Streamlit branding
-hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-header {visibility: hidden;}
-footer {visibility: hidden;}
-.viewerBadge_link__qRIco {display: none !important;}
-.stAppDeployButton {display: none !important;}
-.stDeployButton {display: none !important;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-# Custom footer
-custom_footer = """
-<div style="position: fixed; bottom: 0; width: 100%; 
-            background-color: #f5f5f5; padding: 10px; 
-            text-align: center; font-size: 14px; color: #444;">
-    ❤️ Made with love for the credit insurance department. Created by Gorgi Kokinovski  
-</div>
-"""
-st.markdown(custom_footer, unsafe_allow_html=True)
-
-st.title("Convert COFACE JSON fields (value + amount) to Excel")
-
-uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
+# ✅ File uploader
+uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
 
 if uploaded_file:
-    try:
-        data = json.load(uploaded_file)
+    # Read Excel file
+    df = pd.read_excel(uploaded_file)
 
-        # Initialize extracted dictionary with both value and amount columns
-        extracted = {field: {"value": "", "amount": ""} for field in allowed_fields}
+    # Normalize column names
+    df.columns = df.columns.str.strip().str.replace("\n", " ")
 
-        def extract_values(obj):
-            """Recursively search for 'name', 'value' and 'amount' in JSON"""
-            if isinstance(obj, dict):
-                if "name" in obj:
-                    name = str(obj["name"]).strip()
-                    value = obj.get("value", "")
-                    amount = obj.get("amount", "")
+    # ✅ Extract allowed fields
+    extracted_data = {}
+    for key, aliases in allowed_fields.items():
+        found = False
+        for alias in aliases:
+            # Case-insensitive match
+            match = df.columns[df.columns.str.contains(alias, case=False, regex=False)]
+            if not match.empty:
+                extracted_data[key] = df[match[0]].tolist()
+                found = True
+                break
+        if not found:
+            extracted_data[key] = None
 
-                    # Match against aliases
-                    for field, aliases in allowed_fields.items():
-                        if any(name.lower() == alias.lower() for alias in aliases):
-                            if extracted[field]["value"] == "":
-                                extracted[field]["value"] = value
-                            if extracted[field]["amount"] == "":
-                                extracted[field]["amount"] = amount
-                            break
+    # ✅ Show results in Streamlit
+    st.write("### Extracted Data")
+    st.json(extracted_data)
 
-                for v in obj.values():
-                    extract_values(v)
-            elif isinstance(obj, list):
-                for item in obj:
-                    extract_values(item)
-
-        extract_values(data)
-
-        # Flatten dict into DataFrame
-        df = pd.DataFrame({
-            "Field": extracted.keys(),
-            "Value": [v["value"] for v in extracted.values()],
-            "Amount": [v["amount"] for v in extracted.values()]
-        })
-
-        st.dataframe(df)
-
-        # Save to Excel with auto-adjusted columns
-        output = BytesIO()
-        with pd.ExcelWriter(output, engine="openpyxl") as writer:
-            df.to_excel(writer, index=False, sheet_name="Sheet1")
-            ws = writer.sheets["Sheet1"]
-
-            for col in ws.columns:
-                max_length = 0
-                column_letter = get_column_letter(col[0].column)
-                for cell in col:
-                    if cell.value:
-                        max_length = max(max_length, len(str(cell.value)))
-                ws.column_dimensions[column_letter].width = max_length + 2
-
-        output.seek(0)
-        st.download_button(
-            label="📥 Download Excel",
-            data=output,
-            file_name="mapped_values.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        )
-
-
-
-
-
+    # ✅ Download extracted data as Excel
+    output = BytesIO()
+    pd.DataFrame([extracted_data]).to_excel(output, index=False, engine="openpyxl")
+    st.download_button(
+        "Download Extracted Data",
+        data=output.getvalue(),
+        file_name="extracted_data.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 
 
 
