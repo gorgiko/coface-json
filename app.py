@@ -5,7 +5,7 @@ from io import BytesIO
 
 # ✅ Define allowed fields with aliases
 allowed_fields = {
-    "AOP001-Fixed assets": ["Fixed assets"],
+    "(AOP001)Fixed assets": ["Fixed assets"],
     "AOP002-Intangible assets": ["I. Intangible assets", "Intangible assets"],
     "AOP009-Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets"],
     "AOP013-Machinery and equipment": ["Machinery and equipment"],
@@ -166,6 +166,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
