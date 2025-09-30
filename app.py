@@ -6,21 +6,21 @@ from io import BytesIO
 # ✅ Define allowed fields with aliases
 allowed_fields = {
     "AOP001-Fixed assets": ["Fixed assets"],
-    "Intangible assets": ["I. Intangible assets", "Intangible assets"],
-    "Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets"],
-    "Machinery and equipment": ["Machinery and equipment"],
-    "Other equipment, furniture, fittings, tools, fixtures, vehicles": [
+    "AOP002-Intangible assets": ["I. Intangible assets", "Intangible assets"],
+    "AOP009-Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets"],
+    "AOP013-Machinery and equipment": ["Machinery and equipment"],
+    "AOP014-Other equipment, furniture, fittings, tools, fixtures, vehicles": [
         "Other equipment, furniture, fittings, tools, fixtures, vehicles"
     ],
-    "Advance payments for tangible assets": ["Advance payments for tangible assets"],
-    "Tangible assets in progress": ["Tangible assets in progress"],
-    "Other tangible assets": ["Other tangible assets"],
-    "Investments in real estate": ["Investments in real estate"],
-    "Financial fixed assets": ["Financial fixed assets"],
-    "Long-term receivables": ["Long-term receivables"],
-    "Deferred tax assets": ["DEFERRED TAX ASSETS", "Deferred tax assets"],
-    "Short-term assets": ["Short term assets"],
-    "Inventory": ["Inventory"],
+    "AOP017-Advance payments for tangible assets": ["Advance payments for tangible assets"],
+    "AOP018-Tangible assets in progress": ["Tangible assets in progress"],
+    "AOP019-Other tangible assets": ["Other tangible assets"],
+    "AOP020-Investments in real estate": ["Investments in real estate"],
+    "AOP021-Financial fixed assets": ["Financial fixed assets"],
+    "AOP031-Long-term receivables": ["Long-term receivables"],
+    "AOP035-Deferred tax assets": ["DEFERRED TAX ASSETS", "Deferred tax assets"],
+    "AOP036-Short-term assets": ["Short term assets"],
+    "AOP037-Inventory": ["Inventory"],
     "Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES"],
     "Short-term intercompany receivables": ["Short-term intercompany receivables"],
     "Short-term trade receivables": ["Short-term trade receivables"],
@@ -165,6 +165,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
