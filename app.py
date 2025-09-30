@@ -111,7 +111,7 @@ custom_footer = """
 """
 st.markdown(custom_footer, unsafe_allow_html=True)
 
-st.title("Convert COFACE JSON fields to Excel")
+st.title("Convert COFACE JSON fields (value + amount) to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
 
@@ -119,24 +119,24 @@ if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        # Initialize extracted dictionary
-        extracted = {field: "" for field in allowed_fields}
-        found_names = []
+        # Initialize extracted dictionary with both value and amount columns
+        extracted = {field: {"value": "", "amount": ""} for field in allowed_fields}
 
         def extract_values(obj):
-            """Recursively search for 'name' and 'value' in JSON"""
+            """Recursively search for 'name', 'value' and 'amount' in JSON"""
             if isinstance(obj, dict):
-                if "name" in obj and "value" in obj:
+                if "name" in obj:
                     name = str(obj["name"]).strip()
-                    value = obj["value"]
-                    found_names.append(name)
+                    value = obj.get("value", "")
+                    amount = obj.get("amount", "")
 
                     # Match against aliases
                     for field, aliases in allowed_fields.items():
-                        if extracted[field] == "" and any(
-                            name.lower() == alias.lower() for alias in aliases
-                        ):
-                            extracted[field] = value
+                        if any(name.lower() == alias.lower() for alias in aliases):
+                            if extracted[field]["value"] == "":
+                                extracted[field]["value"] = value
+                            if extracted[field]["amount"] == "":
+                                extracted[field]["amount"] = amount
                             break
 
                 for v in obj.values():
@@ -147,7 +147,13 @@ if uploaded_file:
 
         extract_values(data)
 
-        df = pd.DataFrame([extracted])
+        # Flatten dict into DataFrame
+        df = pd.DataFrame({
+            "Field": extracted.keys(),
+            "Value": [v["value"] for v in extracted.values()],
+            "Amount": [v["amount"] for v in extracted.values()]
+        })
+
         st.dataframe(df)
 
         # Save to Excel with auto-adjusted columns
@@ -172,8 +178,7 @@ if uploaded_file:
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         )
 
-    except Exception as e:
-        st.error(f"Error: {e}")
+
 
 
 
