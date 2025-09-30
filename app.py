@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 from io import BytesIO
+from openpyxl.utils import get_column_letter
 
 # ✅ Define allowed fields with aliases
 allowed_fields = {
@@ -78,40 +79,38 @@ allowed_fields = {
     "(AOP252)Profit tax": ["Profit tax","Income tax"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
 }
+# Streamlit page config
 st.set_page_config(
     page_title="Coface JSON",
     page_icon="📄",
     layout="wide",
     initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': None,
-        'Report a bug': None,
-        'About': None
-    }
+    menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
 )
 
-# Hide Streamlit branding (menu, footer, "Created with", "Hosted with")
+# Hide Streamlit branding
 hide_streamlit_style = """
-    <style>
-    #MainMenu {visibility: hidden;}               /* Hide hamburger menu */
-    header {visibility: hidden;}                  /* Hide GitHub repo link */
-    footer {visibility: hidden;}                  /* Hide default footer */
-    .viewerBadge_link__qRIco {display: none !important;}   /* Hide "Made/Created with Streamlit" */
-    .stAppDeployButton {display: none !important;}        /* Hide "Deploy" button */
-    .stDeployButton {display: none !important;}            /* Hide "Hosted with Streamlit" */
-    </style>
+<style>
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+.viewerBadge_link__qRIco {display: none !important;}
+.stAppDeployButton {display: none !important;}
+.stDeployButton {display: none !important;}
+</style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# Add your own footer
+# Custom footer
 custom_footer = """
-    <div style="position: fixed; bottom: 0; width: 100%; 
-                background-color: #f5f5f5; padding: 10px; 
-                text-align: center; font-size: 14px; color: #444;">
-        ❤️ Made with love for the credit insurance department. Created by Gorgi Kokinovski  
-    </div>
+<div style="position: fixed; bottom: 0; width: 100%; 
+            background-color: #f5f5f5; padding: 10px; 
+            text-align: center; font-size: 14px; color: #444;">
+    ❤️ Made with love for the credit insurance department. Created by Gorgi Kokinovski  
+</div>
 """
 st.markdown(custom_footer, unsafe_allow_html=True)
+
 st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
@@ -120,7 +119,7 @@ if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        # Initialize extracted dictionary with empty strings
+        # Initialize extracted dictionary
         extracted = {field: "" for field in allowed_fields}
         found_names = []
 
@@ -132,13 +131,13 @@ if uploaded_file:
                     value = obj["value"]
                     found_names.append(name)
 
-                    # ✅ Check against all aliases
+                    # Match against aliases
                     for field, aliases in allowed_fields.items():
                         if extracted[field] == "" and any(
                             name.lower() == alias.lower() for alias in aliases
                         ):
                             extracted[field] = value
-                            break  # stop after first match
+                            break
 
                 for v in obj.values():
                     extract_values(v)
@@ -151,12 +150,21 @@ if uploaded_file:
         df = pd.DataFrame([extracted])
         st.dataframe(df)
 
-        # Save to Excel
+        # Save to Excel with auto-adjusted columns
         output = BytesIO()
         with pd.ExcelWriter(output, engine="openpyxl") as writer:
-            df.to_excel(writer, index=False)
-        output.seek(0)
+            df.to_excel(writer, index=False, sheet_name="Sheet1")
+            ws = writer.sheets["Sheet1"]
 
+            for col in ws.columns:
+                max_length = 0
+                column_letter = get_column_letter(col[0].column)
+                for cell in col:
+                    if cell.value:
+                        max_length = max(max_length, len(str(cell.value)))
+                ws.column_dimensions[column_letter].width = max_length + 2
+
+        output.seek(0)
         st.download_button(
             label="📥 Download Excel",
             data=output,
