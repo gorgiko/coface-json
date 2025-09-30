@@ -8,7 +8,7 @@ from openpyxl.utils import get_column_letter
 allowed_fields = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets"],
-    "(AOP009)Tangible fixed assets": ["II. Tangible assets", "Tangible fixed assets"],
+    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": [
         "Other equipment, furniture, fittings, tools, fixtures, vehicles"
@@ -29,12 +29,12 @@ allowed_fields = {
     "(AOP049)Receivables from the state and other institutions": [
         "Receivables from the state and other institutions"
     ],
-    "(AOP051)Other short-term receivables": ["Other short-term receivables", "Other short term receivables"],
+    "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables"],
     "(AOP052)Short-term financial assets": [
         "SHORT TERM FINANCIAL ASSETS",
         "short-term financial assets",
     ],
-    "(AOP059_060)Cash": ["Cash", "Cash and cash equivalents"],
+    "(AOP059_060)Cash": ["Cash","Cash and cash equivalents"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses"],
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
@@ -49,13 +49,13 @@ allowed_fields = {
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates"],
     "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans"],
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities"],
-    "(AOP095)Short-term liabilities": ["Short-term liabilities", "IV. SHORT-TERM LIABILITIES"],
+    "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES"],
     "(AOP096)Short-term liabilities to affiliates": ["Short-term liabilities to affiliates"],
     "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": [
         "Liabilities for loans, deposits, etc. to companies within the group"
     ],
     "(AOP097)Short-term trade creditors": ["Short-term trade creditors"],
-    "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees", "Liabilities towards employees"],
+    "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": [
         "Short-term liabilities for taxes, contributions and other fees"
     ],
@@ -72,14 +72,13 @@ allowed_fields = {
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets"],
     "(AOP222)Other operating expenses": ["Other operating expenses"],
     "(AOP223)Income from financial transactions": [
-        "Income from financial transactions (financial income)", "III. FINANCIAL INCOME"
+        "Income from financial transactions (financial income)","III. FINANCIAL INCOME"
     ],
     "(AOP234)Financial costs": ["Financial costs"],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation", "Profit before taxation", "Loss before taxation"],
-    "(AOP252)Profit tax": ["Profit tax", "Income tax"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation", "Profit after taxation", "Loss after taxation"],
+    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation"],
+    "(AOP252)Profit tax": ["Profit tax","Income tax"],
+    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
 }
-
 # Streamlit page config
 st.set_page_config(
     page_title="Coface JSON",
@@ -122,27 +121,26 @@ if uploaded_file:
 
         # Initialize extracted dictionary
         extracted = {field: "" for field in allowed_fields}
+        found_names = []
 
         def extract_values(obj):
-            """Recursively search for 'name', 'value', and 'fromAmount' in JSON"""
+            """Recursively search for 'name' and 'value' in JSON"""
             if isinstance(obj, dict):
-                name = obj.get("name", "").strip()
-                value = obj.get("value", "")
-                from_amount = obj.get("fromAmount", "")
+                if "name" in obj and "value" in obj:
+                    name = str(obj["name"]).strip()
+                    value = obj["value"]
+                    found_names.append(name)
 
-                if name:
+                    # Match against aliases
                     for field, aliases in allowed_fields.items():
-                        if any(name.lower() == alias.lower() for alias in aliases):
-                            # Save VALUE/FROMAMOUNT format
-                            if extracted[field] == "":
-                                if value != "" or from_amount != "":
-                                    extracted[field] = f"{value} / {from_amount}"
+                        if extracted[field] == "" and any(
+                            name.lower() == alias.lower() for alias in aliases
+                        ):
+                            extracted[field] = value
                             break
 
-                # Recurse
                 for v in obj.values():
                     extract_values(v)
-
             elif isinstance(obj, list):
                 for item in obj:
                     extract_values(item)
@@ -176,3 +174,24 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
