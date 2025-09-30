@@ -2,13 +2,13 @@ import streamlit as st
 import pandas as pd
 import json
 from io import BytesIO
-#from openpyxl.utils import get_column_letter
+from openpyxl.utils import get_column_letter
 
 # ✅ Define allowed fields with aliases
 allowed_fields = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets"],
-    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets"],
+    "(AOP009)Tangible fixed assets": ["II. Tangible assets", "Tangible fixed assets"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": [
         "Other equipment, furniture, fittings, tools, fixtures, vehicles"
@@ -29,12 +29,12 @@ allowed_fields = {
     "(AOP049)Receivables from the state and other institutions": [
         "Receivables from the state and other institutions"
     ],
-    "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables"],
+    "(AOP051)Other short-term receivables": ["Other short-term receivables", "Other short term receivables"],
     "(AOP052)Short-term financial assets": [
         "SHORT TERM FINANCIAL ASSETS",
         "short-term financial assets",
     ],
-    "(AOP059_060)Cash": ["Cash","Cash and cash equivalents"],
+    "(AOP059_060)Cash": ["Cash", "Cash and cash equivalents"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses"],
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
@@ -49,13 +49,13 @@ allowed_fields = {
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates"],
     "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans"],
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities"],
-    "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES"],
+    "(AOP095)Short-term liabilities": ["Short-term liabilities", "IV. SHORT-TERM LIABILITIES"],
     "(AOP096)Short-term liabilities to affiliates": ["Short-term liabilities to affiliates"],
     "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": [
         "Liabilities for loans, deposits, etc. to companies within the group"
     ],
     "(AOP097)Short-term trade creditors": ["Short-term trade creditors"],
-    "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
+    "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees", "Liabilities towards employees"],
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": [
         "Short-term liabilities for taxes, contributions and other fees"
     ],
@@ -72,67 +72,107 @@ allowed_fields = {
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets"],
     "(AOP222)Other operating expenses": ["Other operating expenses"],
     "(AOP223)Income from financial transactions": [
-        "Income from financial transactions (financial income)","III. FINANCIAL INCOME"
+        "Income from financial transactions (financial income)", "III. FINANCIAL INCOME"
     ],
     "(AOP234)Financial costs": ["Financial costs"],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation"],
-    "(AOP252)Profit tax": ["Profit tax","Income tax"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
+    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation", "Profit before taxation", "Loss before taxation"],
+    "(AOP252)Profit tax": ["Profit tax", "Income tax"],
+    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation", "Profit after taxation", "Loss after taxation"],
 }
 
-# ✅ File uploader
-uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
+# Streamlit page config
+st.set_page_config(
+    page_title="Coface JSON",
+    page_icon="📄",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
+)
+
+# Hide Streamlit branding
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+.viewerBadge_link__qRIco {display: none !important;}
+.stAppDeployButton {display: none !important;}
+.stDeployButton {display: none !important;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+# Custom footer
+custom_footer = """
+<div style="position: fixed; bottom: 0; width: 100%; 
+            background-color: #f5f5f5; padding: 10px; 
+            text-align: center; font-size: 14px; color: #444;">
+    ❤️ Made with love for the credit insurance department. Created by Gorgi Kokinovski  
+</div>
+"""
+st.markdown(custom_footer, unsafe_allow_html=True)
+
+st.title("Convert COFACE JSON fields to Excel")
+
+uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
 
 if uploaded_file:
-    # Read Excel file
-    df = pd.read_excel(uploaded_file)
+    try:
+        data = json.load(uploaded_file)
 
-    # Normalize column names
-    df.columns = df.columns.str.strip().str.replace("\n", " ")
+        # Initialize extracted dictionary
+        extracted = {field: "" for field in allowed_fields}
 
-    # ✅ Extract allowed fields
-    extracted_data = {}
-    for key, aliases in allowed_fields.items():
-        found = False
-        for alias in aliases:
-            # Case-insensitive match
-            match = df.columns[df.columns.str.contains(alias, case=False, regex=False)]
-            if not match.empty:
-                extracted_data[key] = df[match[0]].tolist()
-                found = True
-                break
-        if not found:
-            extracted_data[key] = None
+        def extract_values(obj):
+            """Recursively search for 'name', 'value', and 'fromAmount' in JSON"""
+            if isinstance(obj, dict):
+                name = obj.get("name", "").strip()
+                value = obj.get("value", "")
+                from_amount = obj.get("fromAmount", "")
 
-    # ✅ Show results in Streamlit
-    st.write("### Extracted Data")
-    st.json(extracted_data)
+                if name:
+                    for field, aliases in allowed_fields.items():
+                        if any(name.lower() == alias.lower() for alias in aliases):
+                            # Save VALUE/FROMAMOUNT format
+                            if extracted[field] == "":
+                                if value != "" or from_amount != "":
+                                    extracted[field] = f"{value} / {from_amount}"
+                            break
 
-    # ✅ Download extracted data as Excel
-    output = BytesIO()
-    pd.DataFrame([extracted_data]).to_excel(output, index=False, engine="openpyxl")
-    st.download_button(
-        "Download Extracted Data",
-        data=output.getvalue(),
-        file_name="extracted_data.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    )
+                # Recurse
+                for v in obj.values():
+                    extract_values(v)
 
+            elif isinstance(obj, list):
+                for item in obj:
+                    extract_values(item)
 
+        extract_values(data)
 
+        df = pd.DataFrame([extracted])
+        st.dataframe(df)
 
+        # Save to Excel with auto-adjusted columns
+        output = BytesIO()
+        with pd.ExcelWriter(output, engine="openpyxl") as writer:
+            df.to_excel(writer, index=False, sheet_name="Sheet1")
+            ws = writer.sheets["Sheet1"]
 
+            for col in ws.columns:
+                max_length = 0
+                column_letter = get_column_letter(col[0].column)
+                for cell in col:
+                    if cell.value:
+                        max_length = max(max_length, len(str(cell.value)))
+                ws.column_dimensions[column_letter].width = max_length + 2
 
+        output.seek(0)
+        st.download_button(
+            label="📥 Download Excel",
+            data=output,
+            file_name="mapped_values.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
 
-
-
-
-
-
-
-
-
-
-
-
-
+    except Exception as e:
+        st.error(f"Error: {e}")
