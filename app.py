@@ -42,8 +42,8 @@ allowed_fields = {
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital"],
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves"],
-    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year"],
+    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods"],
+    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit"],
     "(AOP081)Liabilities": ["Liabilities"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates"],
@@ -63,21 +63,23 @@ allowed_fields = {
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
-    "(AOP201&AOP202)Turnover, sales revenue": ["Turnover, sales revenue"],
+    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers"],
+    "(AOP202)Revenues from sales": ["Revenues from sales"],
+    "(AOP203)Other income(other revenues)": ["Other income(other revenues)"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
     "(AOP207)Operating expenses": ["Operating expenses"],
-    "(AOP208)Material costs": ["Material costs"],
+    "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables"],
     "(AOP209)Cost of goods sold": ["Cost of goods sold"],
     "(AOP213)Staff costs": ["Staff costs (employee costs)"],
-    "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets"],
-    "(AOP222)Other operating expenses": ["Other operating expenses"],
+    "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation"],
+    "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses"],
     "(AOP223)Income from financial transactions": [
         "Income from financial transactions (financial income)","III. FINANCIAL INCOME"
     ],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation"],
     "(AOP252)Profit tax": ["Profit tax","Income tax"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation"],
+    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
 # Streamlit page config
 st.set_page_config(
@@ -174,6 +176,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
