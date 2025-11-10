@@ -108,7 +108,7 @@ custom_footer = """
 <div style="position: fixed; bottom: 0; width: 100%; 
             background-color: #f5f5f5; padding: 10px; 
             text-align: center; font-size: 14px; color: #444;">
-    ❤️ Made with love for the credit insurance department. Created by Gorgi Kokinovski  
+    Created by Gorgi Kokinovski  
 </div>
 """
 st.markdown(custom_footer, unsafe_allow_html=True)
@@ -176,6 +176,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
