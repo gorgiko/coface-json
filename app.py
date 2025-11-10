@@ -4,7 +4,7 @@ import json
 from io import BytesIO
 from openpyxl.utils import get_column_letter
 
-# ✅ Define allowed fields with aliases
+# Define allowed fields with aliases
 allowed_fields = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets"],
@@ -176,6 +176,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
