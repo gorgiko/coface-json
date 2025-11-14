@@ -7,14 +7,14 @@ from openpyxl.utils import get_column_letter
 # Define allowed fields with aliases
 allowed_fields = {
     "(AOP001)Fixed assets": ["Fixed assets"],
-    "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets"],
-    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets"],
-    "(AOP013)Machinery and equipment": ["Machinery and equipment"],
+    "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Total Intangible assets", "Intangible fixed assets"],
+    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total Tangible assets", "Property", "plants", "equipment and biological assets", "Immovables", "plants and equipment"],
+    "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property, plant and equipment"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": [
         "Other equipment, furniture, fittings, tools, fixtures, vehicles"
     ],
-    "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets"],
-    "(AOP018)Tangible assets in progress": ["Tangible assets in progress"],
+    "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advances in property,plant,equipment and biological assets and property, biological asset in preparation"],
+    "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Prepayments and fixed goods under construction"],
     "(AOP019)Other tangible assets": ["Other tangible assets"],
     "(AOP020)Investments in real estate": ["Investments in real estate"],
     "(AOP021)Financial fixed assets": ["Financial fixed assets"],
@@ -176,6 +176,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
