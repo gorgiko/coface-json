@@ -42,9 +42,9 @@ allowed_fields = {
     "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"]
-    "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans"],
-    "(AOP093)Other long-term liabilities": ["Other long-term liabilities"],
-    "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES"],
+    "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions"],
+    "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
+    "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES", ],
     "(AOP096)Short-term liabilities to affiliates": ["Short-term liabilities to affiliates"],
     "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": [
         "Liabilities for loans, deposits, etc. to companies within the group"
@@ -171,6 +171,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
