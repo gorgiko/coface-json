@@ -10,9 +10,7 @@ allowed_fields = {
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
     "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants, equipment and biological assets", "Immovables,plants and equipment"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment"],
-    "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": [
-        "Other equipment, furniture, fittings, tools, fixtures, vehicles"
-    ],
+    "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
     "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advences in property,plant,equipment and biological assets and property,biological asset in preparation"],
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction"],
     "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment"],
@@ -46,14 +44,10 @@ allowed_fields = {
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES", ],
     "(AOP096)Short-term liabilities to affiliates": ["Short-term liabilities to affiliates"],
-    "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": [
-        "Liabilities for loans, deposits, etc. to companies within the group"
-    ],
+    "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": ["Liabilities for loans, deposits, etc. to companies within the group"],
     "(AOP097)Short-term trade creditors": ["Short-term trade creditors"],
     "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
-    "(AOP099)Short-term liabilities for taxes, contributions and other fees": [
-        "Short-term liabilities for taxes, contributions and other fees"
-    ],
+    "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
     "(AOP108)Other short-term liabilities": ["Other short term liabilities"],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds"],
@@ -68,9 +62,7 @@ allowed_fields = {
     "(AOP213)Staff costs": ["Staff costs (employee costs)"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation"],
     "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses"],
-    "(AOP223)Income from financial transactions": [
-        "Income from financial transactions (financial income)","III. FINANCIAL INCOME"
-    ],
+    "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME"],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation"],
     "(AOP252)Profit tax": ["Profit tax","Income tax"],
@@ -171,6 +163,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
