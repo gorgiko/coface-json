@@ -31,14 +31,14 @@ allowed_fields = {
     "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets"],
     "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses"],
-    "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets"],
+    "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
-    "(AOP065)Equity capital": ["Equity capital"],
-    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital"],
-    "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves"],
+    "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
+    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital"],
+    "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves"],
-    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit"],
+    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years"],
+    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years, "Net profit for the period" , "Profit of the year","Net profit or loss for the year, "Net profit for the period"],
     "(AOP081)Liabilities": ["Liabilities"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates"],
@@ -171,6 +171,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
