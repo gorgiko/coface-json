@@ -9,16 +9,27 @@ allowed_fields = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
     "(AOP004)Concessions,patents,licenses  and similar rights and other intangible assets":["Concessions,industrial rights,licences"," Concessions,patents,licences,trademarks, service marks,software and ather intangible assets","Concessions,patents,licenses  and similar rights and other intangible assets"],
+    "(AOP005)Goodwill":["Goodwill"],
+    "(AOP006)Advances for intangible assets and intangible assets in preparation":["Advances for intangible assets and intangible assets in preparation"],
+    "(AOP008)Other intangible fixed assets":["Other intangible fixed assets"],
     "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants, equipment and biological assets", "Immovables,plants and equipment"],
+    "(AOP010)Land and buildings":["Land and buildings"],
+    "(AOP011)Land":["Land"],
+    "(AOP012)Buildings":["Buildings"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
+    "(AOP016)Biological property":["Biological property"],
     "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advences in property,plant,equipment and biological assets and property,biological asset in preparation"],
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction"],
     "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment"],
     "(AOP020)Investments in real estate": ["Investments in real estate"],
     "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets"],
+    "(AOP024)Loans to Group":["Loans to Group"],
+    "(AOP025)Long term loans":["Long term loans"],
     "(AOP031)Long-term receivables": ["Long term receivables", "Other long term investments and receivables"],
     "(AOP035)Deferred tax assets": ["DEFERRED TAX ASSETS", "Deferred tax assets"],
+    "(AOP030)Other financial fixed assets":["Other financial fixed assets"],
+    "(AOP034)Other long term receivables":["Other long term receivables"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
     "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES", "Total receivables", "Receivables", "Receivables and other assets"],
@@ -164,6 +175,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
