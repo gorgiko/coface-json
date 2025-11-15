@@ -22,8 +22,8 @@ allowed_fields = {
     "(AOP035)Deferred tax assets": ["DEFERRED TAX ASSETS", "Deferred tax assets"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
-    "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES"],
-    "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables"],
+    "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES", "Total receivables", "Receivables", "Receivables and other assets"],
+    "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables"],
     "(AOP047)Short-term trade receivables": ["Short-term trade receivables"],
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
     "(AOP049)Receivables from the state and other institutions": [
@@ -176,6 +176,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
