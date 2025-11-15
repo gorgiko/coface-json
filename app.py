@@ -24,17 +24,12 @@ allowed_fields = {
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
     "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES", "Total receivables", "Receivables", "Receivables and other assets"],
     "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables"],
-    "(AOP047)Short-term trade receivables": ["Short-term trade receivables"],
+    "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyer", "Trade debtor" , "Trade receivables"],
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
-    "(AOP049)Receivables from the state and other institutions": [
-        "Receivables from the state and other institutions"
-    ],
-    "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables"],
-    "(AOP052)Short-term financial assets": [
-        "SHORT TERM FINANCIAL ASSETS",
-        "short-term financial assets",
-    ],
-    "(AOP059_060)Cash": ["Cash","Cash and cash equivalents"],
+    "(AOP049)Receivables from the state and other institutions": ["Prepaid corporate income tax","Receivables from the state and other institutions"],
+    "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
+    "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets"],
+    "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses"],
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
@@ -176,6 +171,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
