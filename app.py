@@ -32,6 +32,12 @@ allowed_fields = {
     "(AOP034)Other long term receivables":["Other long term receivables"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
+    "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies", "Inventory-raw materials, consumabeles and supplies", "Inventory of materials(fabrication material, spare parts"),
+    "(AOP039)Inventory of materials":["Inventory of materials(fabricationmaterial, spare parts"),
+    "(AOP040)Work in progress":["Work in progress"],
+    "(AOP041)Finished products and goods":["Finished products and goods", "Finished products/merchandise", "Finished goods", "Goods"),
+    "(AOP042)Traiding Goods":["Traiding Goods","Inventory-Trading Goods"),
+    "(AOP048)Prepayments":["Prepayments"],
     "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES", "Total receivables", "Receivables", "Receivables and other assets"],
     "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables"],
     "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyer", "Trade debtor" , "Trade receivables"],
@@ -175,6 +181,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
