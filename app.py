@@ -45,12 +45,16 @@ allowed_fields = {
     "(AOP049)Receivables from the state and other institutions": ["Prepaid corporate income tax","Receivables from the state and other institutions"],
     "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
     "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets"],
+    "(AOP058)Other short-term financial investments":["other short-term financial investments"],
     "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses"],
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital"],
+    "(AOP067)Emission premium":["Emission premium","Share premium"],
+    "(AOP068)Own shares":["Own shares","Called up share capital"],
+    "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital"),
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years"],
@@ -181,6 +185,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
