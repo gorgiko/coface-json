@@ -42,15 +42,15 @@ allowed_fields = {
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"]
     "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions"],
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
-    "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES", ],
-    "(AOP096)Short-term liabilities to affiliates": ["Short-term liabilities to affiliates"],
+    "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES","Short- term liabilities","Short term liabilities","SHORT- TERM LIABILITIES", "TOTAL CURRENT LIABILITIES", "Total current liabilities","Short- term liabilities and short term provisions"," Short- term financial and operating liabilities"],
+    "(AOP096)Short-term liabilities to affiliates": ["Short-term liabilities to affiliates","Liabilities of disposal groups", " Trade payables-foreing parent company, subsidiares and other associated companies", " Liabilities to affiliated companies","Group payables"],
     "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": ["Liabilities for loans, deposits, etc. to companies within the group"],
-    "(AOP097)Short-term trade creditors": ["Short-term trade creditors"],
+    "(AOP097)Short-term trade creditors": ["Short-term trade creditors", "Liabilities to suppliers","Trade Payables","Trade creditors(acounts payable)", " Trade payables"],
     "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
-    "(AOP108)Other short-term liabilities": ["Other short term liabilities"],
+    "(AOP108)Other short-term liabilities": ["Other short term liabilities", ""Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities"],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
-    "(AOP111)Total liabilities and funds": ["Total liabilities and funds"],
+    "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
     "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers"],
     "(AOP202)Revenues from sales": ["Revenues from sales"],
@@ -163,6 +163,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
