@@ -62,8 +62,12 @@ allowed_fields = {
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years"],
     "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years, "Net profit for the period" , "Profit of the year","Net profit or loss for the year, "Net profit for the period"],
     "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt"],
+    "(AOP082)Provision for risks and charges":["Provision for risks and charges"],
+    "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
+    "(AOP084)Other provisions":["Other provisions"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"]
+    "(AOP087)Trade liabilities":["Trade liabilities"),
     "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions"],
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES","Short- term liabilities","Short term liabilities","SHORT- TERM LIABILITIES", "TOTAL CURRENT LIABILITIES", "Total current liabilities","Short- term liabilities and short term provisions"," Short- term financial and operating liabilities"],
@@ -187,6 +191,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
