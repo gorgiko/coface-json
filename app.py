@@ -102,6 +102,7 @@ allowed_fields = {
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
 
+
 # ------------------------------
 # Streamlit page config
 # ------------------------------
@@ -160,11 +161,13 @@ if uploaded_file:
                     extract_values(item, parent)
 
         extract_values(data)
-          # ------------------------------
+
+        # ------------------------------
         # Format FromAmount with thousands separator
         # ------------------------------
         def format_amount_list(lst):
             return "; ".join(f"{int(a):,}" for a in lst if a is not None)
+
         # ------------------------------
         # Build DataFrame
         # ------------------------------
@@ -173,8 +176,8 @@ if uploaded_file:
                 (
                     field,
                     extracted[field]["value"] if extracted[field]["value"] is not None else "",
-                    "; ".join(str(d) for d in extracted[field]["date"]),
-                    "; ".join(str(a) for a in extracted[field]["fromAmount"]),
+                    "; ".join(str(d) for d in extracted[field]["date"] if d is not None),
+                    format_amount_list(extracted[field]["fromAmount"]),
                 )
                 for field in allowed_fields
             ],
@@ -217,6 +220,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
