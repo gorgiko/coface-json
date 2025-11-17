@@ -106,7 +106,6 @@ allowed_fields = {
 # Streamlit page config
 # ------------------------------
 st.set_page_config(page_title="Coface JSON", layout="wide")
-
 st.markdown("""
 <style>
 #MainMenu {visibility: hidden;}
@@ -114,110 +113,73 @@ header {visibility: hidden;}
 footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
-
 st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
 
+# ------------------------------
+# Helper functions
+# ------------------------------
+def convert_date(value):
+    value = str(value)
+    if value.endswith("0000"):  # year only
+        return value[:4]
+    if len(value) == 8:  # full date YYYYMMDD -> DD.MM.YYYY
+        return f"{value[6:8]}.{value[4:6]}.{value[:4]}"
+    return value
 
+def format_amount_list(lst):
+    return "; ".join(f"{int(a):,}" for a in lst if a is not None)
+
+def dedupe(seq):
+    seen = set()
+    result = []
+    for x in seq:
+        if x not in seen:
+            seen.add(x)
+            result.append(x)
+    return result
+
+# Recursive extraction
+def extract_values(obj):
+    if isinstance(obj, dict):
+        if "name" in obj and "value" in obj:
+            name = str(obj["name"]).strip()
+            value = obj.get("value")
+            for field, aliases in allowed_fields.items():
+                if any(name.lower() == alias.lower() for alias in aliases):
+                    if extracted[field]["value"] is None:
+                        extracted[field]["value"] = value
+                    if "date" in obj:
+                        extracted[field]["date"].append(obj.get("date"))
+                    if "fromAmount" in obj:
+                        extracted[field]["fromAmount"].append(obj.get("fromAmount"))
+                    break
+        for key, val in obj.items():
+            extract_values(val)
+    elif isinstance(obj, list):
+        for item in obj:
+            extract_values(item)
+
+# ------------------------------
+# Main processing
+# ------------------------------
 if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        # ------------------------------
         # Initialize extracted structure
-        # ------------------------------
-        extracted = {
-            field: {"value": None, "date": [], "fromAmount": []}
-            for field in allowed_fields
-        }
+        extracted = {field: {"value": None, "date": [], "fromAmount": []} for field in allowed_fields}
 
-     # ------------------------------
-# Extract values recursively
-# ------------------------------
-def extract_values(obj, parent=None):
-    if isinstance(obj, dict):
-
-        # Match name/value fields
-        if "name" in obj and "value" in obj:
-            name = str(obj["name"]).strip()
-            value = obj.get("value")
-
-            for field, aliases in allowed_fields.items():
-                if any(name.lower() == alias.lower() for alias in aliases):
-
-                    # Save main numeric value
-                    if extracted[field]["value"] is None:
-                        extracted[field]["value"] = value
-
-                    # --- FIX: pair date & fromAmount ---
-                    if "date" in obj or "fromAmount" in obj:
-                        extracted[field]["date"].append(obj.get("date"))
-                        extracted[field]["fromAmount"].append(obj.get("fromAmount"))
-
-                    break
-
-        # Recurse into nested dict
-        for key, val in obj.items():
-            extract_values(val, obj)
-
-    elif isinstance(obj, list):
-        # Recurse into list
-        for item in obj:
-            extract_values(item, parent)
-
-
-
-
+        # Extract values recursively
         extract_values(data)
 
-        # ------------------------------
-        # Remove duplicates (preserve order)
-        # ------------------------------
-        def dedupe(seq):
-            seen = set()
-            result = []
-            for x in seq:
-                if x not in seen:
-                    seen.add(x)
-                    result.append(x)
-            return result
-
+        # Remove duplicates
         for field in extracted:
             extracted[field]["date"] = dedupe(extracted[field]["date"])
             extracted[field]["fromAmount"] = dedupe(extracted[field]["fromAmount"])
 
-
-        # ------------------------------
-        # Convert COFACE dates
-        # ------------------------------
-        def convert_date(value):
-            value = str(value)
-
-            # Year only
-            if value.endswith("0000"):
-                return value[:4]
-
-            # Full date YYYYMMDD -> DD.MM.YYYY
-            if len(value) == 8:
-                year = value[:4]
-                month = value[4:6]
-                day = value[6:8]
-                return f"{day}.{month}.{year}"
-
-            return value
-
-
-        # ------------------------------
-        # Format FromAmount with comma separators
-        # ------------------------------
-        def format_amount_list(lst):
-            return "; ".join(f"{int(a):,}" for a in lst if a is not None)
-
-
-        # ------------------------------
         # Build DataFrame
-        # ------------------------------
         df = pd.DataFrame(
             [
                 (
@@ -233,10 +195,7 @@ def extract_values(obj, parent=None):
 
         st.dataframe(df)
 
-
-        # ------------------------------
         # Export to Excel
-        # ------------------------------
         output = BytesIO()
         with pd.ExcelWriter(output, engine="openpyxl") as writer:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
@@ -254,14 +213,11 @@ def extract_values(obj, parent=None):
             # Borders
             thin = Side(border_style="thin", color="000000")
             border = Border(left=thin, right=thin, top=thin, bottom=thin)
-
             for row in ws.iter_rows():
                 for cell in row:
                     cell.border = border
 
-
         output.seek(0)
-
         st.download_button(
             label="📥 Download Excel",
             data=output,
@@ -271,7 +227,6 @@ def extract_values(obj, parent=None):
 
     except Exception as e:
         st.error(f"Error: {e}")
-
 
 
 
