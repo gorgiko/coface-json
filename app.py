@@ -138,32 +138,32 @@ if uploaded_file:
              # ------------------------------
         # Extract values recursively
         # ------------------------------
-        def extract_values(obj, parent=None):
-            if isinstance(obj, dict):
+       def extract_values(obj, parent=None):
+    if isinstance(obj, dict):
 
-                if "name" in obj and "value" in obj:
-                    name = str(obj["name"]).strip()
-                    value = obj.get("value")
+        if "name" in obj and "value" in obj:
+            name = str(obj["name"]).trim()
+            value = obj.get("value")
 
-                    for field, aliases in allowed_fields.items():
-                        if any(name.lower() == alias.lower() for alias in aliases):
+            for field, aliases in allowed_fields.items():
+                if any(name.lower() == alias.lower() for alias in aliases):
 
-                            if extracted[field]["value"] is None:
-                                extracted[field]["value"] = value
+                    if extracted[field]["value"] is None:
+                        extracted[field]["value"] = value
 
-                            if parent and "date" in parent:
-                                extracted[field]["date"].append(parent["date"])
+                    # --- FIX: Pair date & fromAmount ---
+                    if "date" in obj or "fromAmount" in obj:
+                        extracted[field]["date"].append(obj.get("date"))
+                        extracted[field]["fromAmount"].append(obj.get("fromAmount"))
 
-                            if parent and "fromAmount" in parent:
-                                extracted[field]["fromAmount"].append(parent["fromAmount"])
-                            break
+                    break
 
-                for key, val in obj.items():
-                    extract_values(val, obj)
+        for key, val in obj.items():
+            extract_values(val, obj)
 
-            elif isinstance(obj, list):
-                for item in obj:
-                    extract_values(item, parent)
+    elif isinstance(obj, list):
+        for item in obj:
+            extract_values(item)
 
 
 
@@ -269,6 +269,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
