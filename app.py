@@ -3,6 +3,7 @@ import pandas as pd
 import json
 from io import BytesIO
 from openpyxl.utils import get_column_letter
+from openpyxl.styles import Font, Border, Side
 
 # Define allowed fields with aliases
 allowed_fields = {
@@ -184,7 +185,19 @@ if uploaded_file:
                     if cell.value:
                         max_length = max(max_length, len(str(cell.value)))
                 ws.column_dimensions[column_letter].width = max_length + 2
+  
+    # Bold the first column (Field)
+    for cell in ws["A"]:
+        cell.font = Font(bold=True)
 
+    # Add borders to all cells
+    thin = Side(border_style="thin", color="000000")
+    border = Border(left=thin, right=thin, top=thin, bottom=thin)
+
+    for row in ws.iter_rows():
+        for cell in row:
+            cell.border = border
+            
         output.seek(0)
         st.download_button(
             label="📥 Download Excel",
@@ -195,6 +208,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
