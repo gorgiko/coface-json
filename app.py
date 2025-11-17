@@ -66,7 +66,7 @@ allowed_fields = {
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
     "(AOP084)Other provisions":["Other provisions"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities"],
-    "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"]
+    "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"],
     "(AOP087)Trade liabilities":["Trade liabilities"],
     "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions"],
     "(AOP092)Other loans/finance due after 1 year":["Other loans/finance due after 1 year"],
@@ -195,6 +195,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
