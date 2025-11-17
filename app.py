@@ -143,23 +143,36 @@ def dedupe(seq):
 # Recursive extraction
 def extract_values(obj):
     if isinstance(obj, dict):
-        if "name" in obj and "value" in obj:
+        # If object has a name, check if it's in allowed fields
+        if "name" in obj:
             name = str(obj["name"]).strip()
             value = obj.get("value")
+            date = obj.get("date")
+            from_amount = obj.get("fromAmount")
+
             for field, aliases in allowed_fields.items():
                 if any(name.lower() == alias.lower() for alias in aliases):
-                    if extracted[field]["value"] is None:
+                    # Store the value if not already stored
+                    if extracted[field]["value"] is None and value is not None:
                         extracted[field]["value"] = value
-                    if "date" in obj:
-                        extracted[field]["date"].append(obj.get("date"))
-                    if "fromAmount" in obj:
-                        extracted[field]["fromAmount"].append(obj.get("fromAmount"))
+
+                    # Append date if exists
+                    if date is not None:
+                        extracted[field]["date"].append(date)
+
+                    # Append fromAmount if exists
+                    if from_amount is not None:
+                        extracted[field]["fromAmount"].append(from_amount)
                     break
-        for key, val in obj.items():
-            extract_values(val)
+
+        # Recursively check all keys
+        for k, v in obj.items():
+            extract_values(v)
+
     elif isinstance(obj, list):
         for item in obj:
             extract_values(item)
+
 
 # ------------------------------
 # Main processing
@@ -227,6 +240,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
