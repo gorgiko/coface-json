@@ -101,6 +101,7 @@ allowed_fields = {
     "(AOP252)Profit tax": ["Profit tax","Income tax"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
+
 # ----------------------- PAGE CONFIG -----------------------
 st.set_page_config(
     page_title="Coface JSON",
@@ -110,8 +111,8 @@ st.set_page_config(
     menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
 )
 
-# Hide Streamlit UI elements
-hide_streamlit_style = """
+# Hide Streamlit system elements
+st.markdown("""
 <style>
 #MainMenu {visibility: hidden;}
 header {visibility: hidden;}
@@ -120,8 +121,7 @@ footer {visibility: hidden;}
 .stAppDeployButton {display: none !important;}
 .stDeployButton {display: none !important;}
 </style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # Custom footer
 st.markdown("""
@@ -141,41 +141,49 @@ if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        # ----------------------- DATA STRUCTURE -----------------------
-        # Store MULTIPLE occurrences in LISTS
+        # ----------------------- DATA STORAGE -----------------------
         extracted = {
-            field: {"value": [], "date": [], "fromAmount": []}
+            field: {"value": None, "date": [], "fromAmount": []}
             for field in allowed_fields
         }
 
         # ----------------------- EXTRACTION LOGIC -----------------------
         def extract_values(obj):
-            """Recursively extract value/date/fromAmount and assign to correct AOP field."""
+            """Recursively extract values from nested JSON."""
             if isinstance(obj, dict):
 
                 if "name" in obj and "value" in obj:
                     name = str(obj["name"]).strip()
 
-                    val = obj.get("value", "")
+                    value = obj.get("value", "")
                     date = obj.get("date", "")
                     fromAmount = obj.get("fromAmount", "")
 
-                    # Match against aliases
+                    # Match JSON name to allowed aliases
                     for field, aliases in allowed_fields.items():
                         if any(name.lower() == alias.lower() for alias in aliases):
-                            extracted[field]["value"].append(val)
-                            extracted[field]["date"].append(date)
-                            extracted[field]["fromAmount"].append(fromAmount)
+
+                            # Store value only once
+                            if extracted[field]["value"] is None:
+                                extracted[field]["value"] = value
+
+                            # Store ALL dates
+                            if date != "":
+                                extracted[field]["date"].append(date)
+
+                            # Store ALL fromAmounts
+                            if fromAmount != "":
+                                extracted[field]["fromAmount"].append(fromAmount)
+
                             break
 
-                # Recurse
+                # Recurse deeper
                 for v in obj.values():
                     extract_values(v)
 
             elif isinstance(obj, list):
                 for item in obj:
                     extract_values(item)
-
 
         extract_values(data)
 
@@ -184,11 +192,11 @@ if uploaded_file:
             [
                 (
                     field,
-                    "; ".join(str(v) for v in info["value"]) if info["value"] else "",
-                    "; ".join(str(d) for d in info["date"]) if info["date"] else "",
-                    "; ".join(str(f) for f in info["fromAmount"]) if info["fromAmount"] else "",
+                    extracted[field]["value"] if extracted[field]["value"] is not None else "",
+                    "; ".join(str(x) for x in extracted[field]["date"]),
+                    "; ".join(str(x) for x in extracted[field]["fromAmount"]),
                 )
-                for field, info in extracted.items()
+                for field in allowed_fields
             ],
             columns=["Field", "Value", "Date", "FromAmount"]
         )
@@ -201,16 +209,16 @@ if uploaded_file:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
             ws = writer.sheets["Sheet1"]
 
-            # Auto-fit columns
+            # Auto-fit column width
             for col in ws.columns:
                 max_length = 0
-                column_letter = get_column_letter(col[0].column)
+                col_letter = get_column_letter(col[0].column)
                 for cell in col:
                     if cell.value:
                         max_length = max(max_length, len(str(cell.value)))
-                ws.column_dimensions[column_letter].width = max_length + 2
+                ws.column_dimensions[col_letter].width = max_length + 2
 
-            # Bold Field column
+            # Bold first column
             for cell in ws["A"]:
                 cell.font = Font(bold=True)
 
@@ -224,6 +232,7 @@ if uploaded_file:
 
         output.seek(0)
 
+        # Download button
         st.download_button(
             label="📥 Download Excel",
             data=output,
