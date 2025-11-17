@@ -135,7 +135,10 @@ if uploaded_file:
         # ------------------------------
         # Extract values recursively
         # ------------------------------
-      def extract_values(obj, parent=None):
+             # ------------------------------
+        # Extract values recursively
+        # ------------------------------
+        def extract_values(obj, parent=None):
             if isinstance(obj, dict):
 
                 if "name" in obj and "value" in obj:
@@ -163,7 +166,8 @@ if uploaded_file:
                     extract_values(item, parent)
 
 
-      #  extract_values(data)
+
+        extract_values(data)
 
         # ------------------------------
         # Remove duplicates (preserve order)
@@ -265,6 +269,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
