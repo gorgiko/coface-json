@@ -102,36 +102,19 @@ allowed_fields = {
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
 
+# ------------------------------
+# Streamlit page config
+# ------------------------------
+st.set_page_config(page_title="Coface JSON", layout="wide")
 
-# ----------------------- PAGE CONFIG -----------------------
-st.set_page_config(
-    page_title="Coface JSON",
-    page_icon="📄",
-    layout="wide"
-)
-
-# Hide Streamlit UI elements
 st.markdown("""
 <style>
 #MainMenu {visibility: hidden;}
 header {visibility: hidden;}
 footer {visibility: hidden;}
-.viewerBadge_link__qRIco {display: none !important;}
-.stAppDeployButton {display: none !important;}
-.stDeployButton {display: none !important;}
 </style>
 """, unsafe_allow_html=True)
 
-# Custom footer
-st.markdown("""
-<div style="position: fixed; bottom: 0; width: 100%; 
-            background-color: #f5f5f5; padding: 10px; 
-            text-align: center; font-size: 14px; color: #444;">
-    Created by Gorgi Kokinovski  
-</div>
-""", unsafe_allow_html=True)
-
-# ----------------------- MAIN UI -----------------------
 st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
@@ -140,60 +123,54 @@ if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        # ----------------------- STORAGE STRUCTURE -----------------------
+        # ------------------------------
+        # Initialize extracted dict
+        # ------------------------------
         extracted = {
             field: {"value": None, "date": [], "fromAmount": []}
             for field in allowed_fields
         }
 
-        # ----------------------- EXTRACTION FUNCTION -----------------------
-        def extract_values(obj):
-            """Recursively extract {value, date, fromAmount} from JSON."""
+        # ------------------------------
+        # Recursive extraction
+        # ------------------------------
+        def extract_values(obj, parent=None):
             if isinstance(obj, dict):
-
                 if "name" in obj and "value" in obj:
                     name = str(obj["name"]).strip()
+                    value = obj.get("value")
 
-                    value = obj.get("value", "")
-                    date = obj.get("date", "")
-                    fromAmount = obj.get("fromAmount", "")
-
-                    # Alias match
                     for field, aliases in allowed_fields.items():
                         if any(name.lower() == alias.lower() for alias in aliases):
-
-                            # Store VALUE only once
                             if extracted[field]["value"] is None:
                                 extracted[field]["value"] = value
 
-                            # Append all dates
-                            if date not in ("", None):
-                                extracted[field]["date"].append(date)
+                            if parent and "date" in parent:
+                                extracted[field]["date"].append(parent["date"])
 
-                            # Append all fromAmounts
-                            if fromAmount not in ("", None):
-                                extracted[field]["fromAmount"].append(fromAmount)
-
+                            if parent and "fromAmount" in parent:
+                                extracted[field]["fromAmount"].append(parent["fromAmount"])
                             break
 
-                # Recurse into dictionary
-                for value in obj.values():
-                    extract_values(value)
+                for key, val in obj.items():
+                    extract_values(val, obj)
 
             elif isinstance(obj, list):
                 for item in obj:
-                    extract_values(item)
+                    extract_values(item, parent)
 
         extract_values(data)
 
-        # ----------------------- CREATE DATAFRAME -----------------------
+        # ------------------------------
+        # Build DataFrame
+        # ------------------------------
         df = pd.DataFrame(
             [
                 (
                     field,
                     extracted[field]["value"] if extracted[field]["value"] is not None else "",
                     "; ".join(str(d) for d in extracted[field]["date"]),
-                    "; ".join(str(f) for f in extracted[field]["fromAmount"]),
+                    "; ".join(str(a) for a in extracted[field]["fromAmount"]),
                 )
                 for field in allowed_fields
             ],
@@ -202,13 +179,15 @@ if uploaded_file:
 
         st.dataframe(df)
 
-        # ----------------------- EXPORT TO EXCEL -----------------------
+        # ------------------------------
+        # Export to Excel
+        # ------------------------------
         output = BytesIO()
         with pd.ExcelWriter(output, engine="openpyxl") as writer:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
             ws = writer.sheets["Sheet1"]
 
-            # Auto column width
+            # Auto-width columns
             for col in ws.columns:
                 max_len = max(len(str(cell.value)) if cell.value else 0 for cell in col)
                 ws.column_dimensions[get_column_letter(col[0].column)].width = max_len + 2
@@ -217,16 +196,14 @@ if uploaded_file:
             for cell in ws["A"]:
                 cell.font = Font(bold=True)
 
-            # Add borders
+            # Borders
             thin = Side(border_style="thin", color="000000")
             border = Border(left=thin, right=thin, top=thin, bottom=thin)
-
             for row in ws.iter_rows():
                 for cell in row:
                     cell.border = border
 
         output.seek(0)
-
         st.download_button(
             label="📥 Download Excel",
             data=output,
@@ -236,10 +213,6 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
-
-
-
-
 
 
 
