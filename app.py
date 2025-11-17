@@ -54,7 +54,7 @@ allowed_fields = {
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital"],
     "(AOP067)Emission premium":["Emission premium","Share premium"],
     "(AOP068)Own shares":["Own shares","Called up share capital"],
-    "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital"),
+    "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital"],
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves"],
     "(AOP072)Legal reserves":["Legal reserves"],
@@ -67,7 +67,7 @@ allowed_fields = {
     "(AOP084)Other provisions":["Other provisions"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"]
-    "(AOP087)Trade liabilities":["Trade liabilities"),
+    "(AOP087)Trade liabilities":["Trade liabilities"],
     "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions"],
     "(AOP092)Other loans/finance due after 1 year":["Other loans/finance due after 1 year"],
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
@@ -195,6 +195,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
