@@ -102,6 +102,7 @@ allowed_fields = {
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
 
+
 # ----------------------- PAGE CONFIG -----------------------
 st.set_page_config(
     page_title="Coface JSON",
@@ -235,18 +236,6 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
