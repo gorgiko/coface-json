@@ -106,12 +106,10 @@ allowed_fields = {
 st.set_page_config(
     page_title="Coface JSON",
     page_icon="📄",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
+    layout="wide"
 )
 
-# Hide Streamlit system elements
+# Hide Streamlit UI elements
 st.markdown("""
 <style>
 #MainMenu {visibility: hidden;}
@@ -141,15 +139,15 @@ if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        # ----------------------- DATA STORAGE -----------------------
+        # ----------------------- STORAGE STRUCTURE -----------------------
         extracted = {
             field: {"value": None, "date": [], "fromAmount": []}
             for field in allowed_fields
         }
 
-        # ----------------------- EXTRACTION LOGIC -----------------------
+        # ----------------------- EXTRACTION FUNCTION -----------------------
         def extract_values(obj):
-            """Recursively extract values from nested JSON."""
+            """Recursively extract {value, date, fromAmount} from JSON."""
             if isinstance(obj, dict):
 
                 if "name" in obj and "value" in obj:
@@ -159,27 +157,27 @@ if uploaded_file:
                     date = obj.get("date", "")
                     fromAmount = obj.get("fromAmount", "")
 
-                    # Match JSON name to allowed aliases
+                    # Alias match
                     for field, aliases in allowed_fields.items():
                         if any(name.lower() == alias.lower() for alias in aliases):
 
-                            # Store value only once
+                            # Store VALUE only once
                             if extracted[field]["value"] is None:
                                 extracted[field]["value"] = value
 
-                            # Store ALL dates
-                            if date != "":
+                            # Append all dates
+                            if date not in ("", None):
                                 extracted[field]["date"].append(date)
 
-                            # Store ALL fromAmounts
-                            if fromAmount != "":
+                            # Append all fromAmounts
+                            if fromAmount not in ("", None):
                                 extracted[field]["fromAmount"].append(fromAmount)
 
                             break
 
-                # Recurse deeper
-                for v in obj.values():
-                    extract_values(v)
+                # Recurse into dictionary
+                for value in obj.values():
+                    extract_values(value)
 
             elif isinstance(obj, list):
                 for item in obj:
@@ -187,14 +185,14 @@ if uploaded_file:
 
         extract_values(data)
 
-        # ----------------------- BUILD DATAFRAME -----------------------
+        # ----------------------- CREATE DATAFRAME -----------------------
         df = pd.DataFrame(
             [
                 (
                     field,
                     extracted[field]["value"] if extracted[field]["value"] is not None else "",
-                    "; ".join(str(x) for x in extracted[field]["date"]),
-                    "; ".join(str(x) for x in extracted[field]["fromAmount"]),
+                    "; ".join(str(d) for d in extracted[field]["date"]),
+                    "; ".join(str(f) for f in extracted[field]["fromAmount"]),
                 )
                 for field in allowed_fields
             ],
@@ -209,14 +207,10 @@ if uploaded_file:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
             ws = writer.sheets["Sheet1"]
 
-            # Auto-fit column width
+            # Auto column width
             for col in ws.columns:
-                max_length = 0
-                col_letter = get_column_letter(col[0].column)
-                for cell in col:
-                    if cell.value:
-                        max_length = max(max_length, len(str(cell.value)))
-                ws.column_dimensions[col_letter].width = max_length + 2
+                max_len = max(len(str(cell.value)) if cell.value else 0 for cell in col)
+                ws.column_dimensions[get_column_letter(col[0].column)].width = max_len + 2
 
             # Bold first column
             for cell in ws["A"]:
@@ -232,7 +226,6 @@ if uploaded_file:
 
         output.seek(0)
 
-        # Download button
         st.download_button(
             label="📥 Download Excel",
             data=output,
@@ -242,7 +235,6 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
-
 
 
 
