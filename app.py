@@ -102,7 +102,6 @@ allowed_fields = {
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
 
-
 # ------------------------------
 # Streamlit page config
 # ------------------------------
@@ -143,6 +142,7 @@ if uploaded_file:
 
                     for field, aliases in allowed_fields.items():
                         if any(name.lower() == alias.lower() for alias in aliases):
+
                             if extracted[field]["value"] is None:
                                 extracted[field]["value"] = value
 
@@ -163,7 +163,23 @@ if uploaded_file:
         extract_values(data)
 
         # ------------------------------
-        # Format FromAmount with thousands separator
+        # Remove duplicates while preserving order
+        # ------------------------------
+        def dedupe(seq):
+            seen = set()
+            result = []
+            for x in seq:
+                if x not in seen:
+                    seen.add(x)
+                    result.append(x)
+            return result
+
+        for field in extracted:
+            extracted[field]["date"] = dedupe(extracted[field]["date"])
+            extracted[field]["fromAmount"] = dedupe(extracted[field]["fromAmount"])
+
+        # ------------------------------
+        # Format FromAmount with comma separators
         # ------------------------------
         def format_amount_list(lst):
             return "; ".join(f"{int(a):,}" for a in lst if a is not None)
@@ -176,7 +192,7 @@ if uploaded_file:
                 (
                     field,
                     extracted[field]["value"] if extracted[field]["value"] is not None else "",
-                    "; ".join(str(d) for d in extracted[field]["date"] if d is not None),
+                    "; ".join(str(d) for d in extracted[field]["date"]),
                     format_amount_list(extracted[field]["fromAmount"]),
                 )
                 for field in allowed_fields
@@ -197,7 +213,7 @@ if uploaded_file:
             # Auto-width columns
             for col in ws.columns:
                 max_len = max(len(str(cell.value)) if cell.value else 0 for cell in col)
-                ws.column_dimensions[get_column_letter(col[0].column)].width = max_len + 2
+                ws.column_dimensions[get_column_letter(col[0].column)].width = max_len + 4
 
             # Bold first column
             for cell in ws["A"]:
@@ -220,6 +236,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
