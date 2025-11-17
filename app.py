@@ -27,7 +27,7 @@ allowed_fields = {
     "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets"],
     "(AOP024)Loans to Group":["Loans to Group"],
     "(AOP025)Long term loans":["Long term loans"],
-    "(AOP031)Long-term receivables": ["Long term receivables", "Other long term investments and receivables"],
+    "(AOP031)Long-term receivables": ["Long-term receivables", "Other long term investments and receivables"],
     "(AOP035)Deferred tax assets": ["DEFERRED TAX ASSETS", "Deferred tax assets"],
     "(AOP030)Other financial fixed assets":["Other financial fixed assets"],
     "(AOP034)Other long term receivables":["Other long term receivables"],
@@ -212,6 +212,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
