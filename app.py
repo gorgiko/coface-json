@@ -38,7 +38,7 @@ allowed_fields = {
     "(AOP040)Work in progress":["Work in progress"],
     "(AOP041)Finished products and goods":["Finished products and goods", "Finished products/merchandise", "Finished goods", "Goods"],
     "(AOP042)Traiding Goods":["Traiding Goods","Inventory-Trading Goods","Inventory - Trading Goods"],
-    "(AOP048)Prepayments":["Prepayments"],
+    "(AOP048)Prepayments":["Prepayments","Payments in advance for stock"],
     "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES", "Total receivables", "Receivables", "Receivables and other assets"],
     "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables"],
     "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyer", "Trade debtor" , "Trade receivables"],
@@ -212,6 +212,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
