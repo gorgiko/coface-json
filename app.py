@@ -119,12 +119,13 @@ st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
 
+
 if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
         # ------------------------------
-        # Initialize extracted dict
+        # Initialize extracted structure
         # ------------------------------
         extracted = {
             field: {"value": None, "date": [], "fromAmount": []}
@@ -132,10 +133,11 @@ if uploaded_file:
         }
 
         # ------------------------------
-        # Recursive extraction
+        # Extract values recursively
         # ------------------------------
         def extract_values(obj, parent=None):
             if isinstance(obj, dict):
+
                 if "name" in obj and "value" in obj:
                     name = str(obj["name"]).strip()
                     value = obj.get("value")
@@ -160,10 +162,12 @@ if uploaded_file:
                 for item in obj:
                     extract_values(item, parent)
 
+
         extract_values(data)
 
+
         # ------------------------------
-        # Remove duplicates while preserving order
+        # Remove duplicates (preserve order)
         # ------------------------------
         def dedupe(seq):
             seen = set()
@@ -178,11 +182,33 @@ if uploaded_file:
             extracted[field]["date"] = dedupe(extracted[field]["date"])
             extracted[field]["fromAmount"] = dedupe(extracted[field]["fromAmount"])
 
+
+        # ------------------------------
+        # Convert COFACE dates
+        # ------------------------------
+        def convert_date(value):
+            value = str(value)
+
+            # Year only
+            if value.endswith("0000"):
+                return value[:4]
+
+            # Full date YYYYMMDD -> DD.MM.YYYY
+            if len(value) == 8:
+                year = value[:4]
+                month = value[4:6]
+                day = value[6:8]
+                return f"{day}.{month}.{year}"
+
+            return value
+
+
         # ------------------------------
         # Format FromAmount with comma separators
         # ------------------------------
         def format_amount_list(lst):
             return "; ".join(f"{int(a):,}" for a in lst if a is not None)
+
 
         # ------------------------------
         # Build DataFrame
@@ -192,7 +218,7 @@ if uploaded_file:
                 (
                     field,
                     extracted[field]["value"] if extracted[field]["value"] is not None else "",
-                    "; ".join(str(d) for d in extracted[field]["date"]),
+                    "; ".join(convert_date(d) for d in extracted[field]["date"]),
                     format_amount_list(extracted[field]["fromAmount"]),
                 )
                 for field in allowed_fields
@@ -202,6 +228,7 @@ if uploaded_file:
 
         st.dataframe(df)
 
+
         # ------------------------------
         # Export to Excel
         # ------------------------------
@@ -210,7 +237,7 @@ if uploaded_file:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
             ws = writer.sheets["Sheet1"]
 
-            # Auto-width columns
+            # Auto column width
             for col in ws.columns:
                 max_len = max(len(str(cell.value)) if cell.value else 0 for cell in col)
                 ws.column_dimensions[get_column_letter(col[0].column)].width = max_len + 4
@@ -222,11 +249,14 @@ if uploaded_file:
             # Borders
             thin = Side(border_style="thin", color="000000")
             border = Border(left=thin, right=thin, top=thin, bottom=thin)
+
             for row in ws.iter_rows():
                 for cell in row:
                     cell.border = border
 
+
         output.seek(0)
+
         st.download_button(
             label="📥 Download Excel",
             data=output,
