@@ -132,38 +132,40 @@ if uploaded_file:
             for field in allowed_fields
         }
 
-        # ------------------------------
-        # Extract values recursively
-        # ------------------------------
-             # ------------------------------
-        # Extract values recursively
-        # ------------------------------
-       def extract_values(obj, parent=None):
+     # ------------------------------
+# Extract values recursively
+# ------------------------------
+def extract_values(obj, parent=None):
     if isinstance(obj, dict):
 
+        # Match name/value fields
         if "name" in obj and "value" in obj:
-            name = str(obj["name"]).trim()
+            name = str(obj["name"]).strip()
             value = obj.get("value")
 
             for field, aliases in allowed_fields.items():
                 if any(name.lower() == alias.lower() for alias in aliases):
 
+                    # Save main numeric value
                     if extracted[field]["value"] is None:
                         extracted[field]["value"] = value
 
-                    # --- FIX: Pair date & fromAmount ---
+                    # --- FIX: pair date & fromAmount ---
                     if "date" in obj or "fromAmount" in obj:
                         extracted[field]["date"].append(obj.get("date"))
                         extracted[field]["fromAmount"].append(obj.get("fromAmount"))
 
                     break
 
+        # Recurse into nested dict
         for key, val in obj.items():
             extract_values(val, obj)
 
     elif isinstance(obj, list):
+        # Recurse into list
         for item in obj:
-            extract_values(item)
+            extract_values(item, parent)
+
 
 
 
@@ -269,6 +271,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
