@@ -172,12 +172,13 @@ if uploaded_file:
         df = pd.DataFrame(list(extracted.items()), columns=["Field", "Value"])
         st.dataframe(df)
 
-        # Save to Excel with auto-adjusted columns
+        # Save to Excel with auto-adjusted columns + formatting
         output = BytesIO()
         with pd.ExcelWriter(output, engine="openpyxl") as writer:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
             ws = writer.sheets["Sheet1"]
 
+            # Auto-fit columns
             for col in ws.columns:
                 max_length = 0
                 column_letter = get_column_letter(col[0].column)
@@ -185,19 +186,20 @@ if uploaded_file:
                     if cell.value:
                         max_length = max(max_length, len(str(cell.value)))
                 ws.column_dimensions[column_letter].width = max_length + 2
-  
-    # Bold the first column (Field)
-    for cell in ws["A"]:
-        cell.font = Font(bold=True)
 
-    # Add borders to all cells
-    thin = Side(border_style="thin", color="000000")
-    border = Border(left=thin, right=thin, top=thin, bottom=thin)
+            # Bold first column (Field)
+            for cell in ws["A"]:
+                cell.font = Font(bold=True)
 
-    for row in ws.iter_rows():
-        for cell in row:
-            cell.border = border
-            
+            # Add borders to all cells
+            thin = Side(border_style="thin", color="000000")
+            border = Border(left=thin, right=thin, top=thin, bottom=thin)
+
+            for row in ws.iter_rows():
+                for cell in row:
+                    cell.border = border
+
+        # Finalize and allow download
         output.seek(0)
         st.download_button(
             label="📥 Download Excel",
@@ -206,8 +208,11 @@ if uploaded_file:
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         )
 
+
+
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
