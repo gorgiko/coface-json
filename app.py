@@ -141,37 +141,45 @@ def dedupe(seq):
     return result
 
 # Recursive extraction
-def extract_values(obj):
+def extract_values(obj, parent_dates=None, parent_amounts=None):
+    if parent_dates is None:
+        parent_dates = []
+    if parent_amounts is None:
+        parent_amounts = []
+
     if isinstance(obj, dict):
-        # If object has a name, check if it's in allowed fields
-        if "name" in obj:
+        # Update parent info if available
+        current_dates = parent_dates.copy()
+        current_amounts = parent_amounts.copy()
+
+        if "date" in obj:
+            current_dates.append(obj["date"])
+        if "fromAmount" in obj:
+            current_amounts.append(obj["fromAmount"])
+
+        # If object has a name and value
+        if "name" in obj and "value" in obj:
             name = str(obj["name"]).strip()
             value = obj.get("value")
-            date = obj.get("date")
-            from_amount = obj.get("fromAmount")
 
             for field, aliases in allowed_fields.items():
                 if any(name.lower() == alias.lower() for alias in aliases):
-                    # Store the value if not already stored
+                    # Store value if not set
                     if extracted[field]["value"] is None and value is not None:
                         extracted[field]["value"] = value
 
-                    # Append date if exists
-                    if date is not None:
-                        extracted[field]["date"].append(date)
-
-                    # Append fromAmount if exists
-                    if from_amount is not None:
-                        extracted[field]["fromAmount"].append(from_amount)
+                    # Append collected dates/amounts
+                    extracted[field]["date"].extend(current_dates)
+                    extracted[field]["fromAmount"].extend(current_amounts)
                     break
 
-        # Recursively check all keys
+        # Recursively process all child items
         for k, v in obj.items():
-            extract_values(v)
+            extract_values(v, current_dates, current_amounts)
 
     elif isinstance(obj, list):
         for item in obj:
-            extract_values(item)
+            extract_values(item, parent_dates, parent_amounts)
 
 
 # ------------------------------
@@ -240,6 +248,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
