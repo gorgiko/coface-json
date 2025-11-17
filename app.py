@@ -160,7 +160,11 @@ if uploaded_file:
                     extract_values(item, parent)
 
         extract_values(data)
-
+          # ------------------------------
+        # Format FromAmount with thousands separator
+        # ------------------------------
+        def format_amount_list(lst):
+            return "; ".join(f"{int(a):,}" for a in lst if a is not None)
         # ------------------------------
         # Build DataFrame
         # ------------------------------
@@ -213,6 +217,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
