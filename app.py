@@ -30,7 +30,7 @@ allowed_fields = {
     "(AOP031)Long-term receivables": ["Long-term receivables", "Other long term investments and receivables"],
     "(AOP035)Deferred tax assets": ["DEFERRED TAX ASSETS", "Deferred tax assets"],
     "(AOP030)Other financial fixed assets":["Other financial fixed assets"],
-    "(AOP034)Other long term receivables":["Other long term receivables"],
+    "(AOP034)Other long term receivables":["Other long term receivables","Other long-term receivables"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
     "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies", "Inventory-raw materials, consumabeles and supplies", "Inventory of materials(fabrication material, spare parts)"],
@@ -212,6 +212,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
