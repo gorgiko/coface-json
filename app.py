@@ -165,8 +165,6 @@ if uploaded_file:
 
         extract_values(data)
 
-
-
         # ------------------------------
         # Remove duplicates (preserve order)
         # ------------------------------
@@ -267,6 +265,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
