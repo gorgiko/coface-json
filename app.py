@@ -101,7 +101,7 @@ allowed_fields = {
     "(AOP252)Profit tax": ["Profit tax","Income tax"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
-# Streamlit page config
+# ----------------------- PAGE CONFIG -----------------------
 st.set_page_config(
     page_title="Coface JSON",
     page_icon="📄",
@@ -110,7 +110,7 @@ st.set_page_config(
     menu_items={'Get Help': None, 'Report a bug': None, 'About': None}
 )
 
-# Hide Streamlit branding
+# Hide Streamlit UI elements
 hide_streamlit_style = """
 <style>
 #MainMenu {visibility: hidden;}
@@ -124,15 +124,15 @@ footer {visibility: hidden;}
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 # Custom footer
-custom_footer = """
+st.markdown("""
 <div style="position: fixed; bottom: 0; width: 100%; 
             background-color: #f5f5f5; padding: 10px; 
             text-align: center; font-size: 14px; color: #444;">
     Created by Gorgi Kokinovski  
 </div>
-"""
-st.markdown(custom_footer, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
+# ----------------------- MAIN UI -----------------------
 st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
@@ -141,38 +141,61 @@ if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        # Initialize extracted dictionary
-        extracted = {field: "" for field in allowed_fields}
-        found_names = []
+        # ----------------------- DATA STRUCTURE -----------------------
+        # Store MULTIPLE occurrences in LISTS
+        extracted = {
+            field: {"value": [], "date": [], "fromAmount": []}
+            for field in allowed_fields
+        }
 
+        # ----------------------- EXTRACTION LOGIC -----------------------
         def extract_values(obj):
-            """Recursively search for 'name' and 'value' in JSON"""
+            """Recursively extract value/date/fromAmount and assign to correct AOP field."""
             if isinstance(obj, dict):
+
                 if "name" in obj and "value" in obj:
                     name = str(obj["name"]).strip()
-                    value = obj["value"]
-                    found_names.append(name)
+
+                    val = obj.get("value", "")
+                    date = obj.get("date", "")
+                    fromAmount = obj.get("fromAmount", "")
 
                     # Match against aliases
                     for field, aliases in allowed_fields.items():
-                        if extracted[field] == "" and any(
-                            name.lower() == alias.lower() for alias in aliases
-                        ):
-                            extracted[field] = value
+                        if any(name.lower() == alias.lower() for alias in aliases):
+                            extracted[field]["value"].append(val)
+                            extracted[field]["date"].append(date)
+                            extracted[field]["fromAmount"].append(fromAmount)
                             break
 
+                # Recurse
                 for v in obj.values():
                     extract_values(v)
+
             elif isinstance(obj, list):
                 for item in obj:
                     extract_values(item)
 
+
         extract_values(data)
 
-        df = pd.DataFrame(list(extracted.items()), columns=["Field", "Value"])
+        # ----------------------- BUILD DATAFRAME -----------------------
+        df = pd.DataFrame(
+            [
+                (
+                    field,
+                    "; ".join(str(v) for v in info["value"]) if info["value"] else "",
+                    "; ".join(str(d) for d in info["date"]) if info["date"] else "",
+                    "; ".join(str(f) for f in info["fromAmount"]) if info["fromAmount"] else "",
+                )
+                for field, info in extracted.items()
+            ],
+            columns=["Field", "Value", "Date", "FromAmount"]
+        )
+
         st.dataframe(df)
 
-        # Save to Excel with auto-adjusted columns + formatting
+        # ----------------------- EXPORT TO EXCEL -----------------------
         output = BytesIO()
         with pd.ExcelWriter(output, engine="openpyxl") as writer:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
@@ -187,11 +210,11 @@ if uploaded_file:
                         max_length = max(max_length, len(str(cell.value)))
                 ws.column_dimensions[column_letter].width = max_length + 2
 
-            # Bold first column (Field)
+            # Bold Field column
             for cell in ws["A"]:
                 cell.font = Font(bold=True)
 
-            # Add borders to all cells
+            # Add borders
             thin = Side(border_style="thin", color="000000")
             border = Border(left=thin, right=thin, top=thin, bottom=thin)
 
@@ -199,16 +222,14 @@ if uploaded_file:
                 for cell in row:
                     cell.border = border
 
-        # Finalize and allow download
         output.seek(0)
+
         st.download_button(
             label="📥 Download Excel",
             data=output,
             file_name="mapped_values.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         )
-
-
 
     except Exception as e:
         st.error(f"Error: {e}")
