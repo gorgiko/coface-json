@@ -168,7 +168,7 @@ if uploaded_file:
 
         extract_values(data)
 
-        df = pd.DataFrame([extracted])
+        df = pd.DataFrame(list(extracted.items()), columns=["Field", "Value"])
         st.dataframe(df)
 
         # Save to Excel with auto-adjusted columns
@@ -195,6 +195,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
