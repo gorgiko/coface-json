@@ -8,7 +8,7 @@ from openpyxl.utils import get_column_letter
 allowed_fields = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
-    "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions,industrial rights,licences"," Concessions,patents,licences,trademarks, service marks,software and ather intangible assets","Concessions,patents,licenses  and similar rights and other intangible assets"],
+    "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions,industrial rights,licences","Concessions,patents,licences,trademarks", "Service marks,software and other intangible assets","Concessions,patents,licenses and similar rights and other intangible assets"],
     "(AOP005)Goodwill":["Goodwill"],
     "(AOP006)Advances for intangible assets and intangible assets in preparation":["Advances for intangible assets and intangible assets in preparation"],
     "(AOP008)Other intangible fixed assets":["Other intangible fixed assets"],
@@ -195,6 +195,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
