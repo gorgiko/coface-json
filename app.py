@@ -163,7 +163,7 @@ if uploaded_file:
                     extract_values(item, parent)
 
 
-        extract_values(data)
+      #  extract_values(data)
 
         # ------------------------------
         # Remove duplicates (preserve order)
@@ -265,6 +265,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
