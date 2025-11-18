@@ -101,7 +101,6 @@ allowed_fields = {
     "(AOP252)Profit tax": ["Profit tax","Income tax"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
-
 # ------------------------------
 # Streamlit page config
 # ------------------------------
@@ -129,7 +128,26 @@ def convert_date(value):
     return value
 
 def format_amount_list(lst):
-    return "; ".join(f"{int(a):,}" for a in lst if a is not None)
+    """Format amounts into German style, e.g. 102.261.587,00"""
+    formatted = []
+    for a in lst:
+        if a is None:
+            continue
+
+        num = float(a)
+
+        # First format as US: 102,261,587.00
+        s = f"{num:,.2f}"
+
+        # Convert to German: 102.261.587,00
+        s = s.replace(",", "X")  # temporary placeholder
+        s = s.replace(".", ",")  # decimal separator becomes comma
+        s = s.replace("X", ".")  # thousands separators become dots
+
+        formatted.append(s)
+
+    return "; ".join(formatted)
+
 
 def dedupe(seq):
     seen = set()
@@ -148,7 +166,6 @@ def extract_values(obj, parent_dates=None, parent_amounts=None):
         parent_amounts = []
 
     if isinstance(obj, dict):
-        # Update parent info if available
         current_dates = parent_dates.copy()
         current_amounts = parent_amounts.copy()
 
@@ -157,23 +174,20 @@ def extract_values(obj, parent_dates=None, parent_amounts=None):
         if "fromAmount" in obj:
             current_amounts.append(obj["fromAmount"])
 
-        # If object has a name and value
         if "name" in obj and "value" in obj:
             name = str(obj["name"]).strip()
             value = obj.get("value")
 
             for field, aliases in allowed_fields.items():
                 if any(name.lower() == alias.lower() for alias in aliases):
-                    # Store value if not set
+
                     if extracted[field]["value"] is None and value is not None:
                         extracted[field]["value"] = value
 
-                    # Append collected dates/amounts
                     extracted[field]["date"].extend(current_dates)
                     extracted[field]["fromAmount"].extend(current_amounts)
                     break
 
-        # Recursively process all child items
         for k, v in obj.items():
             extract_values(v, current_dates, current_amounts)
 
@@ -189,18 +203,14 @@ if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        # Initialize extracted structure
         extracted = {field: {"value": None, "date": [], "fromAmount": []} for field in allowed_fields}
 
-        # Extract values recursively
         extract_values(data)
 
-        # Remove duplicates
         for field in extracted:
             extracted[field]["date"] = dedupe(extracted[field]["date"])
             extracted[field]["fromAmount"] = dedupe(extracted[field]["fromAmount"])
 
-        # Build DataFrame
         df = pd.DataFrame(
             [
                 (
@@ -216,22 +226,18 @@ if uploaded_file:
 
         st.dataframe(df)
 
-        # Export to Excel
         output = BytesIO()
         with pd.ExcelWriter(output, engine="openpyxl") as writer:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
             ws = writer.sheets["Sheet1"]
 
-            # Auto column width
             for col in ws.columns:
                 max_len = max(len(str(cell.value)) if cell.value else 0 for cell in col)
                 ws.column_dimensions[get_column_letter(col[0].column)].width = max_len + 4
 
-            # Bold first column
             for cell in ws["A"]:
                 cell.font = Font(bold=True)
 
-            # Borders
             thin = Side(border_style="thin", color="000000")
             border = Border(left=thin, right=thin, top=thin, bottom=thin)
             for row in ws.iter_rows():
