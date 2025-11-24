@@ -52,7 +52,7 @@ allowed_fields = {
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
-    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital"],
+    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital"],
     "(AOP067)Emission premium":["Emission premium","Share premium"],
     "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)"],
     "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
