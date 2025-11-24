@@ -81,7 +81,7 @@ allowed_fields = {
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
     "(AOP101)Liability for income tax":["Liability for income tax","S-term Liabilities for tax,contributions and other fees"],
     "(AOP104)Obligations for taken loans and credits":["Obligations for taken loans and credits","Short Term Bank Debt","Short liabilities for loans","Short term loans","Short term financial liabilities","Obligation for taken loans","BANK LOANS AND OVERDRAFT","Liabilities to bank","Loans liabilities from credit institutions","Short-term liabilities for loans","Short-term financial liabilities","S-term Liabilities payable to financial institutions"],
-    "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities"],
+    "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities","Other short-term liabilities"],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
