@@ -13,7 +13,7 @@ allowed_fields = {
     "(AOP005)Goodwill":["Goodwill"],
     "(AOP006)Advances for intangible assets and intangible assets in preparation":["Advances for intangible assets and intangible assets in preparation"],
     "(AOP008)Other intangible fixed assets":["Other intangible fixed assets"],
-    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants, equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment"],
+    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants, equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment","Tangible assets"],
     "(AOP010)Land and buildings":["Land and buildings","Property, plant and equipment"],
     "(AOP011)Land":["Land"],
     "(AOP012)Buildings":["Buildings"],
@@ -24,7 +24,7 @@ allowed_fields = {
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
     "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment"],
     "(AOP020)Investments in real estate": ["Investments in real estate"],
-    "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets","LONG-TERM FINANCIAL INVESTMENTS AND LONG-TERM RECEIVABLES"],
+    "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets","LONG-TERM FINANCIAL INVESTMENTS AND LONG-TERM RECEIVABLES","Financial assets"],
     "(AOP024)Loans to Group":["Loans to Group"],
     "(AOP025)Long term loans":["Long term loans"],
     "(AOP031)Long-term receivables": ["Long-term receivables", "Other long term investments and receivables"],
@@ -41,7 +41,7 @@ allowed_fields = {
     "(AOP048)Prepayments":["Prepayments","Payments in advance for stock"],
     "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES", "Total receivables", "Receivables", "Receivables and other assets"],
     "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables","Receivables from foreign parent companies, subsidiaries and other associated companies"],
-    "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyer", "Trade debtor" , "Trade receivables"],
+    "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyer", "Trade debtor" , "Trade receivables","Trade debtors"],
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
     "(AOP049)Receivables from the state and other institutions": ["Prepaid corporate income tax","Receivables from the state and other institutions"],
     "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
@@ -69,21 +69,21 @@ allowed_fields = {
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"],
     "(AOP087)Trade liabilities":["Trade liabilities"],
-    "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions","Long-term credits, loans and leasing liabilities – domestic"],
+    "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions","Long-term credits, loans and leasing liabilities – domestic","Long-term Loans, Mortgage debts"],
     "(AOP092)Other loans/finance due after 1 year":["Other loans/finance due after 1 year"],
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES","Short- term liabilities","Short term liabilities","SHORT- TERM LIABILITIES", "TOTAL CURRENT LIABILITIES", "Total current liabilities","Short- term liabilities and short term provisions"," Short- term financial and operating liabilities"],
     "(AOP096)Short-term liabilities to affiliates": ["Short-term liabilities to affiliates","Liabilities of disposal groups", " Trade payables-foreing parent company, subsidiares and other associated companies", " Liabilities to affiliated companies","Group payables"],
     "(AOP098)Prepayments, deposits and gurantee":["Prepayments, deposits and gurantee","Liabilities for securities","Prepayments, deposits and guarantees"],
     "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": ["Liabilities for loans, deposits, etc. to companies within the group"],
-    "(AOP097)Short-term trade creditors": ["Short-term trade creditors", "Liabilities to suppliers","Trade Payables","Trade creditors(acounts payable)", " Trade payables","Commitments towards suppliers"],
+    "(AOP097)Short-term trade creditors": ["Short-term trade creditors", "Liabilities to suppliers","Trade Payables","Trade creditors(acounts payable)", " Trade payables","Commitments towards suppliers","Trade payable"],
     "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
     "(AOP101)Liability for income tax":["Liability for income tax","S-term Liabilities for tax,contributions and other fees"],
-    "(AOP104)Obligations for taken loans and credits":["Obligations for taken loans and credits","Short Term Bank Debt","Short liabilities for loans","Short term loans","Short term financial liabilities","Obligation for taken loans","BANK LOANS AND OVERDRAFT","Liabilities to bank","Loans liabilities from credit institutions","Short-term liabilities for loans","Short-term financial liabilities","S-term Liabilities payable to financial institutions"],
+    "(AOP104)Obligations for taken loans and credits":["Obligations for taken loans and credits","Short Term Bank Debt","Short liabilities for loans","Short term loans","Short term financial liabilities","Obligation for taken loans","BANK LOANS AND OVERDRAFT","Liabilities to bank","Loans liabilities from credit institutions","Short-term liabilities for loans","Short-term financial liabilities","S-term Liabilities payable to financial institutions","Banks loans and overdraft"],
     "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities","Other short-term liabilities"],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
-    "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL"],
+    "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
     "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income"],
     "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
