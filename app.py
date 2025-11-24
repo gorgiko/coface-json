@@ -14,7 +14,7 @@ allowed_fields = {
     "(AOP006)Advances for intangible assets and intangible assets in preparation":["Advances for intangible assets and intangible assets in preparation"],
     "(AOP008)Other intangible fixed assets":["Other intangible fixed assets"],
     "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants, equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment"],
-    "(AOP010)Land and buildings":["Land and buildings"],
+    "(AOP010)Land and buildings":["Land and buildings","Property, plant and equipment"],
     "(AOP011)Land":["Land"],
     "(AOP012)Buildings":["Buildings"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
