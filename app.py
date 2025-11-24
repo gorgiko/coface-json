@@ -90,7 +90,7 @@ allowed_fields = {
     "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
     "(AOP207)Operating expenses": ["Operating expenses"],
-    "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables"],
+    "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
     "(AOP209)Cost of goods sold": ["Cost of goods sold"],
     "(AOP213)Staff costs": ["Staff costs (employee costs)"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
