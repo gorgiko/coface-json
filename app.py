@@ -57,7 +57,7 @@ allowed_fields = {
     "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)"],
     "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital"],
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue"],
-    "(AOP070)Revaluation reserves": ["Revaluation reserves"],
+    "(AOP070)Revaluation reserves": ["Revaluation reserves","POSITIVE REVALUATION RESERVES AND UNREALIZED PROFIT FROM FINANCIAL ASSETS AND OTHER ELEMENTS OF OTHER COMPREHENSIVE INCOME"],
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
