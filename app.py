@@ -85,7 +85,7 @@ allowed_fields = {
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
-    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers"],
+    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income"],
     "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)"],
     "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
