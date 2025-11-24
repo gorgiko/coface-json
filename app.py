@@ -94,7 +94,7 @@ allowed_fields = {
     "(AOP209)Cost of goods sold": ["Cost of goods sold"],
     "(AOP213)Staff costs": ["Staff costs (employee costs)"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation"],
-    "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses"],
+    "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs"],
     "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME"],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
