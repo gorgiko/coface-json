@@ -24,7 +24,7 @@ allowed_fields = {
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
     "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment"],
     "(AOP020)Investments in real estate": ["Investments in real estate"],
-    "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets"],
+    "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets","LONG-TERM FINANCIAL INVESTMENTS AND LONG-TERM RECEIVABLES"],
     "(AOP024)Loans to Group":["Loans to Group"],
     "(AOP025)Long term loans":["Long term loans"],
     "(AOP031)Long-term receivables": ["Long-term receivables", "Other long term investments and receivables"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
