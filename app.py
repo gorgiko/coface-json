@@ -39,7 +39,7 @@ allowed_fields = {
     "(AOP041)Finished products and goods":["Finished products and goods", "Finished products/merchandise", "Finished goods", "Goods"],
     "(AOP042)Traiding Goods":["Traiding Goods","Inventory-Trading Goods","Inventory - Trading Goods"],
     "(AOP048)Prepayments":["Prepayments","Payments in advance for stock"],
-    "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES", "Total receivables", "Receivables", "Receivables and other assets"],
+    "(AOP045)Short-term receivables": ["Short-term receivables", "SHORT-TERM RECEIVABLES", "Total receivables", "Receivables", "Receivables and other assets","Claims (receivable)"],
     "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables","Receivables from foreign parent companies, subsidiaries and other associated companies","Group Receivables"],
     "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyers", "Trade debtor" , "Trade receivables","Trade debtors"],
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
@@ -47,7 +47,7 @@ allowed_fields = {
     "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
     "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets","Short-term financial investments"],
     "(AOP058)Other short-term financial investments":["other short-term financial investments","Other short term financial assets"],
-    "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand"],
+    "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
@@ -62,8 +62,8 @@ allowed_fields = {
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)"],
     "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
-    "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt"],
-    "(AOP082)Provision for risks and charges":["Provision for risks and charges"],
+    "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
+    "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
     "(AOP084)Other provisions":["Other provisions"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities"],
@@ -85,7 +85,7 @@ allowed_fields = {
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES","Balance sheet total"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
-    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover"],
+    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
     "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover"],
     "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
