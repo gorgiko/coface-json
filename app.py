@@ -54,22 +54,22 @@ allowed_fields = {
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
     "(AOP067)Emission premium":["Emission premium","Share premium"],
-    "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)"],
+    "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)","Share capital"],
     "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital"],
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves","POSITIVE REVALUATION RESERVES AND UNREALIZED PROFIT FROM FINANCIAL ASSETS AND OTHER ELEMENTS OF OTHER COMPREHENSIVE INCOME"],
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
-    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)"],
+    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods"],
     "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
     "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
     "(AOP084)Other provisions":["Other provisions"],
-    "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities"],
+    "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities","Long-term financial and operating liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"],
     "(AOP087)Trade liabilities":["Trade liabilities"],
-    "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions","Long-term credits, loans and leasing liabilities – domestic","Long-term Loans, Mortgage debts"],
+    "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans", "Long term liabilities to financial institutions","Long term creditis", "loans and lizing liabilities","Long term loans","Bank liabilites due after 1 year","Long term financial liabilities","Long term liabilities to credit institutions","Long-term credits, loans and leasing liabilities – domestic","Long-term Loans, Mortgage debts","Long-term financial liabilities"],
     "(AOP092)Other loans/finance due after 1 year":["Other loans/finance due after 1 year","Long term liabilities payable to financial institutions"],
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES","Short- term liabilities","Short term liabilities","SHORT- TERM LIABILITIES", "TOTAL CURRENT LIABILITIES", "Total current liabilities","Short- term liabilities and short term provisions"," Short- term financial and operating liabilities"],
@@ -92,7 +92,7 @@ allowed_fields = {
     "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
     "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
     "(AOP209)Cost of goods sold": ["Cost of goods sold","The purchase value of the goods sold","Cost of materials (type of expenditure format)"],
-    "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries"],
+    "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries","Short-term financial and operating liabilities"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions"],
     "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
     "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
