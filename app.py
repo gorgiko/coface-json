@@ -23,11 +23,11 @@ allowed_fields = {
     "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advances in property,plant,equipment and biological assets and property,biological asset in preparation"],
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
     "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment","Other equipment, furniture, fittings, tools, fixtures, vehicles","Other unspecified material fixed assets"],
-    "(AOP020)Investments in real estate": ["Investments in real estate"],
+    "(AOP020)Investments in real estate": ["Investments in real estate","Investment property measured at the cost model"],
     "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets","LONG-TERM FINANCIAL INVESTMENTS AND LONG-TERM RECEIVABLES","Financial assets"],
     "(AOP024)Loans to Group":["Loans to Group","Long-term loans to parent and subsidiary legal entities"],
     "(AOP025)Long term loans":["Long term loans","Long-term loans to legal entities with equity participation (excluding subsidiaries)"],
-    "(AOP031)Long-term receivables": ["Long-term receivables", "Other long term investments and receivables"],
+    "(AOP031)Long-term receivables": ["Long-term receivables", "Other long term investments and receivables","Long-term operating receivables"],
     "(AOP035)Deferred tax assets": ["DEFERRED TAX ASSETS", "Deferred tax assets"],
     "(AOP030)Other financial fixed assets":["Other financial fixed assets"],
     "(AOP034)Other long term receivables":["Other long term receivables","Other long-term receivables"],
@@ -45,7 +45,7 @@ allowed_fields = {
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
     "(AOP049)Receivables from the state and other institutions": ["Prepaid corporate income tax","Receivables from the state and other institutions"],
     "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
-    "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets","Short-term financial investments"],
+    "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets","Short-term financial investments","Short-term investments"],
     "(AOP058)Other short-term financial investments":["other short-term financial investments","Other short term financial assets"],
     "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
