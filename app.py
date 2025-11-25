@@ -55,12 +55,12 @@ allowed_fields = {
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
     "(AOP067)Emission premium":["Emission premium","Share premium"],
     "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)","Share capital"],
-    "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital"],
-    "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves"],
+    "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital","Subscribed capital unpaid"],
+    "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves","Capital reserve"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves","POSITIVE REVALUATION RESERVES AND UNREALIZED PROFIT FROM FINANCIAL ASSETS AND OTHER ELEMENTS OF OTHER COMPREHENSIVE INCOME"],
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
-    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods"],
+    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve"],
     "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
     "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
@@ -86,19 +86,19 @@ allowed_fields = {
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES","Balance sheet total"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
     "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
-    "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover","Operating income"],
-    "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)"],
+    "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover","Operating income","Net sales revenue"],
+    "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)","Other income"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
     "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
     "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
     "(AOP209)Cost of goods sold": ["Cost of goods sold","The purchase value of the goods sold","Cost of materials (type of expenditure format)"],
-    "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries","Short-term financial and operating liabilities"],
-    "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions"],
+    "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries","Short-term financial and operating liabilities","Personnel type expenses"],
+    "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions","Depreciation and amortization"],
     "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
-    "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME"],
+    "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
-    "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax"],
+    "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
 # ------------------------------
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
