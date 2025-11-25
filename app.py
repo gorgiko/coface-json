@@ -13,20 +13,20 @@ allowed_fields = {
     "(AOP005)Goodwill":["Goodwill"],
     "(AOP006)Advances for intangible assets and intangible assets in preparation":["Advances for intangible assets and intangible assets in preparation"],
     "(AOP008)Other intangible fixed assets":["Other intangible fixed assets"],
-    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants, equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment","Tangible assets"],
+    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants,equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment","Tangible assets"],
     "(AOP010)Land and buildings":["Land and buildings","Property, plant and equipment"],
-    "(AOP011)Land":["Land"],
-    "(AOP012)Buildings":["Buildings"],
+    "(AOP011)Land":["Land","Land and buildings"],
+    "(AOP012)Buildings":["Buildings","Land and buildings"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
-    "(AOP016)Biological property":["Biological property"],
-    "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advences in property,plant,equipment and biological assets and property,biological asset in preparation"],
+    "(AOP016)Biological property":["Biological property","Biological assets"],
+    "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advances in property,plant,equipment and biological assets and property,biological asset in preparation"],
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
-    "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment","Other equipment, furniture, fittings, tools, fixtures, vehicles"],
+    "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment","Other equipment, furniture, fittings, tools, fixtures, vehicles","Other unspecified material fixed assets"],
     "(AOP020)Investments in real estate": ["Investments in real estate"],
     "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets","LONG-TERM FINANCIAL INVESTMENTS AND LONG-TERM RECEIVABLES","Financial assets"],
-    "(AOP024)Loans to Group":["Loans to Group"],
-    "(AOP025)Long term loans":["Long term loans"],
+    "(AOP024)Loans to Group":["Loans to Group","Long-term loans to parent and subsidiary legal entities"],
+    "(AOP025)Long term loans":["Long term loans","Long-term loans to legal entities with equity participation (excluding subsidiaries)"],
     "(AOP031)Long-term receivables": ["Long-term receivables", "Other long term investments and receivables"],
     "(AOP035)Deferred tax assets": ["DEFERRED TAX ASSETS", "Deferred tax assets"],
     "(AOP030)Other financial fixed assets":["Other financial fixed assets"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
