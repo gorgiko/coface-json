@@ -17,7 +17,7 @@ allowed_fields = {
     "(AOP010)Land and buildings":["Land and buildings","Property, plant and equipment","Land & Buildings"],
     "(AOP011)Land":["Land","Land and buildings"],
     "(AOP012)Buildings":["Buildings","Land and buildings"],
-    "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment"],
+    "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment","Plant & Machinery"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
     "(AOP016)Biological property":["Biological property","Biological assets"],
     "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advances in property,plant,equipment and biological assets and property,biological asset in preparation","Advances in property, plant, equipment and biological assets and property, plant, equipment and biological assets in preparation"],
@@ -254,6 +254,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
