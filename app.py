@@ -201,7 +201,7 @@ allowed_fields_croatia = {
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
+    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit or Loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
 allowed_fields_slovenia = {}
 allowed_fields_bosnia = {}
@@ -373,6 +373,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
