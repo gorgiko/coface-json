@@ -218,19 +218,18 @@ if uploaded_file:
         # Create DataFrame + NEW COLUMN
         # ---------------------------
         df = pd.DataFrame(
-            [
-                (
-                    field,
-                    extracted[field]["value"] if extracted[field]["value"] is not None else "",
-                    "; ".join(convert_date(d) for d in extracted[field]["date"]),
-                    format_amount_list(extracted[field]["fromAmount"]),
-                    f"{extract_aop_code(field)} {extracted[field]['value'] if extracted[field]['value'] is not None else ''}"
-                )
-                for field in allowed_fields
-            ],
-            columns=["Field", "Value", "Date", "FromAmount", "NameMapping"]
+    [
+        (
+            field,
+            extracted[field]["value"] if extracted[field]["value"] is not None else "",
+            f"{extract_aop_code(field)} {extracted[field]['value'] if extracted[field]['value'] is not None else ''}",  # NameMapping moved here
+            "; ".join(convert_date(d) for d in extracted[field]["date"]),
+            format_amount_list(extracted[field]["fromAmount"])
         )
-
+        for field in allowed_fields
+    ],
+    columns=["Field", "Value", "NameMapping", "Date", "FromAmount"]  # NEW ORDER
+)
         st.dataframe(df)
 
         output = BytesIO()
@@ -262,6 +261,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
