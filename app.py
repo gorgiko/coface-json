@@ -112,53 +112,51 @@ header {visibility: hidden;}
 footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 st.title("Convert COFACE JSON fields to Excel")
 
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
+
 
 # ------------------------------
 # Helper functions
 # ------------------------------
 def convert_date(value):
     value = str(value)
-    if value.endswith("0000"):  # year only
+    if value.endswith("0000"):
         return value[:4]
-    if len(value) == 8:  # full date YYYYMMDD -> DD.MM.YYYY
+    if len(value) == 8:
         return f"{value[6:8]}.{value[4:6]}.{value[:4]}"
     return value
 
 def format_amount_list(lst):
-    """Format amounts into German style, e.g. 102.261.587,00"""
     formatted = []
     for a in lst:
         if a is None:
             continue
-
         num = float(a)
-
-        # First format as US: 102,261,587.00
         s = f"{num:,.2f}"
-
-        # Convert to German: 102.261.587,00
-        s = s.replace(",", "X")  # temporary placeholder
-        s = s.replace(".", ",")  # decimal separator becomes comma
-        s = s.replace("X", ".")  # thousands separators become dots
-
+        s = s.replace(",", "X").replace(".", ",").replace("X", ".")
         formatted.append(s)
-
     return "; ".join(formatted)
-
 
 def dedupe(seq):
     seen = set()
-    result = []
+    out = []
     for x in seq:
         if x not in seen:
             seen.add(x)
-            result.append(x)
-    return result
+            out.append(x)
+    return out
 
+def extract_aop_code(field_name):
+    match = re.search(r"\((AOP\d+)\)", field_name)
+    return match.group(1) if match else ""
+
+
+# ------------------------------
 # Recursive extraction
+# ------------------------------
 def extract_values(obj, parent_dates=None, parent_amounts=None):
     if parent_dates is None:
         parent_dates = []
@@ -179,14 +177,15 @@ def extract_values(obj, parent_dates=None, parent_amounts=None):
             value = obj.get("value")
 
             for field, aliases in allowed_fields.items():
-                if any(name.lower() == alias.lower() for alias in aliases):
+                for alias in aliases:
+                    if name.lower() == alias.lower():
 
-                    if extracted[field]["value"] is None and value is not None:
-                        extracted[field]["value"] = value
+                        if extracted[field]["value"] is None and value is not None:
+                            extracted[field]["value"] = value
 
-                    extracted[field]["date"].extend(current_dates)
-                    extracted[field]["fromAmount"].extend(current_amounts)
-                    break
+                        extracted[field]["date"].extend(current_dates)
+                        extracted[field]["fromAmount"].extend(current_amounts)
+                        break
 
         for k, v in obj.items():
             extract_values(v, current_dates, current_amounts)
@@ -203,7 +202,10 @@ if uploaded_file:
     try:
         data = json.load(uploaded_file)
 
-        extracted = {field: {"value": None, "date": [], "fromAmount": []} for field in allowed_fields}
+        extracted = {
+            field: {"value": None, "date": [], "fromAmount": []}
+            for field in allowed_fields
+        }
 
         extract_values(data)
 
@@ -211,6 +213,9 @@ if uploaded_file:
             extracted[field]["date"] = dedupe(extracted[field]["date"])
             extracted[field]["fromAmount"] = dedupe(extracted[field]["fromAmount"])
 
+        # ---------------------------
+        # Create DataFrame + NEW COLUMN
+        # ---------------------------
         df = pd.DataFrame(
             [
                 (
@@ -218,10 +223,11 @@ if uploaded_file:
                     extracted[field]["value"] if extracted[field]["value"] is not None else "",
                     "; ".join(convert_date(d) for d in extracted[field]["date"]),
                     format_amount_list(extracted[field]["fromAmount"]),
+                    f"{extract_aop_code(field)} {extracted[field]['value'] if extracted[field]['value'] is not None else ''}"
                 )
                 for field in allowed_fields
             ],
-            columns=["Field", "Value", "Date", "FromAmount"]
+            columns=["Field", "Value", "Date", "FromAmount", "NameMapping"]
         )
 
         st.dataframe(df)
@@ -245,6 +251,7 @@ if uploaded_file:
                     cell.border = border
 
         output.seek(0)
+
         st.download_button(
             label="📥 Download Excel",
             data=output,
@@ -254,8 +261,6 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
-
-
 
 
 
