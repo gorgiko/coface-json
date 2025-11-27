@@ -187,7 +187,7 @@ allowed_fields_croatia = {
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES","Balance sheet total"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
-    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
+    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue"],
     "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover","Operating income","Net sales revenue"],
     "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)","Other income"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
@@ -402,6 +402,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
