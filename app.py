@@ -203,6 +203,7 @@ allowed_fields_croatia = {
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit or Loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
+
 allowed_fields_slovenia = {}
 allowed_fields_bosnia = {}
 allowed_fields_montenegro = {}
@@ -250,9 +251,9 @@ def format_amount_list(lst):
         if a is None:
             continue
         num = float(a)
-        s = f"{num:,.2f}"
-        s = s.replace(",", "X").replace(".", ",").replace("X", ".")
-        formatted.append(s)
+        formatted.append(
+            f"{num:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+        )
     return "; ".join(formatted)
 
 def dedupe(seq):
@@ -278,28 +279,46 @@ def extract_values(obj, extracted, allowed_fields, parent_dates=None, parent_amo
         parent_amounts = []
 
     if isinstance(obj, dict):
+
         current_dates = parent_dates.copy()
         current_amounts = parent_amounts.copy()
 
+        # Capture date or fromAmount
         if "date" in obj:
             current_dates.append(obj["date"])
         if "fromAmount" in obj:
             current_amounts.append(obj["fromAmount"])
 
+        name = None
+        value = None
+
+        # CASE 1: direct name/value
         if "name" in obj and "value" in obj:
             name = str(obj["name"]).strip()
             value = obj.get("value")
 
+        # CASE 2: nested under "type"
+        elif "type" in obj and isinstance(obj["type"], dict):
+            t = obj["type"]
+            if "name" in t and "value" in t:
+                name = str(t["name"]).strip()
+                value = t["value"]
+
+        # If we captured valid name, map to field
+        if name:
             for field, aliases in allowed_fields.items():
                 for alias in aliases:
                     if name.lower() == alias.lower():
+                        # Save value
                         if extracted[field]["value"] is None and value is not None:
                             extracted[field]["value"] = value
-
+                        # Save matched alias name
+                        extracted[field]["alias"] = alias
                         extracted[field]["date"].extend(current_dates)
                         extracted[field]["fromAmount"].extend(current_amounts)
                         break
 
+        # Continue recursion
         for k, v in obj.items():
             extract_values(v, extracted, allowed_fields, current_dates, current_amounts)
 
@@ -315,28 +334,35 @@ if uploaded_file:
         data = json.load(uploaded_file)
         allowed_fields = country_alias_map[country]
 
-        extracted = {field: {"value": None, "date": [], "fromAmount": []} for field in allowed_fields}
+        # Init storage with alias field included
+        extracted = {
+            field: {"value": None, "alias": None, "date": [], "fromAmount": []}
+            for field in allowed_fields
+        }
+
         extract_values(data, extracted, allowed_fields)
 
+        # Dedupe lists
         for field in extracted:
             extracted[field]["date"] = dedupe(extracted[field]["date"])
             extracted[field]["fromAmount"] = dedupe(extracted[field]["fromAmount"])
 
         # ---------------------------
-        # Create DataFrame + NEW COLUMN
+        # Create DataFrame
         # ---------------------------
         df = pd.DataFrame(
             [
                 (
                     field,
                     extracted[field]["value"] if extracted[field]["value"] is not None else "",
+                    extracted[field]["alias"] if extracted[field]["alias"] else "",
                     f"{extract_aop_code(field)} {extracted[field]['value'] if extracted[field]['value'] is not None else ''}",
                     "; ".join(convert_date(d) for d in extracted[field]["date"]),
                     format_amount_list(extracted[field]["fromAmount"])
                 )
                 for field in allowed_fields
             ],
-            columns=["Field", "Value", "NameMapping", "Date", "FromAmount"]
+            columns=["Field", "Value", "NameValue", "NameMapping", "Date", "FromAmount"]
         )
 
         st.dataframe(df)
@@ -349,13 +375,16 @@ if uploaded_file:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
             ws = writer.sheets["Sheet1"]
 
+            # Autofit columns
             for col in ws.columns:
                 max_len = max(len(str(cell.value)) if cell.value else 0 for cell in col)
                 ws.column_dimensions[get_column_letter(col[0].column)].width = max_len + 4
 
+            # Bold first column
             for cell in ws["A"]:
                 cell.font = Font(bold=True)
 
+            # Add borders
             thin = Side(border_style="thin", color="000000")
             border = Border(left=thin, right=thin, top=thin, bottom=thin)
             for row in ws.iter_rows():
@@ -373,10 +402,6 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
-
-
-
-
 
 
 
