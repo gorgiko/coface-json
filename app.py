@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import json
@@ -6,8 +7,10 @@ from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font, Border, Side
 import re
 
-# Define allowed fields with aliases
-allowed_fields = {
+# ------------------------------
+# Alias dictionaries per country
+# ------------------------------
+allowed_fields_serbia = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
     "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions,industrial rights,licences","Concessions, patents, licenses, trade marks etc.", "Service marks,software and other intangible assets","Concessions,patents,licenses and similar rights and other intangible assets","Concessions, patents, licenses, trademarks, service marks, software and other intangible assets"],
@@ -102,6 +105,23 @@ allowed_fields = {
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
+
+
+# Placeholders for other countries
+allowed_fields_croatia = {}
+allowed_fields_slovenia = {}
+allowed_fields_bosnia = {}
+allowed_fields_montenegro = {}
+
+# Map countries to alias dictionaries
+country_alias_map = {
+    "Serbia": allowed_fields_serbia,
+    "Croatia": allowed_fields_croatia,
+    "Slovenia": allowed_fields_slovenia,
+    "Bosnia": allowed_fields_bosnia,
+    "Montenegro": allowed_fields_montenegro
+}
+
 # ------------------------------
 # Streamlit page config
 # ------------------------------
@@ -116,8 +136,8 @@ footer {visibility: hidden;}
 
 st.title("Convert COFACE JSON fields to Excel")
 
+country = st.selectbox("Select country", list(country_alias_map.keys()))
 uploaded_file = st.file_uploader("Upload JSON file", type=["json"])
-
 
 # ------------------------------
 # Helper functions
@@ -154,11 +174,10 @@ def extract_aop_code(field_name):
     match = re.search(r"\((AOP\d+)\)", field_name)
     return match.group(1) if match else ""
 
-
 # ------------------------------
 # Recursive extraction
 # ------------------------------
-def extract_values(obj, parent_dates=None, parent_amounts=None):
+def extract_values(obj, extracted, allowed_fields, parent_dates=None, parent_amounts=None):
     if parent_dates is None:
         parent_dates = []
     if parent_amounts is None:
@@ -180,7 +199,6 @@ def extract_values(obj, parent_dates=None, parent_amounts=None):
             for field, aliases in allowed_fields.items():
                 for alias in aliases:
                     if name.lower() == alias.lower():
-
                         if extracted[field]["value"] is None and value is not None:
                             extracted[field]["value"] = value
 
@@ -189,12 +207,11 @@ def extract_values(obj, parent_dates=None, parent_amounts=None):
                         break
 
         for k, v in obj.items():
-            extract_values(v, current_dates, current_amounts)
+            extract_values(v, extracted, allowed_fields, current_dates, current_amounts)
 
     elif isinstance(obj, list):
         for item in obj:
-            extract_values(item, parent_dates, parent_amounts)
-
+            extract_values(item, extracted, allowed_fields, parent_dates, parent_amounts)
 
 # ------------------------------
 # Main processing
@@ -202,13 +219,10 @@ def extract_values(obj, parent_dates=None, parent_amounts=None):
 if uploaded_file:
     try:
         data = json.load(uploaded_file)
+        allowed_fields = country_alias_map[country]
 
-        extracted = {
-            field: {"value": None, "date": [], "fromAmount": []}
-            for field in allowed_fields
-        }
-
-        extract_values(data)
+        extracted = {field: {"value": None, "date": [], "fromAmount": []} for field in allowed_fields}
+        extract_values(data, extracted, allowed_fields)
 
         for field in extracted:
             extracted[field]["date"] = dedupe(extracted[field]["date"])
@@ -218,20 +232,24 @@ if uploaded_file:
         # Create DataFrame + NEW COLUMN
         # ---------------------------
         df = pd.DataFrame(
-    [
-        (
-            field,
-            extracted[field]["value"] if extracted[field]["value"] is not None else "",
-            f"{extract_aop_code(field)} {extracted[field]['value'] if extracted[field]['value'] is not None else ''}",  # NameMapping moved here
-            "; ".join(convert_date(d) for d in extracted[field]["date"]),
-            format_amount_list(extracted[field]["fromAmount"])
+            [
+                (
+                    field,
+                    extracted[field]["value"] if extracted[field]["value"] is not None else "",
+                    f"{extract_aop_code(field)} {extracted[field]['value'] if extracted[field]['value'] is not None else ''}",
+                    "; ".join(convert_date(d) for d in extracted[field]["date"]),
+                    format_amount_list(extracted[field]["fromAmount"])
+                )
+                for field in allowed_fields
+            ],
+            columns=["Field", "Value", "NameMapping", "Date", "FromAmount"]
         )
-        for field in allowed_fields
-    ],
-    columns=["Field", "Value", "NameMapping", "Date", "FromAmount"]  # NEW ORDER
-)
+
         st.dataframe(df)
 
+        # ---------------------------
+        # Export to Excel
+        # ---------------------------
         output = BytesIO()
         with pd.ExcelWriter(output, engine="openpyxl") as writer:
             df.to_excel(writer, index=False, sheet_name="Sheet1")
@@ -255,12 +273,16 @@ if uploaded_file:
         st.download_button(
             label="📥 Download Excel",
             data=output,
-            file_name="mapped_values.xlsx",
+            file_name=f"mapped_values_{country}.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         )
 
     except Exception as e:
         st.error(f"Error: {e}")
+
+
+
+
 
 
 
