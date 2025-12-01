@@ -236,7 +236,7 @@ allowed_fields_albania = {
     "(AOP041)Finished products and goods":["Finished products and goods", "Finished products/merchandise", "Finished goods", "Goods"],
     "(AOP042)Traiding Goods":["Traiding Goods","Inventory-Trading Goods","Inventory - Trading Goods"],
     "(AOP048)Prepayments":["Prepayments","Payments in advance for stock"],
-    "(AOP045)Short-term receivables": ["Short-term receivables"],
+    "(AOP045)Short-term receivables": [""],
     "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables","Receivables from foreign parent companies, subsidiaries and other associated companies","Group Receivables"],
     "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyers", "Trade debtor" , "Trade receivables","Trade debtors"],
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
@@ -296,7 +296,7 @@ allowed_fields_albania = {
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or Loss after taxation"],
+    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit after taxation"],
 }
 allowed_fields_slovenia = {}
 allowed_fields_bosnia = {}
@@ -497,6 +497,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
