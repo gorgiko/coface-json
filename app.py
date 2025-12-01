@@ -390,7 +390,7 @@ allowed_fields_belgium = {
     "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
     "(AOP234)Financial costs": ["Financial Expenses"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit Before Tax"],
-    "(AOP252)Profit tax": [""Tax"],
+    "(AOP252)Profit tax": ["Tax"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit after tax"],
 }
 allowed_fields_slovenia = {}
@@ -593,6 +593,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
