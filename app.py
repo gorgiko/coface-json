@@ -341,7 +341,7 @@ allowed_fields_belgium = {
     "(AOP058)Other short-term financial investments":["Other Current Assets"],
     "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
-    "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
+    "(AOP063)Total assets": [""],
     "(AOP064)Off balance sheet items": ["Balance sheet total"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
@@ -593,6 +593,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
