@@ -404,7 +404,7 @@ country_alias_map = {
     "Slovenia": allowed_fields_slovenia,
     "Bosnia": allowed_fields_bosnia,
     "Montenegro": allowed_fields_montenegro,
-    "Albania": allowed_fields_albania
+    "Albania": allowed_fields_albania,
     "Belgium": allowed_fields_belgium
 }
 
@@ -593,6 +593,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
