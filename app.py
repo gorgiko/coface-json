@@ -217,7 +217,7 @@ allowed_fields_albania = {
     "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment","Plant & Machinery"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
     "(AOP016)Biological property":["Biological property","Biological assets"],
-    "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advances in property,plant,equipment and biological assets and property,biological asset in preparation","Advances in property, plant, equipment and biological assets and property, plant, equipment and biological assets in preparation"],
+    "(AOP017)Advance payments for tangible assets": ["Prepaid expenses"],
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
     "(AOP019)Other tangible assets": [""],
     "(AOP020)Investments in real estate": ["Investments in real estate","Investment property measured at the cost model"],
@@ -230,15 +230,15 @@ allowed_fields_albania = {
     "(AOP034)Other long term receivables":["Other long term receivables","Other long-term receivables"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
-    "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies", "Inventory-raw materials, consumabeles and supplies","Inventory - raw materials, consumables, working inventory", "Inventory of materials(fabrication material, spare parts, small inventory and car tires)","Inventory of materials (fabrication material, spare parts, small inventory and car tires"],
+    "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies", "Inventory-raw materials"],
     "(AOP039)Inventory of materials":["Inventory of materials(fabricationmaterial, spare parts)"],
     "(AOP040)Work in progress":["Work in progress"],
-    "(AOP041)Finished products and goods":["Finished products and goods", "Finished products/merchandise", "Finished goods", "Goods"],
+    "(AOP041)Finished products and goods":["Inventory - Finished goods"],
     "(AOP042)Traiding Goods":["Traiding Goods","Inventory-Trading Goods","Inventory - Trading Goods"],
     "(AOP048)Prepayments":["Prepayments","Payments in advance for stock"],
     "(AOP045)Short-term receivables": [""],
     "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables","Receivables from foreign parent companies, subsidiaries and other associated companies","Group Receivables"],
-    "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyers", "Trade debtor" , "Trade receivables","Trade debtors"],
+    "(AOP047)Short-term trade receivables": ["Trade debtors (receivables from customer)"],
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
     "(AOP049)Receivables from the state and other institutions": ["Prepaid corporate income tax","Receivables from the state and other institutions"],
     "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
@@ -277,14 +277,14 @@ allowed_fields_albania = {
     "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
     "(AOP101)Liability for income tax":["Liability for income tax","S-term Liabilities for tax,contributions and other fees"],
-    "(AOP104)Obligations for taken loans and credits":["Short-term liabilities for loans"],
+    "(AOP104)Obligations for taken loans and credits":["Short-term loans"],
     "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities","Other short-term liabilities","Miscellaneous Liabilities"],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
     "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue"],
-    "(AOP202)Revenues from sales": ["Income from sales (outside group)"],
-    "(AOP203)Other income(other revenues)": ["Other operating income (outside the group)"],
+    "(AOP202)Revenues from sales": ["Revenues from sales"],
+    "(AOP203)Other income(other revenues)": ["Other income (other revenues)"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
     "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
     "(AOP208)Material costs": ["Cost of raw materials and consumables"],
@@ -497,6 +497,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
