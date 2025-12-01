@@ -158,7 +158,7 @@ allowed_fields_croatia = {
     "(AOP067)Emission premium":["Emission premium","Share premium"],
     "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)","Share capital","Subscribed capital unpaid"],
     "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital","Subscribed capital unpaid"],
-    "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves","Capital reserve"],
+    "(AOP071)Capital reserves": ["RESERVES FROM PROFIT"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves","POSITIVE REVALUATION RESERVES AND UNREALIZED PROFIT FROM FINANCIAL ASSETS AND OTHER ELEMENTS OF OTHER COMPREHENSIVE INCOME"],
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
@@ -194,14 +194,14 @@ allowed_fields_croatia = {
     "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
     "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
     "(AOP209)Cost of goods sold": ["Cost of goods sold","The purchase value of the goods sold","Cost of materials (type of expenditure format)","Cost of goods sold and the cost of materials"],
-    "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries","Short-term financial and operating liabilities","Personnel type expenses","Wages expenses, wage compensation and other personal expenses"],
+    "(AOP213)Staff costs": ["Staff costs (employee costs)"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions","Depreciation and amortization"],
-    "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
+    "(AOP222)Other operating expenses": ["Other costs"],
     "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit or Loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
+    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or Loss after taxation"],
 }
 
 allowed_fields_slovenia = {}
@@ -402,6 +402,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
