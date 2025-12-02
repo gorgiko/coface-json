@@ -156,36 +156,19 @@ allowed_fields_france = {
     "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
-    "(AOP067)Emission premium":["Emission premium","Share premium"],
-    "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)","Share capital","Subscribed capital unpaid"],
-    "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital","Subscribed capital unpaid"],
+    "(AOP063)Emission premium":["Emission premium","Share premium"],
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves","Capital reserve"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves","POSITIVE REVALUATION RESERVES AND UNREALIZED PROFIT FROM FINANCIAL ASSETS AND OTHER ELEMENTS OF OTHER COMPREHENSIVE INCOME"],
     "(AOP072)Legal reserves":["Legal reserves"],
-    "(AOP074)Other reserves":["Other reserves"],
-    "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
-    "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
-    "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
-    "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
-    "(AOP084)Other provisions":["Other provisions"],
+    "(AOP075)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
+    "(AOP077)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities","Long-term financial and operating liabilities","Long-term provisions and long-term liabilities"],
-    "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"],
-    "(AOP087)Trade liabilities":["Trade liabilities"],
     "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans"],
-    "(AOP092)Other loans/finance due after 1 year":["Other loans/finance due after 1 year","Long term liabilities payable to financial institutions"],
-    "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES","Short- term liabilities","Short term liabilities","SHORT- TERM LIABILITIES", "TOTAL CURRENT LIABILITIES", "Total current liabilities","Short- term liabilities and short term provisions"," Short- term financial and operating liabilities"],
-    "(AOP096)Short-term liabilities to affiliates": ["Short-term liabilities to affiliates","Liabilities of disposal groups", " Trade payables-foreing parent company, subsidiares and other associated companies", " Liabilities to affiliated companies","Group payables"],
     "(AOP098)Prepayments, deposits and gurantee":["Prepayments, deposits and gurantee","Liabilities for securities","Prepayments, deposits and guarantees"],
-    "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": ["Liabilities for loans, deposits, etc. to companies within the group"],
     "(AOP097)Short-term trade creditors": ["Short-term trade creditors", "Liabilities to suppliers","Trade Payables","Trade creditors(acounts payable)", " Trade payables","Commitments towards suppliers","Trade payable"],
-    "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
-    "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
     "(AOP101)Liability for income tax":["Liability for income tax","S-term Liabilities for tax,contributions and other fees"],
-    "(AOP104)Obligations for taken loans and credits":["Obligations for taken loans and credits","Short Term Bank Debt","Short liabilities for loans","Short term loans","Short term financial liabilities","Obligation for taken loans","BANK LOANS AND OVERDRAFT","Liabilities to bank","Loans liabilities from credit institutions","Short-term liabilities for loans","Short-term financial liabilities","S-term Liabilities payable to financial institutions","Banks loans and overdraft","Other Loans/Finance"],
-    "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities","Other short-term liabilities","Miscellaneous Liabilities"],
-    "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
+    "(AOP107)Obligations for taken loans and credits":["Obligations for taken loans and credits","Short Term Bank Debt","Short liabilities for loans","Short term loans","Short term financial liabilities","Obligation for taken loans","BANK LOANS AND OVERDRAFT","Liabilities to bank","Loans liabilities from credit institutions","Short-term liabilities for loans","Short-term financial liabilities","S-term Liabilities payable to financial institutions","Banks loans and overdraft","Other Loans/Finance"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES","Balance sheet total"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
     "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
@@ -1213,6 +1196,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
