@@ -694,7 +694,7 @@ country_alias_map = {
     "Belgium": allowed_fields_belgium,
     "Bulgaria": allowed_fields_bulgaria,
     "Slovenia": allowed_fields_slovenia,
-    "Slovenia": allowed_fields_montenegro
+    "Montenegro": allowed_fields_montenegro
 }
 
 # ------------------------------
