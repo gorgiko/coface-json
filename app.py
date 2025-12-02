@@ -586,7 +586,7 @@ allowed_fields_slovenia = {
 allowed_fields_montenegro = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
-    "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions,industrial rights,licences","Concessions, patents, licenses, trade marks etc.", "Service marks,software and other intangible assets","Concessions,patents,licenses and similar rights and other intangible assets","Concessions, patents, licenses, trademarks, service marks, software and other intangible assets"],
+    "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions, patents, licenses and similar rights and other intangible assets"],
     "(AOP005)Goodwill":["Goodwill"],
     "(AOP006)Advances for intangible assets and intangible assets in preparation":["Advances for intangible assets and intangible assets in preparation"],
     "(AOP008)Other intangible fixed assets":["Other intangible fixed assets","Other Intangible Assets"],
