@@ -435,7 +435,7 @@ allowed_fields_bulgaria = {
     "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets","Short-term financial investments","Short-term investments"],
     "(AOP058)Other short-term financial investments":["other short-term financial investments","Other short term financial assets"],
     "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
-    "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
+    "(AOP062)Prepaid expenses": ["Prepaid expenses, deferred income, similar accounts"],
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
@@ -690,6 +690,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
