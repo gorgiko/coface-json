@@ -978,7 +978,7 @@ allowed_fields_romania = {
     "(AOP218)Depreciation on fixed assets": ["Depreciation of non-current assets"],
     "(AOP222)Other operating expenses": ["Extraordinary expenses"],
     "(AOP223)Income from financial transactions": [""],
-    "(AOP234)Financial costs": ["Financial costs"],
+    "(AOP234)Financial costs": ["Expenses on financial transactions (financial expenditures)"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit before taxation"],
     "(AOP252)Profit tax": ["Profit tax"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit after taxation"],
@@ -1186,6 +1186,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
