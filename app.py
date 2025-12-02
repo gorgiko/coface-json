@@ -232,9 +232,6 @@ allowed_fields_germany = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
     "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants,equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment","Tangible assets","Property, plants, equipment and biological assets"],
-    "(AOP010)Land and buildings":["Land and buildings","Property, plant and equipment","Land & Buildings"],
-    "(AOP011)Land":["Land","Land and buildings"],
-    "(AOP012)Buildings":["Buildings","Land and buildings"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment","Plant & Machinery"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
     "(AOP016)Biological property":["Biological property","Biological assets"],
@@ -1189,6 +1186,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
