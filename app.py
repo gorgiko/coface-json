@@ -130,8 +130,8 @@ allowed_fields_netherlands = {
     "(AOP207)Operating costs": ["Operating Costs"],
     "(AOP234)Financial expenses": ["Financial expenses"],
     "(AOP250)Profit before tax": ["Profit Before Tax"],
-    "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
+    "(AOP252)tax": ["Tax"],
+    "(AOP255)Profit after tax": ["Profit after tax"],
 }
 allowed_fields_france = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1193,6 +1193,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
