@@ -114,8 +114,8 @@ allowed_fields_netherlands = {
     "(AOP045)Total receivables": ["Total receivables"],
     "(AOP047)Trade receivables": ["Trade receivables"],
     "(AOP051)Miscellaneous receivables": ["Miscellaneous receivables"],
-    "(AOP059)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
-    "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
+    "(AOP059)Cash": ["Cash"],
+    "(AOP063)Balance sheet total": ["Balance sheet total"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves","Capital reserve"],
     "(AOP075)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
@@ -1194,6 +1194,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
