@@ -110,8 +110,8 @@ allowed_fields_netherlands = {
     "(AOP002)Intangible assets": ["Total Intangible assets"],
     "(AOP009)Tangible tangible assets": ["Total tangible assets"],
     "(AOP036)Total Current assets": ["Total Current assets"],
-    "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
-    "(AOP045)Short-term receivables": ["Short-term receivables"],
+    "(AOP037)Total inventories": ["Total inventories"],
+    "(AOP045)Total receivables": ["Total receivables"],
     "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyers", "Trade debtor" , "Trade receivables","Trade debtors"],
     "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
     "(AOP059)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
@@ -1194,6 +1194,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
