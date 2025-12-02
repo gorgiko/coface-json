@@ -126,7 +126,7 @@ allowed_fields_netherlands = {
     "(AOP097)Trade payables": ["Trade payables"],
     "(AOP108)Miscellaneous liabilities": ["Miscellaneous Liabilities"],
     "(AOP111)Balance sheet total": ["Balance sheet total"],
-    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
+    "(AOP201)Turnover": ["Turnover"],
     "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
@@ -1193,6 +1193,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
