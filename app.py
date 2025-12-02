@@ -978,17 +978,17 @@ allowed_fields_romania = {
     "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover","Operating income","Net sales revenue"],
     "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)","Other income"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
-    "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
+    "(AOP207)Operating expenses": ["Total expenses"],
     "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
     "(AOP209)Cost of goods sold": ["Cost of goods sold","The purchase value of the goods sold","Cost of materials (type of expenditure format)","Cost of goods sold and the cost of materials"],
     "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries","Short-term financial and operating liabilities","Personnel type expenses","Wages expenses, wage compensation and other personal expenses"],
-    "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions","Depreciation and amortization"],
-    "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
-    "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
+    "(AOP218)Depreciation on fixed assets": ["Depreciation of non-current assets"],
+    "(AOP222)Other operating expenses": ["Extraordinary expenses"],
+    "(AOP223)Income from financial transactions": [""],
     "(AOP234)Financial costs": ["Financial costs"],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
-    "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
+    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit before taxation"],
+    "(AOP252)Profit tax": ["Profit tax"],
+    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit after taxation"],
 }
 
 
@@ -1193,6 +1193,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
