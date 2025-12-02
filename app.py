@@ -514,7 +514,7 @@ allowed_fields_slovenia = {
     "(AOP030)Other financial fixed assets":["Other financial fixed assets"],
     "(AOP034)Other long term receivables":["Other long term receivables","Other long-term receivables"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
-    "(AOP037)Inventory": ["Inventories],
+    "(AOP037)Inventory": ["Inventories"],
     "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies", "Inventory-raw materials, consumabeles and supplies","Inventory - raw materials, consumables, working inventory", "Inventory of materials(fabrication material, spare parts, small inventory and car tires)","Inventory of materials (fabrication material, spare parts, small inventory and car tires"],
     "(AOP039)Inventory of materials":["Inventory of materials(fabricationmaterial, spare parts)"],
     "(AOP040)Work in progress":["Work in progress"],
@@ -785,6 +785,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
