@@ -123,8 +123,8 @@ allowed_fields_netherlands = {
     "(AOP085)Total Long term liabilities": ["Total Long term liabilities"],
     "(AOP093)Other Loans/Finance due after 1 year": ["Other Loans/Finance due after 1 year"],
     "(AOP095)TOTAL CURRENT LIABILITIES": ["TOTAL CURRENT LIABILITIES"],
-    "(AOP097)Short-term trade creditors": ["Short-term trade creditors", "Liabilities to suppliers","Trade Payables","Trade creditors(acounts payable)", " Trade payables","Commitments towards suppliers","Trade payable"],
-    "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities","Other short-term liabilities","Miscellaneous Liabilities"],
+    "(AOP097)Trade payables": ["Trade payables"],
+    "(AOP108)Miscellaneous liabilities": ["Miscellaneous Liabilities"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES","Balance sheet total"],
     "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
     "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
@@ -1193,6 +1193,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
