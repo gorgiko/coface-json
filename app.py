@@ -129,7 +129,7 @@ allowed_fields_netherlands = {
     "(AOP201)Turnover": ["Turnover"],
     "(AOP207)Operating costs": ["Operating Costs"],
     "(AOP234)Financial expenses": ["Financial expenses"],
-    "(AOP250)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
+    "(AOP250)Profit before tax": ["Profit Before Tax"],
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
     "(AOP255)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
 }
@@ -1193,6 +1193,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
