@@ -680,8 +680,7 @@ allowed_fields_montenegro = {
 }
 
 
-allowed_fields_bosnia = {}
-allowed_fields_montenegro = {}
+
 
 # Map countries to alias dictionaries
 country_alias_map = {
@@ -881,6 +880,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
