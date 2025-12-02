@@ -406,11 +406,11 @@ allowed_fields_bulgaria = {
     "(AOP012)Buildings":["Buildings","Land and buildings"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment","Plant & Machinery"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
-    "(AOP016)Biological property":["Biological property","Biological assets"],
+    "(AOP016)Biological property":["Biological assets"],
     "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advances in property,plant,equipment and biological assets and property,biological asset in preparation","Advances in property, plant, equipment and biological assets and property, plant, equipment and biological assets in preparation"],
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
     "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment","Other equipment, furniture, fittings, tools, fixtures, vehicles","Other unspecified material fixed assets"],
-    "(AOP020)Investments in real estate": ["Investments in real estate","Investment property measured at the cost model"],
+    "(AOP020)Investments in real estate": ["Investment property"],
     "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets","LONG-TERM FINANCIAL INVESTMENTS AND LONG-TERM RECEIVABLES","Financial assets"],
     "(AOP024)Loans to Group":["Loans to Group","Long-term loans to parent and subsidiary legal entities"],
     "(AOP025)Long term loans":["Long term loans","Long-term loans to legal entities with equity participation (excluding subsidiaries)"],
@@ -428,10 +428,10 @@ allowed_fields_bulgaria = {
     "(AOP048)Prepayments":["Prepayments","Payments in advance for stock"],
     "(AOP045)Short-term receivables": ["Short-term receivables"],
     "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables","Receivables from foreign parent companies, subsidiaries and other associated companies","Group Receivables"],
-    "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyers", "Trade debtor" , "Trade receivables","Trade debtors"],
+    "(AOP047)Short-term trade receivables": ["Trade debtors (receivables from customer)"],
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
     "(AOP049)Receivables from the state and other institutions": ["Prepaid corporate income tax","Receivables from the state and other institutions"],
-    "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
+    "(AOP051)Other short-term receivables": ["Other debtors (other receivables)"],
     "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets","Short-term financial investments","Short-term investments"],
     "(AOP058)Other short-term financial investments":["other short-term financial investments","Other short term financial assets"],
     "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
@@ -439,8 +439,8 @@ allowed_fields_bulgaria = {
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
-    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
-    "(AOP067)Emission premium":["Emission premium","Share premium"],
+    "(AOP066)Subscribed and paid capital": ["Shareholders equity"],
+    "(AOP067)Emission premium":["Subscribed and paid capital"],
     "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)","Share capital","Subscribed capital unpaid"],
     "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital","Subscribed capital unpaid"],
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves","Capital reserve"],
@@ -456,7 +456,7 @@ allowed_fields_bulgaria = {
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities","Long-term financial and operating liabilities","Long-term provisions and long-term liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"],
     "(AOP087)Trade liabilities":["Trade liabilities"],
-    "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans"],
+    "(AOP090)Long-term liabilities for loans": ["L-term Liabilities payable to financial institutions"],
     "(AOP092)Other loans/finance due after 1 year":["Other loans/finance due after 1 year","Long term liabilities payable to financial institutions"],
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES","Short- term liabilities","Short term liabilities","SHORT- TERM LIABILITIES", "TOTAL CURRENT LIABILITIES", "Total current liabilities","Short- term liabilities and short term provisions"," Short- term financial and operating liabilities"],
@@ -466,14 +466,14 @@ allowed_fields_bulgaria = {
     "(AOP097)Short-term trade creditors": ["Short-term trade creditors", "Liabilities to suppliers","Trade Payables","Trade creditors(acounts payable)", " Trade payables","Commitments towards suppliers","Trade payable"],
     "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
-    "(AOP101)Liability for income tax":["Liability for income tax","S-term Liabilities for tax,contributions and other fees"],
+    "(AOP101)Liability for income tax":["S-term Liabilities payable to financial institutions"],
     "(AOP104)Obligations for taken loans and credits":["Obligations for taken loans and credits","Short Term Bank Debt","Short liabilities for loans","Short term loans","Short term financial liabilities","Obligation for taken loans","BANK LOANS AND OVERDRAFT","Liabilities to bank","Loans liabilities from credit institutions","Short-term liabilities for loans","Short-term financial liabilities","S-term Liabilities payable to financial institutions","Banks loans and overdraft","Other Loans/Finance"],
     "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities","Other short-term liabilities","Miscellaneous Liabilities"],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES","Balance sheet total"],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
-    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
-    "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover","Operating income","Net sales revenue"],
+    "(AOP201)Turnover, sales revenue": ["Turnover"],
+    "(AOP202)Revenues from sales": [""],
     "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)","Other income"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
     "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
@@ -486,7 +486,7 @@ allowed_fields_bulgaria = {
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
+    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit after taxation/Loss after taxation"],
 }
 
 allowed_fields_slovenia = {}
@@ -690,6 +690,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
