@@ -162,8 +162,8 @@ allowed_fields_france = {
     "(AOP072)Share premium account (capital reserve)":["Share premium account (capital reserve)"],
     "(AOP075)Retained earnings brought forward": ["Retained earnings brought forward"],
     "(AOP077)Net income for the year": ["Net income for the year"],
-    "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities","Long-term financial and operating liabilities","Long-term provisions and long-term liabilities"],
-    "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans"],
+    "(AOP085)Long-term liabilities": ["Long-term liabilities"],
+    "(AOP090)Long-term Loans, Mortage debts": ["Long-term Loans, Mortage debts","Long-term liabilities to credit institutions"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES","Short- term liabilities","Short term liabilities","SHORT- TERM LIABILITIES", "TOTAL CURRENT LIABILITIES", "Total current liabilities","Short- term liabilities and short term provisions"," Short- term financial and operating liabilities"],
     "(AOP098)Prepayments, deposits and gurantee":["Prepayments, deposits and gurantee","Liabilities for securities","Prepayments, deposits and guarantees"],
     "(AOP097)Short-term trade creditors": ["Short-term trade creditors", "Liabilities to suppliers","Trade Payables","Trade creditors(acounts payable)", " Trade payables","Commitments towards suppliers","Trade payable"],
@@ -1387,6 +1387,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
