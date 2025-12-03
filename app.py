@@ -136,9 +136,9 @@ allowed_fields_netherlands = {
 allowed_fields_france = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["Intangible assets"],
-    "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions,industrial rights,licences","Concessions, patents, licenses, trade marks etc.", "Service marks,software and other intangible assets","Concessions,patents,licenses and similar rights and other intangible assets","Concessions, patents, licenses, trademarks, service marks, software and other intangible assets"],
+    "(AOP004)Concessions,industrial rights,licences":["Concessions,industrial rights,licences"],
     "(AOP005)Goodwill":["Goodwill"],
-    "(AOP008)Other intangible fixed assets":["Other intangible fixed assets","Other Intangible Assets"],
+    "(AOP008)Other intangible fixed assets(activated costs)":["Other intangible fixed assets(activated costs)"],
     "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants,equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment","Tangible assets","Property, plants, equipment and biological assets"],
     "(AOP010)Land and buildings":["Land and buildings","Property, plant and equipment","Land & Buildings"],
     "(AOP011)Land":["Land","Land and buildings"],
@@ -1387,6 +1387,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
