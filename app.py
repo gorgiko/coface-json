@@ -884,7 +884,7 @@ allowed_fields_montenegro = {
     "(AOP093)Other long-term liabilities": ["Other long-term liabilities", "Other long term liabilities"],
     "(AOP095)Short-term liabilities": ["Short-term provisions and short-term liabilities"],
     "(AOP096)Short-term liabilities to affiliates": ["Liabilities to the parent and subsidiaries entities"],
-    "(AOP098)Prepayments, deposits and gurantee":["Prepayments, deposits and gurantee","Liabilities for securities","Prepayments, deposits and guarantees"],
+    "(AOP098)Prepayments, deposits and gurantee":["Prepayments, deposits and bails"],
     "(AOP103)Liabilities for loans, deposits, etc. to companies within the group": ["Liabilities for loans, deposits, etc. to companies within the group"],
     "(AOP097)Short-term trade creditors": ["Liabilities to suppliers"],
     "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
@@ -903,11 +903,11 @@ allowed_fields_montenegro = {
     "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
     "(AOP209)Cost of goods sold": ["Cost of goods sold","The purchase value of the goods sold","Cost of materials (type of expenditure format)","Cost of goods sold and the cost of materials"],
     "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries","Short-term financial and operating liabilities","Personnel type expenses","Wages expenses, wage compensation and other personal expenses"],
-    "(AOP218)Depreciation on fixed assets": ["Other operating expenses (depreciation"],
+    "(AOP218)Depreciation on fixed assets": ["Other operating expenses (depreciation,"],
     "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
     "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
     "(AOP234)Financial costs": [""],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Result before taxationx"],
+    "(AOP250+/AOP251-)Profit or loss before taxation": ["Result before taxation"],
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after tax"],
 }
@@ -1494,6 +1494,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
