@@ -146,12 +146,12 @@ allowed_fields_france = {
     "(AOP018)Prepayments and fixed goods under construction": ["Prepayments and fixed goods under construction"],
     "(AOP019)Other tangible fixed assets": ["Other tangible fixed assets"],
     "(AOP021)Financial assets": ["Financial assets"],
-    "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
-    "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
-    "(AOP045)Short-term receivables": ["Short-term receivables"],
-    "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyers", "Trade debtor" , "Trade receivables","Trade debtors"],
-    "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
-    "(AOP052)Short-term financial assets": ["SHORT TERM FINANCIAL ASSETS","short-term financial assets", "Financial investment", "Short term financial assets","Short-term financial investments","Short-term investments"],
+    "(AOP036)Current assets": ["Current assets"],
+    "(AOP037)Inventory": ["Inventory"],
+    "(AOP045)Receivables": ["Receivables"],
+    "(AOP047)Trade debtors": ["Trade debtors"],
+    "(AOP051)Other receivables": ["Other receivables"],
+    "(AOP052)Investments (short term)": ["Investments (short term)"],
     "(AOP059)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
@@ -1387,6 +1387,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
