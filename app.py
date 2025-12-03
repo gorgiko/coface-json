@@ -143,9 +143,9 @@ allowed_fields_france = {
     "(AOP010)Lands and buildings":["Lands and buildings"],
     "(AOP011)Lands and buildings":["Lands and buildings"],
     "(AOP013)Technical equipment and machine": ["Technical equipment and machine"],
-    "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
-    "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment","Other equipment, furniture, fittings, tools, fixtures, vehicles","Other unspecified material fixed assets"],
-    "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets","LONG-TERM FINANCIAL INVESTMENTS AND LONG-TERM RECEIVABLES","Financial assets"],
+    "(AOP018)Prepayments and fixed goods under construction": ["Prepayments and fixed goods under construction"],
+    "(AOP019)Other tangible fixed assets": ["Other tangible fixed assets"],
+    "(AOP021)Financial assets": ["Financial assets"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
     "(AOP045)Short-term receivables": ["Short-term receivables"],
@@ -1387,6 +1387,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
