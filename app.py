@@ -129,6 +129,7 @@ allowed_fields_netherlands = {
     "(AOP031)": [""],
     "(AOP034)": [""],
     "(AOP035)": [""],
+    "(AOP030)": [""],
     "(AOP036)Total Current assets": ["Total Current assets"],
     "(AOP037)Total inventories": ["Total inventories"],
     "(AOP038)": [""],
@@ -192,14 +193,27 @@ allowed_fields_france = {
     "(AOP002)Intangible assets": ["Intangible assets"],
     "(AOP004)Concessions,industrial rights,licences":["Concessions,industrial rights,licences"],
     "(AOP005)Goodwill":["Goodwill"],
+    "(AOP006)":"",
     "(AOP008)Other intangible fixed assets(activated costs)":["Other intangible fixed assets(activated costs)"],
     "(AOP009)Tangible assets": ["Tangible assets"],
     "(AOP010)Lands and buildings":["Lands and buildings"],
     "(AOP011)Lands and buildings":["Lands and buildings"],
+    "(AOP012)":[""],
     "(AOP013)Technical equipment and machines": ["Technical equipment and machines"],
+    "(AOP014)": [""],
+    "(AOP016)":[""],
+    "(AOP017)": [""],
+    "(AOP018)": [""],
     "(AOP018)Prepayments and fixed goods under construction": ["Prepayments and fixed goods under construction"],
     "(AOP019)Other tangible fixed assets": ["Other tangible fixed assets"],
     "(AOP021)Financial assets": ["Financial assets"],
+    "(AOP020)": [""],
+    "(AOP030)": [""],
+    "(AOP024)":[""],
+    "(AOP025)":[""],
+    "(AOP031)": [""],
+    "(AOP034)": [""],
+    "(AOP035)": [""],
     "(AOP036)Current assets": ["Current assets"],
     "(AOP037)Inventory": ["Inventory"],
     "(AOP045)Receivables": ["Receivables"],
@@ -1443,6 +1457,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
