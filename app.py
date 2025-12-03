@@ -215,19 +215,19 @@ allowed_fields_germany = {
     "(AOP047)Trade receivables": ["Trade receivables"],
     "(AOP051)Receivables and other assets, other assets": ["Receivables and other assets, other assets"],
     "(AOP059)Liquid assets": ["Liquid assets"],
-    "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
-    "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
-    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
-    "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves","Capital reserve"],
-    "(AOP075)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
+    "(AOP063)Balance sheet total": ["Balance sheet total"],
+    "(AOP065)Equity capital": ["Equity capital"],
+    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital"],
+    "(AOP071)Capital reserves": ["Capital reserves"],
+    "(AOP075)Equity, net retained profits/net accumulated losses(balance sheet)": ["Equity, net retained profits/net accumulated losses(balance sheet)"],
     "(AOP081)Total liabilities":["Total liabilities"],
-    "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
+    "(AOP082)Provisions":["Provisions"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
     "(AOP084)Other provisions":["Other provisions"],
-    "(AOP097)Short-term trade creditors": ["Short-term trade creditors", "Liabilities to suppliers","Trade Payables","Trade creditors(acounts payable)", " Trade payables","Commitments towards suppliers","Trade payable"],
+    "(AOP097)Trade Payables": ["Trade Payables"],
     "(AOP096)liabilities to affiliated companies": ["liabilities to affiliated companies"],
-    "(AOP104)Obligations for taken loans and credits":["Obligations for taken loans and credits","Short Term Bank Debt","Short liabilities for loans","Short term loans","Short term financial liabilities","Obligation for taken loans","BANK LOANS AND OVERDRAFT","Liabilities to bank","Loans liabilities from credit institutions","Short-term liabilities for loans","Short-term financial liabilities","S-term Liabilities payable to financial institutions","Banks loans and overdraft","Other Loans/Finance"],
-    "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities","Other short-term liabilities","Miscellaneous Liabilities"],
+    "(AOP104)Liabilities to banks":["Liabilities to banks"],
+    "(AOP108)Other liabilities": ["Other liabilities"],
     "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover","Operating income","Net sales revenue"],
     "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)","Other income"],
     "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
@@ -1395,6 +1395,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
