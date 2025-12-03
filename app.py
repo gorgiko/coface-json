@@ -146,7 +146,7 @@ allowed_fields_france = {
     "(AOP009)Tangible assets": ["Tangible assets"],
     "(AOP010)Lands and buildings":["Lands and buildings"],
     "(AOP011)Lands and buildings":["Lands and buildings"],
-    "(AOP013)Technical equipment and machine": ["Technical equipment and machine"],
+    "(AOP013)Technical equipment and machines": ["Technical equipment and machines"],
     "(AOP018)Prepayments and fixed goods under construction": ["Prepayments and fixed goods under construction"],
     "(AOP019)Other tangible fixed assets": ["Other tangible fixed assets"],
     "(AOP021)Financial assets": ["Financial assets"],
@@ -1395,6 +1395,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
