@@ -216,20 +216,38 @@ allowed_fields_france = {
     "(AOP035)": [""],
     "(AOP036)Current assets": ["Current assets"],
     "(AOP037)Inventory": ["Inventory"],
+    "(AOP038)": [""],
+    "(AOP039)": [""],
+    "(AOP040)": [""],
+    "(AOP041)": [""],
+    "(AOP042)": [""],
     "(AOP045)Receivables": ["Receivables"],
+    "(AOP046)": [""],
     "(AOP047)Trade debtors": ["Trade debtors"],
+    "(AOP048)": [""],
+    "(AOP049)": [""],
+    "(AOP050)": [""],
     "(AOP051)Other receivables": ["Other receivables"],
     "(AOP052)Investments (short term)": ["Investments (short term)"],
+    "(AOP058)": [""],
     "(AOP059)Cash": ["Cash"],
+    "(AOP060)": [""],
     "(AOP062)Other current assets": ["Other current assets"],
-    "(AOP065)Equity capital": ["Equity capital"],
-    "(AOP066)Share capital": ["Share capital"],
     "(AOP063)Total assets":["Total assets"],
+    "(AOP065)Equity capital": ["Equity capital"],
+    "(AOP064)": [""],
+    "(AOP066)Share capital": ["Share capital"],
+    "(AOP067)": [""],
+    "(AOP068)": [""],
+    "(AOP069)": [""],
     "(AOP071)Reserves": ["Reserves"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves"],
     "(AOP072)Share premium account (capital reserve)":["Share premium account (capital reserve)"],
+    "(AOP074)": [""],
     "(AOP075)Retained earnings brought forward": ["Retained earnings brought forward"],
+    "(AOP076)": [""],
     "(AOP077)Net income for the year": ["Net income for the year"],
+    "(AOP078)": [""],
     "(AOP085)Long-term liabilities": ["Long-term liabilities"],
     "(AOP090)Long-term Loans, Mortage debts": ["Long-term Loans, Mortage debts","Long-term liabilities to credit institutions"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities"],
@@ -1457,6 +1475,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
