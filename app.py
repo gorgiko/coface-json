@@ -191,10 +191,10 @@ allowed_fields_france = {
 allowed_fields_germany = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["Intangible assets"],
-    "(AOP004)",
-    "(AOP005)",
-    "(AOP006)",
-    "(AOP008)",
+    "(AOP004)":,
+    "(AOP005)":,
+    "(AOP006)":,
+    "(AOP008)":,
     "(AOP009)Tangible fixed assets": ["Tangible fixed assets"],
     "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment","Plant & Machinery"],
     "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
@@ -1391,6 +1391,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
