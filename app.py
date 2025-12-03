@@ -152,16 +152,16 @@ allowed_fields_france = {
     "(AOP047)Trade debtors": ["Trade debtors"],
     "(AOP051)Other receivables": ["Other receivables"],
     "(AOP052)Investments (short term)": ["Investments (short term)"],
-    "(AOP059)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
-    "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
-    "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
-    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
-    "(AOP063)Emission premium":["Emission premium","Share premium"],
-    "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves","Capital reserve"],
-    "(AOP070)Revaluation reserves": ["Revaluation reserves","POSITIVE REVALUATION RESERVES AND UNREALIZED PROFIT FROM FINANCIAL ASSETS AND OTHER ELEMENTS OF OTHER COMPREHENSIVE INCOME"],
-    "(AOP072)Legal reserves":["Legal reserves"],
-    "(AOP075)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
-    "(AOP077)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
+    "(AOP059)Cash": ["Cash"],
+    "(AOP062)Other current assets": ["Other current assets"],
+    "(AOP065)Equity capital": ["Equity capital"],
+    "(AOP066)Share capital": ["Share capital"],
+    "(AOP063)Total assets":["Total assets"],
+    "(AOP071)Reserves": ["Reserves"],
+    "(AOP070)Revaluation reserves": ["Revaluation reserves"],
+    "(AOP072)Share premium account (capital reserve)":["Share premium account (capital reserve)"],
+    "(AOP075)Retained earnings brought forward": ["Retained earnings brought forward"],
+    "(AOP077)Net income for the year": ["Net income for the year"],
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities","Long-term financial and operating liabilities","Long-term provisions and long-term liabilities"],
     "(AOP090)Long-term liabilities for loans": ["Long-term liabilities for loans"],
     "(AOP095)Short-term liabilities": ["Short-term liabilities","IV. SHORT-TERM LIABILITIES","Short- term liabilities","Short term liabilities","SHORT- TERM LIABILITIES", "TOTAL CURRENT LIABILITIES", "Total current liabilities","Short- term liabilities and short term provisions"," Short- term financial and operating liabilities"],
@@ -1387,6 +1387,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
