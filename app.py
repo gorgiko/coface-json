@@ -1291,7 +1291,7 @@ allowed_fields_hungary = {
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
     "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit after tax"],
 }
-allowed_fields_BIH = {
+allowed_fields_bih = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
     "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions, patents, licenses and similar rights and other intangible assets"],
@@ -1590,6 +1590,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
