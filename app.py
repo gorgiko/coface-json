@@ -248,19 +248,36 @@ allowed_fields_france = {
     "(AOP076)": [""],
     "(AOP077)Net income for the year": ["Net income for the year"],
     "(AOP078)": [""],
+    "(AOP081)": [""],
+    "(AOP082)": [""],
+    "(AOP083)": [""],
+    "(AOP084)": [""],
     "(AOP085)Long-term liabilities": ["Long-term liabilities"],
+    "(AOP086)": [""],
+    "(AOP087)": [""],
     "(AOP090)Long-term Loans, Mortage debts": ["Long-term Loans, Mortage debts","Long-term liabilities to credit institutions"],
+    "(AOP092)": [""],
+    "(AOP093)": [""],
     "(AOP095)Short-term liabilities": ["Short-term liabilities"],
-    "(AOP098)Received trade prepayments":["Received trade prepayments"],
+    "(AOP096)": [""],
     "(AOP097)Trade payable": ["Trade payable"],
+    "(AOP098)Received trade prepayments":["Received trade prepayments"],
+    "(AOP099)": [""],
+    "(AOP0100)": [""],
     "(AOP101)Tax and social liabilities":["Tax and social liabilities"],
+    "(AOP103)": [""],
     "(AOP104)Banks loans and overdraft":["Banks loans and overdraft"],
     "(AOP107)Other financial short term liabilities":["Other financial short term liabilities"],
+    "(AOP108)": [""],
+    "(AOP109)": [""],
     "(AOP111)Total liabilities": ["Total liabilities"],
+    "(AOP112)": [""],
     "(AOP201)Operating income": ["Operating income"],
     "(AOP202)Turnover": ["Turnover"],
     "(AOP203)Other operating income": ["Other operating income"],
+    "(AOP206)": [""],
     "(AOP207)Operating expenses": ["Operating expenses"],
+    "(AOP208)": [""],
     "(AOP209)Cost of materials (type of expenditure format)": ["Cost of materials (type of expenditure format)"],
     "(AOP213)Wages and salaries": ["Wages and salaries"],
     "(AOP218)DepreciationDepreciation and provisions": ["Depreciation","DepreciationDepreciation and provisions"],
@@ -1475,6 +1492,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
