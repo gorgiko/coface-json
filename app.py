@@ -189,8 +189,6 @@ allowed_fields_france = {
     "(AOP250)Profit or loss before tax": ["Profit or loss before tax"],
     "(AOP252)Taxes": ["Taxes"],
     "(AOP255)Net profit or loss": ["Net profit or loss"],
-    "(AOP501)EXTRAORDINARY CHARGES": ["EXTRAORDINARY CHARGES"],
-    "(AOP900)EXTRAORDINARY INCOME": ["EXTRAORDINARY INCOME"],
 }
 allowed_fields_germany = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1395,6 +1393,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
