@@ -108,6 +108,10 @@ allowed_fields_serbia = {
 allowed_fields_netherlands = {
     "(AOP001)Fixed assets": ["Fixed assets"],
     "(AOP002)Intangible assets": ["Total Intangible assets"],
+    "(AOP004)":"",
+    "(AOP005)":"",
+    "(AOP006)":"",
+    "(AOP008)":"",
     "(AOP009)Tangible tangible assets": ["Total tangible assets"],
     "(AOP036)Total Current assets": ["Total Current assets"],
     "(AOP037)Total inventories": ["Total inventories"],
@@ -1391,6 +1395,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
