@@ -139,10 +139,10 @@ allowed_fields_france = {
     "(AOP004)Concessions,industrial rights,licences":["Concessions,industrial rights,licences"],
     "(AOP005)Goodwill":["Goodwill"],
     "(AOP008)Other intangible fixed assets(activated costs)":["Other intangible fixed assets(activated costs)"],
-    "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants,equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment","Tangible assets","Property, plants, equipment and biological assets"],
-    "(AOP010)Land and buildings":["Land and buildings","Property, plant and equipment","Land & Buildings"],
-    "(AOP011)Land":["Land","Land and buildings"],
-    "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment","Plant & Machinery"],
+    "(AOP009)Tangible assets": ["Tangible assets"],
+    "(AOP010)Lands and buildings":["Lands and buildings"],
+    "(AOP011)Lands and buildings":["Lands and buildings"],
+    "(AOP013)Technical equipment and machine": ["Technical equipment and machine"],
     "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
     "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment","Other equipment, furniture, fittings, tools, fixtures, vehicles","Other unspecified material fixed assets"],
     "(AOP021)Financial fixed assets": ["Financial fixed assets", "Long term investments","Long term financial investments and long term receivables Financial fixed assets","LONG-TERM FINANCIAL INVESTMENTS AND LONG-TERM RECEIVABLES","Financial assets"],
@@ -1387,6 +1387,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
