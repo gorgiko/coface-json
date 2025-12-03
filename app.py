@@ -200,21 +200,21 @@ allowed_fields_germany = {
     "(AOP006)":"",
     "(AOP008)":"",
     "(AOP009)Tangible fixed assets": ["Tangible fixed assets"],
-    "(AOP013)Machinery and equipment": ["Machinery and equipment", "Plant and Machinery", "Technical equipment and machinery", "Property,plant and equipment","Plant and equipment","Plant & Machinery"],
-    "(AOP014)Other equipment, furniture, fittings, tools, fixtures, vehicles": ["Other equipment, furniture, fittings, tools, fixtures, vehicles"],
-    "(AOP016)Biological property":["Biological property","Biological assets"],
-    "(AOP017)Advance payments for tangible assets": ["Advance payments for tangible assets", "Advances in property,plant,equipment and biological assets and property,biological asset in preparation","Advances in property, plant, equipment and biological assets and property, plant, equipment and biological assets in preparation"],
-    "(AOP018)Tangible assets in progress": ["Tangible assets in progress", "Payments and fixed goods under construction","Immovables, plant  and equipment under construction"],
-    "(AOP019)Other tangible assets": ["Other tangible assets","Other tangible fixed assets", "Other equipment" ,"Other Immovables,plants and equipment","Other immovables, plant and equipment and investment in third-party immovables, plant and equipment","Other equipment, furniture, fittings, tools, fixtures, vehicles","Other unspecified material fixed assets"],
-    "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
-    "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
-    "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies", "Inventory-raw materials, consumabeles and supplies","Inventory - raw materials, consumables, working inventory", "Inventory of materials(fabrication material, spare parts, small inventory and car tires)","Inventory of materials (fabrication material, spare parts, small inventory and car tires"],
-    "(AOP041)Finished products and goods":["Finished products and goods", "Finished products/merchandise", "Finished goods", "Goods"],
-    "(AOP045)Short-term receivables": ["Short-term receivables"],
-    "(AOP046)Short-term intercompany receivables": ["Short-term intercompany receivables", "Receivables from parent companies and subsidiaries", "Receivables from affiliated companies", "Intercompany Receivables","Receivables from foreign parent companies, subsidiaries and other associated companies","Group Receivables"],
-    "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyers", "Trade debtor" , "Trade receivables","Trade debtors"],
-    "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
-    "(AOP059)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
+    "(AOP013)Technical equipment and machinery": ["Technical equipment and machinery"],
+    "(AOP014)": "",
+    "(AOP016)":["Biological property","Biological assets"],
+    "(AOP017)": "",
+    "(AOP018)": "",
+    "(AOP019)Other equipment, operating and office equipment": ["Other equipment, operating and office equipment"],
+    "(AOP036)Current assets": ["Current assets"],
+    "(AOP037)Inventory": ["Inventory"],
+    "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies"],
+    "(AOP041)Finished goods and merchandise":["Finished goods and merchandise"],
+    "(AOP045)Receivables and other assets": ["Receivables and other assets"],
+    "(AOP046)Receivables from affiliated companies": ["Receivables from affiliated companies"],
+    "(AOP047)Trade receivables": ["Trade receivables"],
+    "(AOP051)Receivables and other assets, other assets": ["Receivables and other assets, other assets"],
+    "(AOP059)Liquid assets": ["Liquid assets"],
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
@@ -1395,6 +1395,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
