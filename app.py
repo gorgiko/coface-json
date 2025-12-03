@@ -127,8 +127,15 @@ allowed_fields_netherlands = {
     "(AOP024)":[""],
     "(AOP025)":[""],
     "(AOP031)": [""],
+    "(AOP034)": [""],
+    "(AOP035)": [""],
     "(AOP036)Total Current assets": ["Total Current assets"],
     "(AOP037)Total inventories": ["Total inventories"],
+    "(AOP038)": [""],
+    "(AOP039)": [""],
+    "(AOP040)": [""],
+    "(AOP041)": [""],
+    "(AOP042)": [""],
     "(AOP045)Total receivables": ["Total receivables"],
     "(AOP047)Trade receivables": ["Trade receivables"],
     "(AOP051)Miscellaneous receivables": ["Miscellaneous receivables"],
@@ -1407,6 +1414,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
