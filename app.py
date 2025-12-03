@@ -1371,7 +1371,7 @@ allowed_fields_bih = {
     "(AOP111)Total liabilities and funds": [""],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
     "(AOP201)Turnover, sales revenue": ["Total income"],
-    "(AOP202)Revenues from sales": ["Income from sales of goods""],
+    "(AOP202)Revenues from sales": ["Income from sales of goods"],
     "(AOP203)Other income(other revenues)": ["Other income and profits"],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
     "(AOP207)Operating expenses": ["OPERATING EXPENSES"],
@@ -1590,6 +1590,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
