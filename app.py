@@ -305,14 +305,30 @@ allowed_fields_germany = {
     "(AOP017)": "",
     "(AOP018)": "",
     "(AOP019)Other equipment, operating and office equipment": ["Other equipment, operating and office equipment"],
+    "(AOP021)": [""],
+    "(AOP020)": [""],
+    "(AOP030)": [""],
+    "(AOP024)":[""],
+    "(AOP025)":[""],
+    "(AOP031)": [""],
+    "(AOP034)": [""],
+    "(AOP035)": [""],
     "(AOP036)Current assets": ["Current assets"],
     "(AOP037)Inventory": ["Inventory"],
     "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies"],
+    "(AOP039)": [""],
+    "(AOP040)": [""]
     "(AOP041)Finished goods and merchandise":["Finished goods and merchandise"],
+    "(AOP042)": [""],
     "(AOP045)Receivables and other assets": ["Receivables and other assets"],
     "(AOP046)Receivables from affiliated companies": ["Receivables from affiliated companies"],
     "(AOP047)Trade receivables": ["Trade receivables"],
+    "(AOP048)": [""],
+    "(AOP049)": [""],
+    "(AOP050)": [""],
     "(AOP051)Receivables and other assets, other assets": ["Receivables and other assets, other assets"],
+    "(AOP052)": [""],
+    "(AOP058)": [""],
     "(AOP059)Liquid assets": ["Liquid assets"],
     "(AOP063)Balance sheet total": ["Balance sheet total"],
     "(AOP065)Equity capital": ["Equity capital"],
@@ -1590,6 +1606,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
