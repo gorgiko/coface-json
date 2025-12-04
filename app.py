@@ -158,9 +158,10 @@ allowed_fields_netherlands = {
     "(AOP071)Revenue reserves": ["Revenue Reserves"],
     "(AOP072)": [""],
     "(AOP074)": [""],
-    "(AOP075)Retained profit": ["Retained profit"],
-    "(AOP076)": [""],
-    "(AOP077+/AOP078-)": [""],
+    "(AOP075+/AOP076-)Retained profit": ["Retained profit"],
+    "(AOP076-)": [""],
+    "(AOP077+)": [""],
+    "(AOP078-)": [""],
     "(AOP081)Total Liabilities": ["Total liabilities"],
     "(AOP082)": [""],
     "(AOP083)": [""],
@@ -184,9 +185,11 @@ allowed_fields_netherlands = {
     "(AOP201)Turnover": ["Turnover"],
     "(AOP207)Operating costs": ["Operating Costs"],
     "(AOP234)Financial expenses": ["Financial expenses"],
-    "(AOP250)Profit before tax": ["Profit Before Tax"],
+    "(AOP250+)Profit before tax": ["Profit Before Tax"],
+    "(AOP251-)": [""],
     "(AOP252)tax": ["Tax"],
-    "(AOP255)Profit after tax": ["Profit after tax"],
+    "(AOP255+)Profit after tax": ["Profit after tax"],
+    "(AOP256-)": [""],
 }
 allowed_fields_france = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1638,6 +1641,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
