@@ -847,7 +847,9 @@ allowed_fields_slovenia = {
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
+    "(AOP077+)Net profit or loss for the year": ["Net profit for the period"],
+    "(AOP078-)Net profit or loss for the year": ["Net loss for the period"],
+    "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
     "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
@@ -883,9 +885,11 @@ allowed_fields_slovenia = {
     "(AOP222)Other operating expenses": ["Other operating expenses"],
     "(AOP223)Income from financial transactions": ["Financial revenues"],
     "(AOP234)Financial costs": ["Financial expenses"],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
-    "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Net profit for the period"],
+    "(AOP250+)Profit or loss before taxation": ["Profit Before Tax"],
+    "(AOP251-)Profit or loss before taxation": ["Loss before tax"],
+    "(AOP252)Profit tax": ["Income tax"],
+    "(AOP255+)Profit or loss after taxation": ["NET PROFIT FOR THE PERIOD"],
+    "(AOP256-)Profit or loss after taxation": ["NET LOSS FOR THE PERIOD"],
 }
 allowed_fields_montenegro = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1670,6 +1674,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
