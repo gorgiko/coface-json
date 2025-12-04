@@ -1392,7 +1392,7 @@ allowed_fields_bih = {
     "(AOP050)Short-term receivables from employees": ["Short-term receivables from employees"],
     "(AOP049)Receivables from the state and other institutions": ["Prepaid corporate income tax","Receivables from the state and other institutions"],
     "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
-    "(AOP052)Short-term financial assets": ["Other financial assets at amortized cost"],
+    "(AOP052)Short-term financial assets": [""],
     "(AOP058)Other short-term financial investments":["other short-term financial investments","Other short term financial assets"],
     "(AOP059_060)Cash": ["Bank balance, cheques and cash on hand"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
@@ -1408,7 +1408,8 @@ allowed_fields_bih = {
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Accumulated, retained earnings from previous periods"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": ["Current period profit"],
+    "(AOP077+)Net profit or loss for the year": ["Current period profit"],
+    "(AOP078-)Net profit or loss for the year": ["Current period loss"],
     "(AOP081)Liabilities": ["Total liabilities"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
@@ -1416,9 +1417,9 @@ allowed_fields_bih = {
     "(AOP085)Long-term liabilities": ["Long-term liabilities", "Long term liabilities", "Total Long term liabilities","Long-term financial and operating liabilities","Long-term provisions and long-term liabilities"],
     "(AOP086)Long-term liabilities to affiliates": ["Long-term liabilities to affiliates", "Group payables due after 1 year", "Long term liabilities to affiliates"],
     "(AOP087)Trade liabilities":["Trade liabilities"],
-    "(AOP090)Long-term liabilities for loans": ["Obligations for taken loans"],
+    "(AOP090)Long-term liabilities for loans": [""],
     "(AOP092)Other loans/finance due after 1 year":["Other loans/finance due after 1 year","Long term liabilities payable to financial institutions"],
-    "(AOP093)Other long-term liabilities": ["Other liabilities, including accruals"],
+    "(AOP093)Other long-term liabilities": [""],
     "(AOP095)Short-term liabilities": ["SHORT-TERM LIABILITIES"],
     "(AOP096)Short-term liabilities to affiliates": ["Liabilities to the parent and subsidiaries entities"],
     "(AOP098)Prepayments, deposits and gurantee":["Prepayments, deposits and bails"],
@@ -1427,8 +1428,8 @@ allowed_fields_bih = {
     "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
     "(AOP101)Liability for income tax":["Liability for income tax"],
-    "(AOP104)Obligations for taken loans and credits":["Obligations for taken loans"],
-    "(AOP108)Other short-term liabilities": ["Other liabilities, including accruals"],
+    "(AOP104)Obligations for taken loans and credits":[""],
+    "(AOP108)Other short-term liabilities": [""],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": [""],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
@@ -1444,9 +1445,11 @@ allowed_fields_bih = {
     "(AOP222)Other operating expenses": ["Other expenses and losses"],
     "(AOP223)Income from financial transactions": ["Financial revenues"],
     "(AOP234)Financial costs": ["Financial expenses"],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit from regular operations before taxation"],
+    "(AOP250+)Profit or loss before taxation": ["Profit from regular operations before taxation"],
+    "(AOP251-)Profit or loss before taxation": ["Loss from regular operations before taxation"],
     "(AOP252)Profit tax": ["Profit tax"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit from regular operations"],
+    "(AOP255+)Profit or loss after taxation": ["Profit from regular operations"],
+    "(AOP256-)Profit or loss after taxation": ["Loss from regular business"],
 }
 # Map countries to alias dictionaries
 country_alias_map = {
@@ -1652,6 +1655,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
