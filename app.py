@@ -317,7 +317,7 @@ allowed_fields_germany = {
     "(AOP037)Inventory": ["Inventory"],
     "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies"],
     "(AOP039)": [""],
-    "(AOP040)": [""]
+    "(AOP040)": [""],
     "(AOP041)Finished goods and merchandise":["Finished goods and merchandise"],
     "(AOP042)": [""],
     "(AOP045)Receivables and other assets": ["Receivables and other assets"],
@@ -1606,6 +1606,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
