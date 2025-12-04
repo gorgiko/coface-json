@@ -326,9 +326,9 @@ allowed_fields_germany = {
     "(AOP024)":[""],
     "(AOP025)":[""],
     "(AOP031)": [""],
-    "(AOP034)": [""],
     "(AOP035)": [""],
     "(AOP030)": [""],
+    "(AOP034)": [""],
     "(AOP036)Current assets": ["Current assets"],
     "(AOP037)Inventory": ["Inventory"],
     "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies"],
@@ -336,12 +336,12 @@ allowed_fields_germany = {
     "(AOP040)": [""],
     "(AOP041)Finished goods and merchandise":["Finished goods and merchandise"],
     "(AOP042)": [""],
+    "(AOP048)": [""],
     "(AOP045)Receivables and other assets": ["Receivables and other assets"],
     "(AOP046)Receivables from affiliated companies": ["Receivables from affiliated companies"],
     "(AOP047)Trade receivables": ["Trade receivables"],
-    "(AOP048)": [""],
-    "(AOP049)": [""],
     "(AOP050)": [""],
+    "(AOP049)": [""],
     "(AOP051)Receivables and other assets, other assets": ["Receivables and other assets, other assets"],
     "(AOP052)": [""],
     "(AOP058)": [""],
@@ -358,9 +358,9 @@ allowed_fields_germany = {
     "(AOP070)": [""],
     "(AOP072)": [""],
     "(AOP074)": [""],
-    "(AOP075)Equity, net retained profits/net accumulated losses(balance sheet)": ["Equity, net retained profits/net accumulated losses(balance sheet)"],
-    "(AOP076)": [""],
-    "(AOP077+/AOP078-)": [""],
+    "(AOP075+/AOP076-)Equity, net retained profits/net accumulated losses(balance sheet)": ["Equity, net retained profits/net accumulated losses(balance sheet)"],
+    "(AOP077+)": [""],
+    "(AOP078-)": [""],
     "(AOP081)Total liabilities":["Total liabilities"],
     "(AOP082)Provisions":["Provisions"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
@@ -1657,6 +1657,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
