@@ -1356,7 +1356,7 @@ allowed_fields_bih = {
     "(AOP087)Trade liabilities":["Trade liabilities"],
     "(AOP090)Long-term liabilities for loans": ["Obligations for taken loans"],
     "(AOP092)Other loans/finance due after 1 year":["Other loans/finance due after 1 year","Long term liabilities payable to financial institutions"],
-    "(AOP093)Other long-term liabilities": ["Other liabilities"],
+    "(AOP093)Other long-term liabilities": ["Other liabilities, including accruals"],
     "(AOP095)Short-term liabilities": ["SHORT-TERM LIABILITIES"],
     "(AOP096)Short-term liabilities to affiliates": ["Liabilities to the parent and subsidiaries entities"],
     "(AOP098)Prepayments, deposits and gurantee":["Prepayments, deposits and bails"],
@@ -1590,6 +1590,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
