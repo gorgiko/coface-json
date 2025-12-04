@@ -528,7 +528,7 @@ allowed_fields_albania = {
     "(AOP034)Other long term receivables":["Other long term receivables","Other long-term receivables"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
-    "(AOP038)Raw materials, consumabeles and supplies":["Inventory - Raw materials],
+    "(AOP038)Raw materials, consumabeles and supplies":["Inventory - Raw materials"],
     "(AOP039)Inventory of materials":["Inventory of materials(fabricationmaterial, spare parts)"],
     "(AOP040)Work in progress":["Work in progress"],
     "(AOP041)Finished products and goods":["Inventory - Finished goods"],
@@ -1661,6 +1661,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
