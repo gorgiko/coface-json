@@ -1411,8 +1411,8 @@ allowed_fields_bih = {
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Accumulated, retained earnings from previous periods"],
-    "(AOP077+)Profit for the year": ["Current period profit"],
-    "(AOP078-)Loss for the year": ["Current period loss"],
+    "(AOP077+)Net profit or loss for the year": ["Current period profit"],
+    "(AOP078-)Net profit or loss for the year": ["Current period loss"],
     "(AOP081)Liabilities": ["Total liabilities"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
@@ -1448,11 +1448,11 @@ allowed_fields_bih = {
     "(AOP222)Other operating expenses": ["Other expenses and losses"],
     "(AOP223)Income from financial transactions": ["Financial revenues"],
     "(AOP234)Financial costs": ["Financial expenses"],
-    "(AOP250+)Profit before taxation": ["Profit from regular operations before taxation"],
-    "(AOP251-)Loss before taxation": ["Loss from regular operations before taxation"],
+    "(AOP250+)Profit or loss before taxation": ["Profit from regular operations before taxation"],
+    "(AOP251-)Profit or loss before taxation": ["Loss from regular operations before taxation"],
     "(AOP252)Profit tax": ["Profit tax"],
     "(AOP255+)Profit after taxation": ["Profit from regular operations"],
-    "(AOP256-)Loss after taxation": ["Loss from regular business"],
+    "(AOP256-)Profit or loss after taxation": ["Loss from regular business"],
 }
 # Map countries to alias dictionaries
 country_alias_map = {
@@ -1658,6 +1658,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
