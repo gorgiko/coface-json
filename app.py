@@ -528,7 +528,7 @@ allowed_fields_albania = {
     "(AOP034)Other long term receivables":["Other long term receivables","Other long-term receivables"],
     "(AOP036)Short-term assets": ["Short term assets", "Current assets", "Total Current assets", "Short term assets"],
     "(AOP037)Inventory": ["Inventory", "Total inventories", "Inventories"],
-    "(AOP038)Raw materials, consumabeles and supplies":["Raw materials, consumabeles and supplies", "Inventory-raw materials"],
+    "(AOP038)Raw materials, consumabeles and supplies":["Inventory-raw materials"],
     "(AOP039)Inventory of materials":["Inventory of materials(fabricationmaterial, spare parts)"],
     "(AOP040)Work in progress":["Work in progress"],
     "(AOP041)Finished products and goods":["Inventory - Finished goods"],
@@ -549,7 +549,7 @@ allowed_fields_albania = {
     "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
     "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
     "(AOP067)Emission premium":["Emission premium","Share premium"],
-    "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)","Share capital","Subscribed capital unpaid"],
+    "(AOP068)Own shares":[""],
     "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital","Subscribed capital unpaid"],
     "(AOP071)Capital reserves": ["RESERVES FROM PROFIT"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves","POSITIVE REVALUATION RESERVES AND UNREALIZED PROFIT FROM FINANCIAL ASSETS AND OTHER ELEMENTS OF OTHER COMPREHENSIVE INCOME"],
@@ -589,7 +589,7 @@ allowed_fields_albania = {
     "(AOP209)Cost of goods sold": ["Cost of goods sold","The purchase value of the goods sold","Cost of materials (type of expenditure format)","Cost of goods sold and the cost of materials"],
     "(AOP213)Staff costs": ["Staff costs (employee costs)"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions","Depreciation and amortization"],
-    "(AOP222)Other operating expenses": ["Other costs"],
+    "(AOP222)Other operating expenses": ["Other Expenses"],
     "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
@@ -1658,6 +1658,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
