@@ -373,12 +373,12 @@ allowed_fields_germany = {
     "(AOP093)": [""],
     "(AOP095)": [""],
     "(AOP096)liabilities to affiliated companies": ["liabilities to affiliated companies"],
-    "(AOP097)Trade Payables": ["Trade Payables"],
     "(AOP098)": [""],
-    "(AOP099)": [""],
-    "(AOP100)": [""],
-    "(AOP101)": [""],
     "(AOP103)": [""],
+    "(AOP097)Trade Payables": ["Trade Payables"],
+    "(AOP100)": [""],
+    "(AOP099)": [""],
+    "(AOP101)": [""],
     "(AOP104)Liabilities to banks":["Liabilities to banks"],
     "(AOP108)Other liabilities": ["Other liabilities"],
     "(AOP109)": [""],
@@ -398,10 +398,11 @@ allowed_fields_germany = {
     "(AOP222)Other operating expenses": ["Other operating expenses"],
     "(AOP223)": [""],
     "(AOP224)": [""],
-    "(AOP250+/251-)": [""],
+    "(AOP250)": [""],
+    "(AOP251-)": [""],
     "(AOP252)Taxes on income": ["Taxes on income"],
-    "(AOP255)Net income/net loss for the financial year": ["Net income/net loss for the financial year"],
-    "(AOP256)": [""],
+    "(AOP255+)Net income/net loss for the financial year": ["Net income/net loss for the financial year"],
+    "(AOP256-)": [""],
 }
 
 # Placeholders for other countries
@@ -1657,6 +1658,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
