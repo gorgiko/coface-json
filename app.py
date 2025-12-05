@@ -1183,7 +1183,7 @@ allowed_fields_sweden = {
     "(AOP234)Financial costs": ["Financial expenses"],
     "(AOP250+)Profit or loss before taxation": ["Profit Before Tax"],
     "(AOP251-)Profit or loss before taxation":[""],
-    "(AOP252)Profit tax": ["Tax""],
+    "(AOP252)Profit tax": ["Tax"],
     "(AOP255+)Profit or loss after taxation": ["Profit After Tax"],
     "(AOP256-)Profit or loss after taxation":[""],
 
@@ -1686,6 +1686,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
