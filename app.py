@@ -988,7 +988,7 @@ allowed_fields_montenegro = {
 }
 allowed_fields_romania = {
     "(AOP001)Fixed assets": ["Fixed assets"],
-    "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
+    "(AOP002)Intangible assets": ["Intangible assets"],
     "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions,industrial rights,licences","Concessions, patents, licenses, trade marks etc.", "Service marks,software and other intangible assets","Concessions,patents,licenses and similar rights and other intangible assets","Concessions, patents, licenses, trademarks, service marks, software and other intangible assets"],
     "(AOP005)Goodwill":["Goodwill"],
     "(AOP006)Advances for intangible assets and intangible assets in preparation":["Advances for intangible assets and intangible assets in preparation"],
@@ -1041,7 +1041,8 @@ allowed_fields_romania = {
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
+    "(AOP077+)Net profit or loss for the year": [""],
+    "(AOP078-)Net profit or loss for the year": [""],
     "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
@@ -1077,9 +1078,12 @@ allowed_fields_romania = {
     "(AOP222)Other operating expenses": ["Extraordinary expenses"],
     "(AOP223)Income from financial transactions": [""],
     "(AOP234)Financial costs": ["Expenses on financial transactions (financial expenditures)"],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit before taxation"],
+    "(AOP250+)Profit or loss before taxation":["Profit before taxation"],
+    "(AOP251-)Profit or loss before taxation":["Loss before taxation"],
     "(AOP252)Profit tax": ["Profit tax"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit after taxation"],
+    "(AOP255+)Profit or loss after taxation": ["Profit after taxation"],
+    "(AOP256-)Profit or loss after taxation":["Loss after taxation"],
+
 }
 allowed_fields_sweden = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1674,6 +1678,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
