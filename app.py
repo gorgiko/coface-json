@@ -946,7 +946,8 @@ allowed_fields_montenegro = {
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": [""],
+    "(AOP077+)Net profit or loss for the year": [""],
+    "(AOP078-)Net profit or loss for the year": [""],
     "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
@@ -982,9 +983,12 @@ allowed_fields_montenegro = {
     "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
     "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
     "(AOP234)Financial costs": [""],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Result before taxation"],
+    "(AOP250+)Profit or loss before taxation": ["Result before taxation"],
+    "(AOP251-)Profit or loss before taxation":[""],
     "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit or loss after tax"],
+    "(AOP255+)Profit or loss after taxation": ["Profit or loss after tax"],
+    "(AOP256-)Profit or loss after taxation":[""],
+
 }
 allowed_fields_romania = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1678,6 +1682,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
