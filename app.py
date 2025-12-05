@@ -1144,7 +1144,8 @@ allowed_fields_sweden = {
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Revenue Reserves"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
+    "(AOP077+)Net profit or loss for the year": [""],
+    "(AOP078-)Net profit or loss for the year": [""],
     "(AOP081)Liabilities": ["Total liabilities"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
@@ -1180,9 +1181,12 @@ allowed_fields_sweden = {
     "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
     "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
     "(AOP234)Financial costs": ["Financial expenses"],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
-    "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit After Tax"],
+    "(AOP250+)Profit or loss before taxation": ["Profit Before Tax"],
+    "(AOP251-)Profit or loss before taxation":[""],
+    "(AOP252)Profit tax": ["Tax""],
+    "(AOP255+)Profit or loss after taxation": ["Profit After Tax"],
+    "(AOP256-)Profit or loss after taxation":[""],
+
 }
 allowed_fields_italy = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1682,6 +1686,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
