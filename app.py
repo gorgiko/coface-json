@@ -756,8 +756,9 @@ allowed_fields_bulgaria = {
     "(AOP072)Legal reserves":["Legal reserves"],
     "(AOP074)Other reserves":["Other reserves"],
     "(AOP075+/AOP076-)Profit or loss carried forward": ["Profit or loss carried forward","Retained profit (earnings) of the year (net profits)","Accumulated retained earnings from previous periods","Retained profit", "Retained earnings brought forward", "Net retained profit/net acumalted loss", "Net profit or loss from previos years","Equity, net retained profits/net accumulated losses (balance sheet)","Net profit or loss from previous periods","Accumulated profit reserve","Retained earnings or loss"],
-    "(AOP077+/AOP078-)Net profit or loss for the year": ["Net profit or loss for the year","Current period profit", "Loss from previos years", "Net profit for the period" , "Profit of the year","Net profit or loss for the year", "Net profit for the period","Retained earnings for the current year"],
-    "(AOP081)Liabilities": ["Liabilities", "Total liabilities","Total debt","Total debts"],
+    "(AOP077+)Net profit or loss for the year": ["Profit of the year"],
+    "(AOP078-)Net profit or loss for the year": ["Loss of the year"],
+    "(AOP081)Liabilities": ["TOTAL LIABILITIES"],
     "(AOP082)Provision for risks and charges":["Provision for risks and charges","Provisions for risks and charges"],
     "(AOP083)Provisions for pensions and similar obligations":["Provisions for pensions and similar obligations"],
     "(AOP084)Other provisions":["Other provisions"],
@@ -778,11 +779,11 @@ allowed_fields_bulgaria = {
     "(AOP104)Obligations for taken loans and credits":["Obligations for taken loans and credits","Short Term Bank Debt","Short liabilities for loans","Short term loans","Short term financial liabilities","Obligation for taken loans","BANK LOANS AND OVERDRAFT","Liabilities to bank","Loans liabilities from credit institutions","Short-term liabilities for loans","Short-term financial liabilities","S-term Liabilities payable to financial institutions","Banks loans and overdraft","Other Loans/Finance"],
     "(AOP108)Other short-term liabilities": ["Other short term liabilities", "Other operating and liabilities and other short term liabilities", "Other short-term liabilities ",  "Other  liabilities  including accruals",  "Other  liabilities","Other short-term liabilities","Miscellaneous Liabilities"],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
-    "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES","Balance sheet total"],
+    "(AOP111)Total liabilities and funds": [""],
     "(AOP112)Off balance sheet items": ["Off balance sheet items"],
     "(AOP201)Turnover, sales revenue": ["Turnover"],
     "(AOP202)Revenues from sales": [""],
-    "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)","Other income"],
+    "(AOP203)Other income(other revenues)": [""],
     "(AOP206)Own work capitalized": ["Own work capitalized"],
     "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
     "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
@@ -790,11 +791,14 @@ allowed_fields_bulgaria = {
     "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries","Short-term financial and operating liabilities","Personnel type expenses","Wages expenses, wage compensation and other personal expenses"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions","Depreciation and amortization"],
     "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
-    "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
+    "(AOP223)Income from financial transactions": [""],
     "(AOP234)Financial costs": ["Financial costs"],
-    "(AOP250+/AOP251-)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
-    "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+/AOP256-)Profit or loss after taxation": ["Profit after taxation/Loss after taxation"],
+    "(AOP250+)Profit or loss before taxation": ["Profit before taxation/Loss before taxation"],
+    "(AOP251-)Profit or loss before taxation":[""],
+    "(AOP252)Profit tax": ["Taxes,duties and similar expenses""],
+    "(AOP255+)Profit or loss after taxation": ["Profit after taxation/Loss after taxation"],
+    "(AOP256-)Profit or loss after taxation":[""],
+
 }
 allowed_fields_slovenia = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1690,6 +1694,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
