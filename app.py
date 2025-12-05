@@ -795,7 +795,7 @@ allowed_fields_bulgaria = {
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+)Profit or loss before taxation": ["Profit before taxation/Loss before taxation"],
     "(AOP251-)Profit or loss before taxation":[""],
-    "(AOP252)Profit tax": ["Taxes,duties and similar expenses""],
+    "(AOP252)Profit tax": ["Taxes,duties and similar expenses"],
     "(AOP255+)Profit or loss after taxation": ["Profit after taxation/Loss after taxation"],
     "(AOP256-)Profit or loss after taxation":[""],
 
@@ -1694,6 +1694,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
