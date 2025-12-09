@@ -48,10 +48,10 @@ allowed_fields_serbia = {
     "(AOP047)Short-term trade receivables": ["Short-term trade receivables", "Receivables from buyers", "Trade debtor" , "Trade receivables","Trade debtors"],
     "(AOP050)": [""],
     "(AOP049)": [""],
-    "(AOP051)Other short-term receivables": ["Other short-term receivables","Other short term receivables", "Other receivables", "Miscellaneous receivables"],
+    "(AOP051)Other short-term receivables": ["Other short-term receivables"],
     "(AOP052)": [""],
     "(AOP058)":[""],
-    "(AOP059_060)Cash": ["Cash","Cash and cash equivalents", "Cash assets", "Bank balance cheques and cash on hand", "Cash and cash equivalent", "Cash","Bank balance, cheques and cash on hand","Liquid assets"],
+    "(AOP059_060)Cash": ["Cash"],
     "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
     "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
     "(AOP064)Off balance sheet items": ["Off balance sheet items"],
@@ -1694,6 +1694,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
