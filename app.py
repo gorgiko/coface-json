@@ -90,17 +90,20 @@ allowed_fields_serbia = {
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
     "(AOP111)Total liabilities and funds": ["Total liabilities and funds"],
     "(AOP112)": [""],
-    "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
-    "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover","Operating income","Net sales revenue"],
-    "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)","Other income"],
-    "(AOP206)Own work capitalized": ["Own work capitalized"],
-    "(AOP207)Operating expenses": ["Operating expenses","Operating Costs"],
-    "(AOP208)Material costs": ["Material costs","Cost of raw materials and consumables","RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
-    "(AOP209)Cost of goods sold": ["Cost of goods sold","The purchase value of the goods sold","Cost of materials (type of expenditure format)","Cost of goods sold and the cost of materials"],
-    "(AOP213)Staff costs": ["Staff costs (employee costs)","Wages and salaries","Wages & Salaries","Short-term financial and operating liabilities","Personnel type expenses","Wages expenses, wage compensation and other personal expenses"],
-    "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions","Depreciation and amortization"],
-    "(AOP222)Other operating expenses": ["Other operating expenses","Other expenses","Intangible costs","Other expenses and losses"],
-    "(AOP223)Income from financial transactions": ["Income from financial transactions (financial income)","III. FINANCIAL INCOME","Financial income"],
+    "(AOP201)Operating income": ["Operating income"],
+    "(AOP202)Income from goods sold": ["Income from goods sold"],
+    "(AOP203)OTHER OPERATING REVENUE": ["OTHER OPERATING REVENUE"],
+    "(AOP206)": [""],
+    "(AOP207)Operating expenses": ["Operating expenses"],
+    "(AOP208)RAW MATERIAL COSTS, FUEL AND ENERGY COSTS": ["RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
+    "(AOP209)Cost of goods sold": ["Cost of goods sold"],
+    "(AOP211)Production services costs": ["Production services costs"],
+    "(AOP213)Costs of wages and salaries": ["Costs of wages and salaries"],
+    "(AOP217)Other personel indemnities and fees": ["Other personel indemnities and fees"],
+    "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets"],
+    "(AOP222)Intangible costs": ["Intangible costs"],
+    "(AOP223)Income from financial transactions (financial income)": ["Income from financial transactions (financial income)"],
+    "(AOP224)Financial income from parent companies,subsidiaries and other associated companies": ["Financial income from parent companies,subsidiaries and other associated companies"],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
     "(AOP251-)Profit or loss before taxation": ["Profit or loss before taxation"],
@@ -1694,6 +1697,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
