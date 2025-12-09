@@ -97,9 +97,7 @@ allowed_fields_serbia = {
     "(AOP207)Operating expenses": ["Operating expenses"],
     "(AOP208)RAW MATERIAL COSTS, FUEL AND ENERGY COSTS": ["RAW MATERIAL COSTS, FUEL AND ENERGY COSTS"],
     "(AOP209)Cost of goods sold": ["Cost of goods sold"],
-    "(AOP211)Production services costs": ["Production services costs"],
     "(AOP213)Costs of wages and salaries": ["Costs of wages and salaries"],
-    "(AOP217)Other personel indemnities and fees": ["Other personel indemnities and fees"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets"],
     "(AOP222)Intangible costs": ["Intangible costs"],
     "(AOP223)Income from financial transactions (financial income)": ["Income from financial transactions (financial income)"],
@@ -180,6 +178,7 @@ allowed_fields_netherlands = {
     "(AOP095)TOTAL CURRENT LIABILITIES": ["TOTAL CURRENT LIABILITIES"],
     "(AOP096)": [""],
     "(AOP098)": [""],
+    "(AOP103)": [""],
     "(AOP097)Trade payables": ["Trade payables"],
     "(AOP100)": [""],
     "(AOP099)": [""],
@@ -1696,6 +1695,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
