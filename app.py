@@ -395,6 +395,7 @@ allowed_fields_germany = {
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions","Depreciation and amortization"],
     "(AOP222)Other operating expenses": ["Other operating expenses"],
     "(AOP223)": [""],
+    "(AOP234)": [""],
     "(AOP250)": [""],
     "(AOP251-)": [""],
     "(AOP252)Taxes on income": ["Taxes on income"],
@@ -1691,6 +1692,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
