@@ -52,13 +52,13 @@ allowed_fields_serbia = {
     "(AOP052)": [""],
     "(AOP058)":[""],
     "(AOP059_060)Cash": ["Cash"],
-    "(AOP062)Prepaid expenses": ["Prepaid expenses","ACCRUALS"],
-    "(AOP063)Total assets": ["TOTAL ASSETS", "Total assets", "Balance sheet total"],
-    "(AOP064)Off balance sheet items": ["Off balance sheet items"],
-    "(AOP065)Equity capital": ["Equity capital", "Owners equity"],
-    "(AOP066)Subscribed and paid capital": ["Subscribed and paid capital", "Basic capital", "Shareholders equity","Called capital", "Share capital", "Called and share capital","Subscribed capital","Called up share capital (issued capital stock)"],
-    "(AOP067)Emission premium":["Emission premium","Share premium"],
-    "(AOP068)Own shares":["Own shares","Called up share capital","Called up share capital (issued capital stock)","Share capital","Subscribed capital unpaid"],
+    "(AOP062)": [""],
+    "(AOP063)TOTAL ASSETS": ["TOTAL ASSETS"],
+    "(AOP064)": [""],
+    "(AOP065)Equity capital": ["Equity capital"],
+    "(AOP066)Subscribed capital": ["Subscribed capital"],
+    "(AOP067)":[""],
+    "(AOP068)":[""],
     "(AOP069)Subscribed unpaid capital":["Subscribed unpaid capital","Unpaid issued capital","Subscribed capital unpaid"],
     "(AOP071)Capital reserves": ["CAPITAL RESERVES", "Capital reserves", "Reserves", "Revenue","Revenue Reserves","Capital reserve"],
     "(AOP070)Revaluation reserves": ["Revaluation reserves","POSITIVE REVALUATION RESERVES AND UNREALIZED PROFIT FROM FINANCIAL ASSETS AND OTHER ELEMENTS OF OTHER COMPREHENSIVE INCOME"],
@@ -1694,6 +1694,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
