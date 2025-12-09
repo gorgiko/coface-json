@@ -84,12 +84,12 @@ allowed_fields_serbia = {
     "(AOP097)Short-term trade creditors": ["Short-term trade creditors"],
     "(AOP100)Short-term liabilities to employees": ["Short-term liabilities to employees","Liabilities towards employees"],
     "(AOP099)Short-term liabilities for taxes, contributions and other fees": ["Short-term liabilities for taxes, contributions and other fees"],
-    "(AOP101)":[""],
+    "(AOP101)Liabilities for value added tax and other public revenues":["Liabilities for value added tax and other public revenues"],
     "(AOP104)Short-term financial liabilities":["Short-term financial liabilities"],
-    "(AOP108)Other short-term liabilities": ["Other short-term liabilities"],
+    "(AOP108)": [""],
     "(AOP109)Accruals and deferred income": ["Accruals and deferred income"],
-    "(AOP111)Total liabilities and funds": ["Total liabilities and funds", "TOTAL EQUITY AND LIABILITIES "," TOTAL LIABILITIES","BALANCE SHEET TOTAL","TOTAL LIABILITIES","Balance sheet total"],
-    "(AOP112)Off balance sheet items": ["Off balance sheet items"],
+    "(AOP111)Total liabilities and funds": ["Total liabilities and funds"],
+    "(AOP112)": [""],
     "(AOP201)Turnover, sales revenue": ["Turnover, sales revenue","Revenues from contracts with customers","Operating income","Turnover","Total income"],
     "(AOP202)Revenues from sales": ["Revenues from sales","Income from sales","Income from sales (outside group)","Income from goods sold","Income from sales of goods","Turnover","Operating income","Net sales revenue"],
     "(AOP203)Other income(other revenues)": ["Other income(other revenues)","Other operating income (outside the group)","Other operating income","OTHER OPERATING REVENUE","Other income and profits","Income from financial transactions (financial income)","Other income"],
@@ -1694,6 +1694,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
