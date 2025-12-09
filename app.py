@@ -107,11 +107,11 @@ allowed_fields_serbia = {
     "(AOP230)Income from interest(from third parties)": ["Income from interest(from third parties)"],
     "(AOP231)Positive effects on exchange rate and effects of foreign currency clause(to third parties)": ["Positive effects on exchange rate and effects of foreign currency clause(to third parties)"],
     "(AOP234)Financial costs": ["Financial costs"],
-    "(AOP250+)Profit or loss before taxation": ["Profit or loss before taxation","Profit before taxation","Loss before taxation","Profit before taxation/Loss before taxation","Profit Before Tax"],
-    "(AOP251-)Profit or loss before taxation": ["Profit or loss before taxation"],
-    "(AOP252)Profit tax": ["Profit tax","Income tax","Taxes,duties and similar expenses","Taxes","Tax","Tax charge","Tax expense of the period"],
-    "(AOP255+)Profit or loss after taxation": ["Profit or loss after taxation","Profit after taxation","Loss after taxation","TOTAL RESULT"],
-    "(AOP256-)Profit or loss after taxation": ["Profit or loss after taxation"],
+    "(AOP250+)Profit before taxation": ["Profit before taxation"],
+    "(AOP251-)": [""],
+    "(AOP252)": [""],
+    "(AOP255+)": [""],
+    "(AOP256-)": [""],
 }
 allowed_fields_netherlands = {
     "(AOP001)Fixed assets": ["Fixed assets"],
@@ -1699,6 +1699,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
