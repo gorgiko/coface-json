@@ -15,7 +15,7 @@ allowed_fields_serbia = {
     "(AOP002)Intangible assets": ["I. Intangible assets", "Intangible assets", "Intangible fixed assets", "Total Intangible assets"],
     "(AOP004)Concessions,patents,licenses and similar rights and other intangible assets":["Concessions,industrial rights,licences","Concessions, patents, licenses, trade marks etc.", "Service marks,software and other intangible assets","Concessions,patents,licenses and similar rights and other intangible assets","Concessions, patents, licenses, trademarks, service marks, software and other intangible assets"],
     "(AOP005)":[""],
-    "(AOP006)":["A"],
+    "(AOP006)":[""],
     "(AOP008)":[""],
     "(AOP009)Tangible fixed assets": ["II. Tangible assets","Tangible fixed assets", "Total tangible assets" , "Property,plants,equipment and biological assets", "Immovables,plants and equipment","Immovables, plants and equipment","Tangible assets","Property, plants, equipment and biological assets"],
     "(AOP010)Land and buildings":["Land and buildings","Property, plant and equipment","Land & Buildings"],
@@ -1695,6 +1695,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
