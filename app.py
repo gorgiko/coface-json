@@ -282,7 +282,6 @@ allowed_fields_france = {
     "(AOP099)": [""],
     "(AOP101)Tax and social liabilities":["Tax and social liabilities"],
     "(AOP104)Banks loans and overdraft":["Banks loans and overdraft"],
-    "(AOP107)Other financial short term liabilities":["Other financial short term liabilities"],
     "(AOP108)": [""],
     "(AOP109)": [""],
     "(AOP111)Total liabilities": ["Total liabilities"],
@@ -299,7 +298,6 @@ allowed_fields_france = {
     "(AOP222)Other operating expenses": ["Other operating expenses"],
     "(AOP223)Financial income": ["Financial income"],
     "(AOP234)Financial expenses": ["Financial expenses"],
-    "(AOP246)Operating result": ["Operating result"],
     "(AOP250+)Profit or loss before tax": ["Profit or loss before tax"],
     "(AOP251-)": [""],
     "(AOP252)Taxes": ["Taxes"],
@@ -1695,6 +1693,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
