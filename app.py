@@ -392,12 +392,9 @@ allowed_fields_germany = {
     "(AOP208)": "",
     "(AOP209)Cost of materials": ["Cost of materials"],
     "(AOP213)Personnel expenses": ["Personnel expenses"],
-    "(AOP214)Wages and salaries": ["Wages and salaries"],
-    "(AOP216)Social security, post-employment and other employee benefit costs": ["Social security, post-employment and other employee benefit costs"],
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets","Depreciation","DepreciationDepreciation and provisions","Depreciation and amortization"],
     "(AOP222)Other operating expenses": ["Other operating expenses"],
     "(AOP223)": [""],
-    "(AOP224)": [""],
     "(AOP250)": [""],
     "(AOP251-)": [""],
     "(AOP252)Taxes on income": ["Taxes on income"],
@@ -1694,6 +1691,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
