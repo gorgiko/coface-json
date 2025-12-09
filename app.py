@@ -103,9 +103,6 @@ allowed_fields_serbia = {
     "(AOP218)Depreciation on fixed assets": ["Depreciation on fixed assets"],
     "(AOP222)Intangible costs": ["Intangible costs"],
     "(AOP223)Income from financial transactions (financial income)": ["Income from financial transactions (financial income)"],
-    "(AOP224)Financial income from parent companies,subsidiaries and other associated companies": ["Financial income from parent companies,subsidiaries and other associated companies"],
-    "(AOP230)Income from interest(from third parties)": ["Income from interest(from third parties)"],
-    "(AOP231)Positive effects on exchange rate and effects of foreign currency clause(to third parties)": ["Positive effects on exchange rate and effects of foreign currency clause(to third parties)"],
     "(AOP234)Financial costs": ["Financial costs"],
     "(AOP250+)Profit before taxation": ["Profit before taxation"],
     "(AOP251-)": [""],
@@ -1699,6 +1696,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
