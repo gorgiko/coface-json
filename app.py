@@ -312,6 +312,7 @@ allowed_fields_germany = {
     "(AOP006)":"",
     "(AOP008)":"",
     "(AOP009)Tangible fixed assets": ["Tangible fixed assets"],
+    "(AOP010)": [""],
     "(AOP011)": [""],
     "(AOP012)": [""],
     "(AOP013)Technical equipment and machinery": ["Technical equipment and machinery"],
@@ -1693,6 +1694,7 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
 
 
